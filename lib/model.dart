@@ -19,3 +19,15 @@ class ProdactModel {
     required this.ratecont,
   });
 }
+
+class ProdactModelCart {
+  final String nameCart;
+  final String imageCart;
+  final String priceCart;
+
+  ProdactModelCart({
+    required this.nameCart,
+    required this.imageCart,
+    required this.priceCart,
+  });
+}

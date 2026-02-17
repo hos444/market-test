@@ -169,6 +169,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(height: 15),
+          // card of prodect
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
