@@ -209,12 +209,15 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.favorite_border),
             label: "Favourite",
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: "Cart",
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
             label: "Profile",
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu"),
         ],
       ),
     );

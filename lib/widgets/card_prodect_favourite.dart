@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Cartcard extends StatelessWidget {
-  final String nameCart, imageCart, priceCart;
-  const Cartcard({
+class CardFavourite extends StatelessWidget {
+  final String nameFavourite, imageFavourite, priceFavourite;
+  const CardFavourite({
     super.key,
-    required this.nameCart,
-    required this.imageCart,
-    required this.priceCart,
+    required this.nameFavourite,
+    required this.imageFavourite,
+    required this.priceFavourite,
   });
 
   @override
@@ -27,14 +27,14 @@ class Cartcard extends StatelessWidget {
                   ),
                   width: 67,
                   height: 67,
-                  child: Image.asset(imageCart),
+                  child: Image.asset(imageFavourite),
                 ),
                 SizedBox(width: 10),
                 Column(
                   children: [
                     // name prodect
                     Text(
-                      nameCart,
+                      nameFavourite,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -43,7 +43,7 @@ class Cartcard extends StatelessWidget {
                     SizedBox(height: 5),
                     //price
                     Text(
-                      '\$ $priceCart',
+                      '\$ $priceFavourite',
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 16,
@@ -51,17 +51,12 @@ class Cartcard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(width: 10),
-                // total text need upgriad to kickabil
-                Padding(
-                  padding: const EdgeInsets.only(top: 27.0),
-                  child: Text('total : 30'),
-                ),
               ],
             ),
           ),
         ],
       ),
     );
+    ;
   }
 }

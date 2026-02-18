@@ -1,4 +1,4 @@
-import 'package:finall_app/screens/cart_screen.dart';
+import 'screens/export_packeg.dart';
 import 'package:finall_app/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appthemes,
-      home: CartScreen(),
+      home: HomePage(),
     );
   }
 }
