@@ -1,5 +1,4 @@
 import 'package:finall_app/model.dart';
-import 'package:finall_app/screens/home.dart';
 import 'package:finall_app/widgets/card_prodect_cart.dart';
 import 'package:flutter/material.dart';
 

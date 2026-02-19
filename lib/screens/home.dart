@@ -95,6 +95,7 @@ class _HomePageState extends State<HomePage> {
             SvgPicture.asset('assets/icons/cort_icon.svg'),
           ],
         ),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [
@@ -131,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(10.0),
                       child: CircleAvatar(
                         radius: 27,
-                        child: Container(
+                        child: SizedBox(
                           height: 70,
                           width: 70,
                           child: Image.asset(categoryModel[index].image),

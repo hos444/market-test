@@ -57,6 +57,5 @@ class CardFavourite extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

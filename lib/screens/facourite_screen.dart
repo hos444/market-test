@@ -86,7 +86,7 @@ class _FavouriteState extends State<Favourite> {
       ),
       //card prodect ned to upgread to clickapell
       // by add icon favourite
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: SingleChildScrollView(
           child: Column(
