@@ -1,4 +1,4 @@
-export 'facourite_screen.dart';
+export 'favourite_screen.dart';
 export 'home.dart';
 export 'splash.dart';
 export 'login_screen/login_screen.dart';
@@ -9,3 +9,4 @@ export 'onboarding_screen/onboarding1.dart';
 export 'onboarding_screen/onboarding2.dart';
 export 'onboarding_screen/onboarding3.dart';
 export 'cart_screen.dart';
+export 'user_screen.dart';

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:finall_app/model.dart';
+import 'package:finall_app/widgets/bottom_nav_bar.dart';
 import 'package:finall_app/widgets/card_prodect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,8 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
-
   // ignore: unused_field
   final List<Widget> _pages = [
     Center(child: Text("Home Page")),
@@ -97,130 +96,106 @@ class _HomePageState extends State<HomePage> {
         ),
         automaticallyImplyLeading: false,
       ),
-      body: Column(
-        children: [
-          //bannar is ready
-          CarouselSlider.builder(
-            itemCount: item.length,
-            itemBuilder:
-                (BuildContext context, int itemIndex, int pageViewIndex) =>
-                    Image(image: AssetImage(item[itemIndex])),
-            options: CarouselOptions(
-              height: 170,
-              viewportFraction: 0.7,
-              initialPage: 0,
-              enableInfiniteScroll: true,
-              reverse: false,
-              autoPlay: true,
-              autoPlayInterval: Duration(seconds: 2),
-              autoPlayAnimationDuration: Duration(milliseconds: 1200),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enlargeCenterPage: true,
-              enlargeFactor: 0.2,
-              scrollDirection: Axis.horizontal,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //bannar is ready
+            CarouselSlider.builder(
+              itemCount: item.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      Image(image: AssetImage(item[itemIndex])),
+              options: CarouselOptions(
+                height: 170,
+                viewportFraction: 0.7,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 2),
+                autoPlayAnimationDuration: Duration(milliseconds: 1200),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                enlargeFactor: 0.2,
+                scrollDirection: Axis.horizontal,
+              ),
             ),
-          ),
-          //category is ready
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: List.generate(categoryModel.length, (index) {
-                return Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CircleAvatar(
-                        radius: 27,
-                        child: SizedBox(
-                          height: 70,
-                          width: 70,
-                          child: Image.asset(categoryModel[index].image),
+            //category is ready
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: List.generate(categoryModel.length, (index) {
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: CircleAvatar(
+                          radius: 27,
+                          child: SizedBox(
+                            height: 70,
+                            width: 70,
+                            child: Image.asset(categoryModel[index].image),
+                          ),
                         ),
                       ),
-                    ),
-                    Text(
-                      categoryModel[index].name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                );
-              }),
-            ),
-          ),
-          SizedBox(height: 10),
-          //see all and fruits text
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Row(
-              children: [
-                Text(
-                  'Fruits',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
-                ),
-                Spacer(),
-                Text(
-                  'see All',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 15),
-          // card of prodect
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: List.generate(carditem.length, (index) {
-                  final item = carditem[index];
-                  return CardProdect(
-                    name: item.name,
-                    image: item.image,
-                    price: item.price,
-                    rate: item.rate,
-                    ratecount: item.ratecont,
+                      Text(
+                        categoryModel[index].name,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   );
                 }),
               ),
             ),
-          ),
-        ],
+            SizedBox(height: 10),
+            //see all and fruits text
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Fruits',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+                  ),
+                  Spacer(),
+                  Text(
+                    'see All',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            // card of prodect
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(carditem.length, (index) {
+                    final item = carditem[index];
+                    return CardProdect(
+                      name: item.name,
+                      image: item.image,
+                      price: item.price,
+                      rate: item.rate,
+                      ratecount: item.ratecont,
+                    );
+                  }),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       //bottomNigationBar is ready
       //ناقص باقي الصفحات وتتربط بالازرار
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            label: "Favourite",
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Cart",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: "Profile",
-          ),
-        ],
-      ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

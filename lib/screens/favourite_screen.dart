@@ -2,6 +2,8 @@ import 'package:finall_app/model.dart';
 import 'package:finall_app/widgets/card_prodect_favourite.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/bottom_nav_bar.dart';
+
 class Favourite extends StatefulWidget {
   const Favourite({super.key});
 
@@ -10,39 +12,38 @@ class Favourite extends StatefulWidget {
 }
 
 class _FavouriteState extends State<Favourite> {
-  List<favouriteModel> carditemFavourite = [
-    favouriteModel(
+  List<FavouriteModel> carditemFavourite = [
+    FavouriteModel(
       nameCart: 'Banana',
       imageCart: 'assets/fruits/banana.png',
       priceCart: '\$3.55',
     ),
-    favouriteModel(
+    FavouriteModel(
       nameCart: 'Orange',
       imageCart: 'assets/fruits/orange.png',
       priceCart: '\$3.55',
     ),
-    favouriteModel(
+    FavouriteModel(
       nameCart: 'Limon',
       imageCart: 'assets/fruits/limon.png',
       priceCart: '\$3.55',
     ),
-    favouriteModel(
+    FavouriteModel(
       nameCart: 'pepper',
       imageCart: 'assets/fruits/pepper.png',
       priceCart: '\$3.55',
     ),
-    favouriteModel(
+    FavouriteModel(
       nameCart: 'Biscuit',
       imageCart: 'assets/fruits/biscuit.png',
       priceCart: '\$3.55',
     ),
-    favouriteModel(
+    FavouriteModel(
       nameCart: 'purex',
       imageCart: 'assets/fruits/purex.png',
       priceCart: '\$3.55',
     ),
   ];
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,33 +58,7 @@ class _FavouriteState extends State<Favourite> {
       ),
 
       //bottom bar is readyv
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            label: "Favourite",
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Cart",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: "Profile",
-          ),
-        ],
-      ),
+      bottomNavigationBar: BottomNavBar(),
       //card prodect ned to upgread to clickapell
       // by add icon favourite
       body: SizedBox(

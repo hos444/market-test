@@ -31,12 +31,12 @@ class ProdactModelCart {
     required this.priceCart,
   });
 }
-class favouriteModel {
+class FavouriteModel {
   final String nameCart;
   final String imageCart;
   final String priceCart;
 
-  favouriteModel({
+  FavouriteModel({
     required this.nameCart,
     required this.imageCart,
     required this.priceCart,
