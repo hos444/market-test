@@ -1,4 +1,5 @@
 import 'package:finall_app/model.dart';
+import 'package:finall_app/screens/checkout_screen.dart';
 import 'package:finall_app/widgets/card_prodect_cart.dart';
 import 'package:flutter/material.dart';
 
@@ -13,16 +14,6 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   List<ProdactModelCart> carditemCart = [
-    ProdactModelCart(
-      nameCart: 'Banana',
-      imageCart: 'assets/fruits/banana.png',
-      priceCart: '\$3.55',
-    ),
-    ProdactModelCart(
-      nameCart: 'Banana',
-      imageCart: 'assets/fruits/banana.png',
-      priceCart: '\$3.55',
-    ),
     ProdactModelCart(
       nameCart: 'Banana',
       imageCart: 'assets/fruits/banana.png',
@@ -106,10 +97,27 @@ class _CartScreenState extends State<CartScreen> {
               'item : ${carditemCart.length}',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Text(
               'item cost : 445',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(height: 15),
+            //botton check out
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xff74B625),
+                  foregroundColor: const Color(0xffFFFFFF),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Checkout()),
+                  );
+                },
+                child: const Text("Check Out"),
+              ),
             ),
           ],
         ),
