@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class ResetPassword extends StatelessWidget {
+  const ResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text('ResetPasswordScreen'),
-      ),
-    );
+    return Scaffold(appBar: AppBar(title: Text('reset screen')));
   }
 }
