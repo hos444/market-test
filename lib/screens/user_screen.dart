@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/bottom_nav_bar.dart';
 
 class UserScreen extends StatelessWidget {
@@ -142,8 +141,8 @@ class UserScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 10),
-                  const Divider(height: 1, thickness: 1),
+                  SizedBox(height: 10),
+                  Divider(height: 1, thickness: 1),
                 ],
               ),
             ),

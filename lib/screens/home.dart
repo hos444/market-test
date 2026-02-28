@@ -190,6 +190,47 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Beverages',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+                  ),
+                  Spacer(),
+                  Text(
+                    'see All',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            // card of prodect
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(carditem.length, (index) {
+                    final item = carditem[index];
+                    return CardProdect(
+                      name: item.name,
+                      image: item.image,
+                      price: item.price,
+                      rate: item.rate,
+                      ratecount: item.ratecont,
+                    );
+                  }),
+                ),
+              ),
+            ),
           ],
         ),
       ),
