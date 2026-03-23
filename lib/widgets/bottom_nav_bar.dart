@@ -1,5 +1,5 @@
 import 'package:finall_app/screens/export_packeg.dart';
-import 'package:finall_app/screens/user_screen.dart';
+
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {

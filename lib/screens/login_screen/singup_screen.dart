@@ -24,37 +24,37 @@ class ResetPassword extends StatelessWidget {
                   icon: const Icon(Icons.arrow_back),
                 ),
 
-                 SizedBox(height: 10),
+                SizedBox(height: 10),
 
-                 Text(
+                Text(
                   "Create Account",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
 
                 SizedBox(height: 6),
 
-                 Text(
+                Text(
                   "Join the largest agri-marketplace",
                   style: TextStyle(color: Colors.grey, fontSize: 14),
                 ),
 
-                 SizedBox(height: 30),
+                SizedBox(height: 30),
 
-                buildTextField(hint: "Full Name", isFocused: true),
+                buildTextField(hint: "Full Name"),
 
-                 SizedBox(height: 16),
+                SizedBox(height: 16),
 
                 buildTextField(hint: "Company/Farm Name"),
 
-                 SizedBox(height: 16),
+                SizedBox(height: 16),
 
                 buildTextField(hint: "Email"),
 
-                 SizedBox(height: 16),
+                SizedBox(height: 16),
 
                 buildTextField(hint: "Password", isPassword: true),
 
-                 SizedBox(height: 30),
+                SizedBox(height: 30),
 
                 // Button
                 SizedBox(
@@ -72,6 +72,7 @@ class ResetPassword extends StatelessWidget {
                     child: Text(
                       "Create Account",
                       style: TextStyle(
+                        color: Colors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),

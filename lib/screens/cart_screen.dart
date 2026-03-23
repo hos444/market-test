@@ -1,6 +1,6 @@
 import 'package:finall_app/model.dart';
-import 'package:finall_app/screens/checkout_screen.dart';
-import 'package:finall_app/widgets/card_prodect_cart.dart';
+import 'package:finall_app/screens/export_packeg.dart';
+import 'package:finall_app/widgets/card_cart.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_nav_bar.dart';
@@ -21,7 +21,7 @@ class _CartScreenState extends State<CartScreen> {
     ),
     ProdactModelCart(
       nameCart: 'Orange',
-      imageCart: 'assets/fruits/orange.png',
+      imageCart: 'assets/fruits/orang.png',
       priceCart: '\$3.55',
     ),
     ProdactModelCart(
@@ -113,7 +113,7 @@ class _CartScreenState extends State<CartScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Checkout()),
+                    MaterialPageRoute(builder: (context) => Login()),
                   );
                 },
                 child: const Text("Check Out"),

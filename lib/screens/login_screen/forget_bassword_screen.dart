@@ -20,8 +20,14 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 20),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back),
+              ),
 
+              const SizedBox(height: 20),
               const Text(
                 "Who are you?",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -96,19 +102,16 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color:
-                    isSelected
-                        ?  Color(0xFF1B5E3C)
-                        :  Color(0xffE8F3EE),
+                color: isSelected ? Color(0xFF1B5E3C) : Color(0xffE8F3EE),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 icon,
-                color: isSelected ? Colors.white :  Color(0xff1B5E3C),
+                color: isSelected ? Colors.white : Color(0xff1B5E3C),
               ),
             ),
 
-             SizedBox(width: 16),
+            SizedBox(width: 16),
 
             Expanded(
               child: Column(
@@ -116,15 +119,12 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
                 children: [
                   Text(
                     title,
-                    style:  TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                   SizedBox(height: 4),
+                  SizedBox(height: 4),
                   Text(
                     subtitle,
-                    style:  TextStyle(color: Colors.grey, fontSize: 13),
+                    style: TextStyle(color: Colors.grey, fontSize: 13),
                   ),
                 ],
               ),

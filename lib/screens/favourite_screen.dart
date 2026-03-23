@@ -1,5 +1,5 @@
 import 'package:finall_app/model.dart';
-import 'package:finall_app/widgets/card_prodect_favourite.dart';
+import 'package:finall_app/widgets/card_favourite.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_nav_bar.dart';
