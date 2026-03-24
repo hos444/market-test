@@ -107,47 +107,8 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 15),
+
             //search not ready
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  children: [
-                    /// أيقونة السيرش
-                    Icon(Icons.search, color: Colors.grey),
-
-                    SizedBox(width: 10),
-
-                    /// التكست فيلد
-                    const Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Search produce...",
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-
-                    /// زرار الفلتر
-                    Container(
-                      height: 36,
-                      width: 36,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Icon(Icons.tune, color: Colors.white, size: 20),
-                    ),
-                  ],
-                ),
-              ),
-            ),
             SizedBox(height: 10),
             //bannar is ready
             CarouselSlider.builder(
