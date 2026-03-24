@@ -5,7 +5,9 @@ import 'package:finall_app/widgets/card_home3.dart';
 import 'package:finall_app/widgets/bottom_nav_bar.dart';
 import 'package:finall_app/widgets/card_home2.dart';
 import 'package:finall_app/widgets/card_home1.dart';
+import 'package:finall_app/widgets/serch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,7 +25,6 @@ class _HomePageState extends State<HomePage> {
     Center(child: Text("Profile Page")),
     Center(child: Text("Menu Page")),
   ];
-
   //bannar List
   List<String> item = [
     'assets/bannar/slider1.png',
@@ -64,40 +65,33 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       //app bar with search
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 0,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
+        centerTitle: true,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               /// النصوص شمال
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "Welcome",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 123, 120, 120),
-                    ),
-                  ),
-                  SizedBox(height: 4, width: 9),
-                  Text(
-                    " everyone",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                ],
+              Text(
+                'Wash Alafas',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: const Color.fromARGB(255, 12, 88, 68),
+                  fontWeight: FontWeight.bold,
+                ),
               ),
 
               /// الأيقونات يمين
-              Row(children: [_iconCircle(Icons.notifications_none)]),
+              Row(
+                children: [
+                  SizedBox(width: 10),
+                  _iconCircle(Icons.notifications_none),
+                ],
+              ),
             ],
           ),
         ),
@@ -108,69 +102,50 @@ class _HomePageState extends State<HomePage> {
           children: [
             SizedBox(height: 15),
             //search not ready
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  children: [
-                    /// أيقونة السيرش
-                    Icon(Icons.search, color: Colors.grey),
-
-                    SizedBox(width: 10),
-
-                    /// التكست فيلد
-                    const Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Search produce...",
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-
-                    /// زرار الفلتر
-                    Container(
-                      height: 36,
-                      width: 36,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Icon(Icons.tune, color: Colors.white, size: 20),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            MarketTabsSearch(),
             SizedBox(height: 10),
             //bannar is ready
-            CarouselSlider.builder(
-              itemCount: item.length,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) =>
-                      Image(image: AssetImage(item[itemIndex])),
-              options: CarouselOptions(
-                height: 170,
-                viewportFraction: 0.7,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 2),
-                autoPlayAnimationDuration: Duration(milliseconds: 1200),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                enlargeFactor: 0.2,
-                scrollDirection: Axis.horizontal,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Flash deals',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 19,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    'See All',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 19,
+                    ),
+                  ),
+                ],
               ),
             ),
+            SizedBox(height: 5),
 
+            // card of flash deals
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(freashItem.length, (index) {
+                  final item = freashItem[index];
+                  return CardHome1(
+                    namecard: item.nameCart,
+                    imagecard: item.imageCart,
+                    pricecard: item.priceCart,
+                  );
+                }),
+              ),
+            ),
+            SizedBox(height: 5),
             //category is ready
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
@@ -427,5 +402,17 @@ Widget _iconCircle(IconData icon) {
       shape: BoxShape.circle,
     ),
     child: Icon(icon, size: 20, color: Colors.green),
+  );
+}
+
+Widget _iconCircle2(IconData icon) {
+  return Container(
+    height: 40,
+    width: 40,
+    decoration: BoxDecoration(
+      color: Colors.grey.shade200,
+      shape: BoxShape.circle,
+    ),
+    child: Icon(icon, size: 20, color: const Color.fromRGBO(76, 175, 80, 1)),
   );
 }
