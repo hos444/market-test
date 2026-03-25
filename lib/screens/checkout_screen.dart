@@ -13,6 +13,9 @@ class Checkout extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
       ),
+      body: Center(
+        child: Image.asset('assets/onbording/3.png', width: 200, height: 200),
+      ),
     );
   }
 }

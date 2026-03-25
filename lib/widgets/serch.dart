@@ -15,7 +15,7 @@ class _MarketTabsSearchState extends State<MarketTabsSearch> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 140,
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       padding: const EdgeInsets.all(12),
@@ -25,7 +25,6 @@ class _MarketTabsSearchState extends State<MarketTabsSearch> {
       ),
       child: Column(
         children: [
-          /// ===== Tabs =====
           Row(
             children: List.generate(
               tabs.length,
@@ -33,16 +32,16 @@ class _MarketTabsSearchState extends State<MarketTabsSearch> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      selectedTab = index; // 👈 ينقل الاختيار
+                      selectedTab = index;
                     });
                   },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    margin: const EdgeInsets.symmetric(horizontal: 2),
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    margin: EdgeInsets.symmetric(horizontal: 2),
                     decoration: BoxDecoration(
                       color:
                           selectedTab == index
-                              ? const Color(0xFF003527)
+                              ? Color(0xFF003527)
                               : Colors.transparent,
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -55,7 +54,7 @@ class _MarketTabsSearchState extends State<MarketTabsSearch> {
                           color:
                               selectedTab == index
                                   ? Colors.white
-                                  : const Color(0xFF003527),
+                                  : Color(0xFF003527),
                         ),
                       ),
                     ),
@@ -64,17 +63,14 @@ class _MarketTabsSearchState extends State<MarketTabsSearch> {
               ),
             ),
           ),
-
-          const SizedBox(height: 12),
-
-          /// ===== Search =====
+          SizedBox(height: 12),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
               color: Colors.grey.shade300,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const TextField(
+            child: TextField(
               decoration: InputDecoration(
                 hintText: "Search for crops, farms or regions...",
                 border: InputBorder.none,

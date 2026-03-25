@@ -1,3 +1,4 @@
+import 'package:finall_app/screens/export_packeg.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassword extends StatelessWidget {
@@ -68,7 +69,12 @@ class ResetPassword extends StatelessWidget {
                       ),
                       elevation: 4,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    },
                     child: Text(
                       "Create Account",
                       style: TextStyle(

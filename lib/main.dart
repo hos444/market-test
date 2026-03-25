@@ -1,4 +1,4 @@
-import 'package:finall_app/screens/login_screen/reset_screen.dart';
+import 'package:finall_app/screens/checkout_screen.dart';
 import 'package:finall_app/screens/search_screen.dart';
 
 import 'screens/export_packeg.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appthemes,
-      home: HomePage(),
+      home: Checkout(),
     );
   }
 }

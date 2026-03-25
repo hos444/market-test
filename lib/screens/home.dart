@@ -84,8 +84,6 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
-              /// الأيقونات يمين
               Row(
                 children: [
                   SizedBox(width: 10),
@@ -100,51 +98,12 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             //search not ready
             MarketTabsSearch(),
             SizedBox(height: 10),
-            //bannar is ready
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Row(
-                children: [
-                  Text(
-                    'Flash deals',
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                  Spacer(),
-                  Text(
-                    'See All',
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 5),
 
-            // card of flash deals
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(freashItem.length, (index) {
-                  final item = freashItem[index];
-                  return CardHome1(
-                    namecard: item.nameCart,
-                    imagecard: item.imageCart,
-                    pricecard: item.priceCart,
-                  );
-                }),
-              ),
-            ),
+            //bannar is ready
             SizedBox(height: 5),
             //category is ready
             Padding(
@@ -247,7 +206,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-
             SizedBox(height: 5),
             //flash deals
             Padding(
@@ -401,18 +359,6 @@ Widget _iconCircle(IconData icon) {
       color: Colors.grey.shade200,
       shape: BoxShape.circle,
     ),
-    child: Icon(icon, size: 20, color: Colors.green),
-  );
-}
-
-Widget _iconCircle2(IconData icon) {
-  return Container(
-    height: 40,
-    width: 40,
-    decoration: BoxDecoration(
-      color: Colors.grey.shade200,
-      shape: BoxShape.circle,
-    ),
-    child: Icon(icon, size: 20, color: const Color.fromRGBO(76, 175, 80, 1)),
+    child: Icon(icon, size: 20, color: const Color.fromARGB(255, 20, 67, 22)),
   );
 }

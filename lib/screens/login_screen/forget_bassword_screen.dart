@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'singup_screen.dart';
+
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 
@@ -85,6 +87,10 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
       onTap: () {
         setState(() {
           selectedIndex = index;
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ResetPassword()),
+          );
         });
       },
       child: Container(

@@ -8,7 +8,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 15.0),
+        padding: const EdgeInsets.only(left: 15.0, right: 15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -17,10 +17,10 @@ class Login extends StatelessWidget {
             Image.asset('assets/logo/Image.png', height: 244, width: 244),
             SizedBox(height: 10),
             //Email box
-            Row(
+            Column(crossAxisAlignment: CrossAxisAlignment.start),
+            Column(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
                   children: [
                     Text(
                       'Email',
@@ -29,27 +29,25 @@ class Login extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Container(
-                      height: 44,
-                      width: 349,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0, top: 6),
-                        child: Text('Please enter your email'),
-                      ),
-                    ),
                   ],
                 ),
-              ],
-            ),
-            SizedBox(height: 20),
-            //Password box
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: "Inter your email.....",
+                      border: InputBorder.none,
+                      icon: Icon(Icons.search),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Row(
                   children: [
                     Text(
                       'Password',
@@ -58,25 +56,30 @@ class Login extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Container(
-                      height: 44,
-                      width: 349,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0, top: 6),
-                        child: Text('Minimum 8 characters required'),
-                      ),
-                    ),
                   ],
+                ),
+                SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: "inter your password.......",
+                      border: InputBorder.none,
+                      icon: Icon(Icons.search),
+                    ),
+                  ),
                 ),
               ],
             ),
+
             SizedBox(height: 10),
             //text forget password
             Padding(
-              padding: const EdgeInsets.only(right: 210.0),
+              padding: const EdgeInsets.only(right: 200.0),
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -122,10 +125,10 @@ class Login extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ResetPassword()),
-                    );
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ForgetPassword()),
+                  );
                   },
                   child: const Text(
                     "Register",
