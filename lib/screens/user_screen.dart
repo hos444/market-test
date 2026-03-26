@@ -1,5 +1,8 @@
+import 'package:finall_app/screens/profile_screen/adit_profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../widgets/bottom_nav_bar.dart';
+import 'natifiation.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});
@@ -7,143 +10,296 @@ class UserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text('Profile')),
-      bottomNavigationBar: BottomNavBar(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Padding(
+          padding: EdgeInsets.only(bottom: 33.0),
+          child: Text(
+            'Wash Alafas',
+            style: TextStyle(
+              fontSize: 25,
+              color: const Color.fromARGB(255, 12, 88, 68),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+      ),
+      extendBodyBehindAppBar: true,
+      bottomNavigationBar: HomeLayout(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // card of account info
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
-              child: Card(
-                color: Colors.white,
-                child: Row(
+            Container(
+              height: 370,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                // color background of the profile screen ==>
+                // gradient: LinearGradient(
+                //   colors: [
+                //     Color.fromARGB(255, 255, 255, 255),
+                //     Color.fromARGB(255, 164, 240, 213),
+                //     Color.fromARGB(255, 255, 227, 176),
+                //     Color.fromARGB(255, 233, 228, 161),
+                //     Color.fromARGB(255, 255, 255, 255),
+                //   ],
+                //   begin: Alignment.topCenter,
+                //   end: Alignment.bottomCenter,
+                // ),
+              ),
+
+              child: Center(
+                child: Stack(
+                  alignment: Alignment.topCenter,
                   children: [
-                    //image prodect
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 8.0,
-                        left: 12,
-                        bottom: 12,
+                    Container(
+                      margin: EdgeInsets.only(top: 80),
+                      padding: EdgeInsets.fromLTRB(20, 70, 20, 20),
+                      width: 320,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 230, 228, 228),
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black38,
+                            blurRadius: 20,
+                            offset: Offset(0, 10),
+                          ),
+                        ],
                       ),
-                      child: CircleAvatar(
-                        radius: 40,
-                        child: Image.asset(
-                          'assets/logo/Image.png',
-                          height: 88,
-                          width: 88,
-                        ),
+
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          /// account name
+                          Text(
+                            "account name",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.lightGreen,
+                            ),
+                          ),
+
+                          SizedBox(height: 6),
+
+                          /// email
+                          Text(
+                            "useremail@gmail.com",
+                            style: TextStyle(color: Colors.black54),
+                          ),
+
+                          SizedBox(height: 12),
+
+                          /// info
+                          Text(
+                            "Member since (the year) / account type",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(width: 5),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // name prodect
-                        Text(
-                          'account name',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.green,
-                          ),
-                        ),
 
-                        //price
-                        Text(
-                          'Member since (the year) / account type',
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 12,
+                    ///  PROFILE IMAGE
+                    Padding(
+                      padding: EdgeInsets.only(top: 20.0),
+                      child: Stack(
+                        children: [
+                          CircleAvatar(
+                            radius: 55,
+                            backgroundImage: AssetImage(
+                              'assets/logo/Image.png',
+                            ),
                           ),
-                        ),
-                      ],
+
+                          /// edit button
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.green,
+
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(80),
+                                ),
+                              ),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.edit,
+                                  color: Colors.white,
+                                  size: 16,
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => IdatScreen(),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 20),
-
-            /// 🔹 My Orders
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black54),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            SizedBox(height: 5),
+            Column(
+              children: [
+                //
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Row(
                     children: [
-                      const Text(
-                        "My Orders",
+                      Text(
+                        'Account settings',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff0CA201),
+                          fontSize: 19,
+                          color: Colors.green,
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text("see more ..."),
                       ),
                     ],
                   ),
-                  const Divider(),
-
-                  /// 👇 الحالة الفاضية
-                  Column(
-                    children: const [
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.shopping_bag_outlined,
-                        size: 50,
-                        color: Colors.grey,
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "No orders yet",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
+                ),
+                SizedBox(height: 5),
+                //container for account settings
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 230, 228, 228),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        // my order
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'assets/icons/myorder.svg',
+                            height: 24,
+                            width: 24,
+                          ),
+                          title: const Text(' My Order '),
+                          onTap: () {
+                            // Handle order history tap
+                          },
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        "Start shopping to place your first order",
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: 20),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 28),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                children: [
-                  const SizedBox(height: 15),
-
-                  /// Title
-                  const Text(
-                    "settings",
-                    style: TextStyle(
-                      color: Color(0xff1B5E20),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'assets/icons/add.svg',
+                            height: 24,
+                            width: 24,
+                          ),
+                          title: const Text('Address'),
+                          onTap: () {
+                            // Handle settings tap
+                          },
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                          ),
+                        ),
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'assets/icons/payment.svg',
+                            height: 10,
+                            width: 14,
+                          ),
+                          title: const Text('Payment Methods'),
+                          onTap: () {
+                            // Handle order history tap
+                          },
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                          ),
+                        ),
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'assets/icons/notification.svg',
+                            height: 24,
+                            width: 24,
+                          ),
+                          title: const Text('Notifications'),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Natifiation(),
+                              ),
+                            );
+                          },
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                          ),
+                        ),
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'assets/icons/setting.svg',
+                            height: 24,
+                            width: 24,
+                          ),
+                          title: const Text('Settings'),
+                          onTap: () {
+                            // Handle order history tap
+                          },
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-
-                  SizedBox(height: 10),
-                  Divider(height: 1, thickness: 1),
-                ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            //container for log out
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 230, 228, 228),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        'assets/icons/logout.svg',
+                        height: 24,
+                        width: 24,
+                      ),
+                      title: const Text(
+                        'Log out',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      onTap: () {
+                        // Handle logout tap
+                      },
+                      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

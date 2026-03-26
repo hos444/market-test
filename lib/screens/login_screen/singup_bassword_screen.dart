@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'singup_screen.dart';
+import 'singup2_screen.dart';
 
-class ForgetPassword extends StatefulWidget {
-  const ForgetPassword({super.key});
+class SingUp extends StatefulWidget {
+  const SingUp({super.key});
 
   @override
-  State<ForgetPassword> createState() => _ChooseProfileScreenState();
+  State<SingUp> createState() => _ChooseProfileScreenState();
 }
 
-class _ChooseProfileScreenState extends State<ForgetPassword> {
-  int selectedIndex = 1;
+class _ChooseProfileScreenState extends State<SingUp> {
+  int? selectedIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
 
               SizedBox(height: 30),
 
-              buildOption(
+              SingUpItem(
                 index: 0,
                 icon: Icons.agriculture,
                 title: "I am a Farmer",
@@ -53,7 +53,7 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
 
               SizedBox(height: 16),
 
-              buildOption(
+              SingUpItem(
                 index: 1,
                 icon: Icons.store,
                 title: "I am a Merchant",
@@ -62,7 +62,7 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
 
               SizedBox(height: 16),
 
-              buildOption(
+              SingUpItem(
                 index: 2,
                 icon: Icons.local_shipping,
                 title: "Logistics / Corp",
@@ -75,7 +75,7 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
     );
   }
 
-  Widget buildOption({
+  Widget SingUpItem({
     required int index,
     required IconData icon,
     required String title,
@@ -89,7 +89,7 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
           selectedIndex = index;
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ResetPassword()),
+            MaterialPageRoute(builder: (context) => SingUp2()),
           );
         });
       },
@@ -135,7 +135,6 @@ class _ChooseProfileScreenState extends State<ForgetPassword> {
                 ],
               ),
             ),
-
             Icon(Icons.arrow_forward_ios, size: 16),
           ],
         ),

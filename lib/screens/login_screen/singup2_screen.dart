@@ -1,8 +1,8 @@
-import 'package:finall_app/screens/export_packeg.dart';
+import 'package:finall_app/shared/export_packeg.dart';
 import 'package:flutter/material.dart';
 
-class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+class SingUp2 extends StatelessWidget {
+  const SingUp2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +15,22 @@ class ResetPassword extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
-
-                // Back Button
                 IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   icon: const Icon(Icons.arrow_back),
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Container(
+                    width: 240,
+                    height: 248,
+                    child: Image.asset('assets/logo/Image.png'),
+                  ),
+                ),
 
+                // Back Button
                 SizedBox(height: 10),
 
                 Text(
@@ -63,7 +69,7 @@ class ResetPassword extends StatelessWidget {
                   height: 55,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff1B5E3C),
+                      backgroundColor: const Color.fromARGB(255, 39, 167, 103),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
@@ -72,7 +78,9 @@ class ResetPassword extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(
+                          builder: (context) => OnboardingScreen(),
+                        ),
                       );
                     },
                     child: Text(

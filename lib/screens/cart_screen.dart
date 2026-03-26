@@ -1,5 +1,5 @@
 import 'package:finall_app/model.dart';
-import 'package:finall_app/screens/export_packeg.dart';
+import 'package:finall_app/shared/export_packeg.dart';
 import 'package:finall_app/widgets/card_cart.dart';
 import 'package:flutter/material.dart';
 
@@ -124,7 +124,7 @@ class _CartScreenState extends State<CartScreen> {
       ),
 
       // الـ bottom navigation bar
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: HomeLayout(),
     );
   }
 }

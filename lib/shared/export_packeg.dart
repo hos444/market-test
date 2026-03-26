@@ -1,0 +1,10 @@
+export '../screens/favourite_screen.dart';
+export '../screens/home.dart';
+export '../screens/cart_screen.dart';
+export '../screens/user_screen.dart';
+export '../screens/checkout_screen.dart';
+export '../screens/search_screen.dart';
+export '../screens/login_screen/login_screen.dart';
+export '../screens/login_screen/singup2_screen.dart';
+export '../screens/login_screen/singup_bassword_screen.dart';
+export '../screens/onboarding_screen/onboarding1.dart';

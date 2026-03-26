@@ -1,4 +1,5 @@
-import 'package:finall_app/screens/export_packeg.dart';
+import 'package:finall_app/screens/login_screen/reset_password.dart';
+import 'package:finall_app/shared/export_packeg.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -42,11 +43,10 @@ class Login extends StatelessWidget {
                     decoration: InputDecoration(
                       hintText: "Inter your email.....",
                       border: InputBorder.none,
-                      icon: Icon(Icons.search),
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 Row(
                   children: [
                     Text(
@@ -69,14 +69,12 @@ class Login extends StatelessWidget {
                     decoration: InputDecoration(
                       hintText: "inter your password.......",
                       border: InputBorder.none,
-                      icon: Icon(Icons.search),
                     ),
                   ),
                 ),
               ],
             ),
 
-            SizedBox(height: 10),
             //text forget password
             Padding(
               padding: const EdgeInsets.only(right: 200.0),
@@ -84,7 +82,7 @@ class Login extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ForgetPassword()),
+                    MaterialPageRoute(builder: (context) => ResetPassword()),
                   );
                 },
                 child: const Text(
@@ -115,7 +113,7 @@ class Login extends StatelessWidget {
                 child: const Text("Login"),
               ),
             ),
-            SizedBox(height: 10),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -125,10 +123,10 @@ class Login extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                   Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ForgetPassword()),
-                  );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SingUp()),
+                    );
                   },
                   child: const Text(
                     "Register",

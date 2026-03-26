@@ -1,13 +1,7 @@
-class ItemModel {
+class CategoryHomeModel {
   final String name;
   final String image;
-  ItemModel({required this.name, required this.image});
-}
-
-class ItemCat {
-  final String name;
-  final String image;
-  ItemCat({required this.name, required this.image});
+  CategoryHomeModel({required this.name, required this.image});
 }
 
 class ProdactModelCart {
@@ -33,6 +27,7 @@ class FavouriteModel {
     required this.priceCart,
   });
 }
+
 class FreashModel {
   final String nameCart;
   final String imageCart;

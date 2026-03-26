@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Cardhome2 extends StatelessWidget {
-  const Cardhome2({super.key});
+class CardHOme3 extends StatelessWidget {
+  const CardHOme3({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 179,
-      width: 122,
+      height: 107,
+      width: 113,
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset('assets/fruits/strobary.png', height: 94, width: 109),
+            Expanded(
+              child: Image.asset(
+                'assets/fruits/strobary.png',
+                fit: BoxFit.cover,
+              ),
+            ),
 
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
@@ -23,9 +28,9 @@ class Cardhome2 extends StatelessWidget {
                 children: [
                   Text(
                     'strobary',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                   ),
-                  SizedBox(height: 5),
+
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -39,11 +44,6 @@ class Cardhome2 extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
-                  SizedBox(height: 5),
-                  Text(
-                    '\$ 9.70',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                   ),
                 ],
               ),

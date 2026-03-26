@@ -1,10 +1,10 @@
-import 'package:finall_app/screens/export_packeg.dart';
+import 'package:finall_app/shared/export_packeg.dart';
 
 import 'package:flutter/material.dart';
 
-class BottomNavBar extends StatelessWidget {
+class HomeLayout extends StatelessWidget {
   static int index = 0;
-  const BottomNavBar({super.key});
+  const HomeLayout({super.key});
 
   @override
   Widget build(BuildContext context) {

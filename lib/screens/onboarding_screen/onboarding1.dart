@@ -1,4 +1,4 @@
-import 'package:finall_app/screens/export_packeg.dart';
+import 'package:finall_app/shared/export_packeg.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -71,7 +71,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange,
+                        backgroundColor: Colors.green,
                         padding: EdgeInsets.symmetric(
                           horizontal: 40,
                           vertical: 12,

@@ -20,7 +20,7 @@ class _FavouriteState extends State<Favourite> {
     ),
     FavouriteModel(
       nameCart: 'Orange',
-      imageCart: 'assets/fruits/orange.png',
+      imageCart: 'assets/fruits/orang.png',
       priceCart: '\$3.55',
     ),
     FavouriteModel(
@@ -58,7 +58,7 @@ class _FavouriteState extends State<Favourite> {
       ),
 
       //bottom bar is readyv
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar:HomeLayout(),
       //card prodect ned to upgread to clickapell
       // by add icon favourite
       body: SizedBox(
