@@ -2,12 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/screens/natifiation.dart';
 import 'package:finall_app/screens/search_screen.dart';
-import 'package:finall_app/widgets/home_widgets/card_home3.dart';
-import 'package:finall_app/widgets/bottom_nav_bar.dart';
-import 'package:finall_app/widgets/home_widgets/card_home2.dart';
-import 'package:finall_app/widgets/home_widgets/card_home1.dart';
-import 'package:finall_app/widgets/home_widgets/category_home.dart';
-import 'package:finall_app/widgets/home_widgets/serch_home_contaner.dart';
+
+import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
+import 'package:finall_app/shared/widgets/home_widgets/card_home2.dart';
+import 'package:finall_app/shared/widgets/home_widgets/card_home1.dart';
+import 'package:finall_app/shared/widgets/home_widgets/category_home.dart';
+
 import 'package:flutter/material.dart';
 
 import 'filter_screen.dart';
@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   //bannar List
-  List<String> item = [
+  List<String> slideritem = [
     'assets/bannar/slider1.png',
     'assets/bannar/slider2.png',
     'assets/bannar/slider3.png',
@@ -47,17 +47,7 @@ class _HomePageState extends State<HomePage> {
   //flash deals List
   List<FreashModel> freashItem = [
     FreashModel(
-      nameCart: 'Honeycrisp Apples',
-      imageCart: 'assets/fruits/HonyApple.png',
-      priceCart: '\$200',
-    ),
-    FreashModel(
-      nameCart: 'Srobary',
-      imageCart: 'assets/fruits/strobary.png',
-      priceCart: '\$200',
-    ),
-    FreashModel(
-      nameCart: 'banana',
+      nameCart: 'Banana',
       imageCart: 'assets/fruits/banana.png',
       priceCart: '\$200',
     ),
@@ -67,14 +57,15 @@ class _HomePageState extends State<HomePage> {
       priceCart: '\$200',
     ),
     FreashModel(
-      nameCart: 'bache',
-      imageCart: 'assets/fruits/batche.png',
+      nameCart: 'Srobary',
+      imageCart: 'assets/fruits/strobary.png',
       priceCart: '\$200',
     ),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       //app bar with search
       appBar: AppBar(
         elevation: 0,
@@ -84,35 +75,64 @@ class _HomePageState extends State<HomePage> {
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               /// النصوص شمال
-              Text(
-                'Wash Alafas',
-                style: TextStyle(
-                  fontSize: 30,
-                  color: const Color.fromARGB(255, 12, 88, 68),
-                  fontWeight: FontWeight.bold,
+              Container(
+                child: CircleAvatar(
+                  radius: 28,
+                  backgroundImage: AssetImage('assets/logo/Image.png'),
                 ),
               ),
-              Row(
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: 10),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: IconButton(
-                      icon: Icon(Icons.notifications),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Natifiation(),
-                          ),
-                        );
-                      },
-                    ),
+                  Text(
+                    'HELLO,',
+                    style: TextStyle(fontSize: 16, color: Colors.green),
                   ),
+                  Text('User name'),
                 ],
+              ),
+              Spacer(),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.green, width: 1),
+                  shape: BoxShape.circle,
+                ),
+                child: CircleAvatar(
+                  radius: 18,
+                  backgroundColor: Colors.transparent,
+                  child: IconButton(
+                    icon: Icon(Icons.search, color: Colors.green),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SearchScreen()),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.green, width: 1),
+                  shape: BoxShape.circle,
+                ),
+                child: CircleAvatar(
+                  radius: 18,
+                  backgroundColor: Colors.transparent,
+                  child: IconButton(
+                    icon: Icon(Icons.notifications, color: Colors.green),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Natifiation()),
+                      );
+                    },
+                  ),
+                ),
               ),
             ],
           ),
@@ -122,9 +142,39 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 90),
             //search is ready
-            WidgetSerch(),
-            //category text and see all
+            // WidgetSerch(),
+
+            //category is ready
+            SizedBox(height: 30),
+            //bannar is ready
+            CarouselSlider.builder(
+              itemCount: slideritem.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Image(image: AssetImage(slideritem[itemIndex])),
+                      ),
+              options: CarouselOptions(
+                height: 145,
+
+                viewportFraction: 0.6,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 2),
+                autoPlayAnimationDuration: Duration(milliseconds: 1200),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                enlargeFactor: 0.2,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+            SizedBox(height: 15),
+            // category text and see all
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Row(
@@ -157,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            //category is ready
+            // category list
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -167,59 +217,34 @@ class _HomePageState extends State<HomePage> {
                 }),
               ),
             ),
-            SizedBox(height: 30),
-            //bannar is ready
-            CarouselSlider.builder(
-              itemCount: item.length,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) =>
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Image(image: AssetImage(item[itemIndex])),
-                      ),
-              options: CarouselOptions(
-                height: 160,
-                viewportFraction: 0.7,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 2),
-                autoPlayAnimationDuration: Duration(milliseconds: 1200),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                enlargeFactor: 0.2,
-                scrollDirection: Axis.horizontal,
-              ),
-            ),
             SizedBox(height: 15),
-            //flash deals
+            //column of exclusive offers and today's best deals
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Row(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Flash deals',
+                    'Exclusive offers',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: const Color.fromARGB(255, 255, 161, 19),
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 14,
                     ),
                   ),
-                  Spacer(),
                   Text(
-                    'See All',
+                    "Today's best deals",
                     style: TextStyle(
-                      color: Colors.green,
+                      color: const Color.fromARGB(255, 12, 88, 68),
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: 24,
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 5),
-            // card of flash deals
+
+            // card home1 best deals
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -234,13 +259,19 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 5),
-            //new arrivals
+            SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: Image(image: AssetImage('assets/bannar/slider1.png')),
+            ),
+            SizedBox(height: 5),
+            // text of new falash deals and see all
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
                 children: [
                   Text(
-                    'New arrivals',
+                    'Flash Deals',
                     style: TextStyle(
                       color: Colors.green,
                       fontWeight: FontWeight.bold,
@@ -248,12 +279,15 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Spacer(),
-                  Text(
-                    'See All',
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ],
@@ -263,24 +297,66 @@ class _HomePageState extends State<HomePage> {
             //card of new arrivals
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Cardhome2(),
-                    SizedBox(width: 16),
-                    Cardhome2(),
-                    SizedBox(width: 16),
-                    Cardhome2(),
-                    SizedBox(width: 16),
-                    Cardhome2(),
-                    SizedBox(width: 16),
-                  ],
-                ),
+              child: Row(
+                children: List.generate(freashItem.length, (index) {
+                  final item = freashItem[index];
+                  return Cardhome2(
+                    name: item.nameCart,
+                    image: item.imageCart,
+                    price: item.priceCart,
+                  );
+                }),
+              ),
+            ),
+            SizedBox(height: 5),
+            // text of new falash deals and see all
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Featured Products',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 19,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //card of new arrivals
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(freashItem.length, (index) {
+                  final item = freashItem[index];
+                  return Cardhome2(
+                    name: item.nameCart,
+                    image: item.imageCart,
+                    price: item.priceCart,
+                  );
+                }),
               ),
             ),
             SizedBox(height: 10),
+            SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: Image(image: AssetImage('assets/bannar/slider4.png')),
+            ),
             //recently viewed
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -306,26 +382,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+
             //card of recently viewed
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CardHOme3(),
-                    SizedBox(width: 16),
-                    CardHOme3(),
-                    SizedBox(width: 16),
-                    CardHOme3(),
-                    SizedBox(width: 16),
-                    CardHOme3(),
-                    SizedBox(width: 16),
-                  ],
-                ),
-              ),
-            ),
           ],
         ),
       ),

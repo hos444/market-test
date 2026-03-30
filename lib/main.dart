@@ -1,4 +1,5 @@
-import 'package:finall_app/screens/natifiation.dart';
+import 'package:finall_app/screens/prodict_screen.dart';
+import 'package:finall_app/screens/products/list_screen.dart';
 
 import 'shared/export_packeg.dart';
 import 'package:finall_app/shared/themes/themes.dart';

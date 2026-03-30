@@ -1,8 +1,8 @@
 import 'package:finall_app/model.dart';
-import 'package:finall_app/widgets/card_favourite.dart';
+import 'package:finall_app/shared/widgets/favourite_widget/card_favourite.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/bottom_nav_bar.dart';
+import '../shared/widgets/bottom_nav_bar.dart';
 
 class Favourite extends StatefulWidget {
   const Favourite({super.key});
@@ -52,13 +52,13 @@ class _FavouriteState extends State<Favourite> {
         title: Center(
           child: Text(
             'Favourite ',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
           ),
         ),
       ),
 
       //bottom bar is readyv
-      bottomNavigationBar:HomeLayout(),
+      bottomNavigationBar: HomeLayout(),
       //card prodect ned to upgread to clickapell
       // by add icon favourite
       body: SizedBox(

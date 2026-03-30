@@ -1,8 +1,12 @@
-import 'package:finall_app/screens/profile_screen/adit_profile_screen.dart';
+import 'package:finall_app/screens/profile_screen/address_screen.dart';
+import 'package:finall_app/screens/profile_screen/edit_profile_screen.dart';
+import 'package:finall_app/screens/profile_screen/myorder_screen.dart';
+import 'package:finall_app/screens/profile_screen/payment_screen.dart';
+import 'package:finall_app/screens/profile_screen/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../widgets/bottom_nav_bar.dart';
-import 'natifiation.dart';
+import '../../shared/widgets/bottom_nav_bar.dart';
+import '../natifiation.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});
@@ -11,29 +15,29 @@ class UserScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Padding(
-          padding: EdgeInsets.only(bottom: 33.0),
-          child: Text(
-            'Wash Alafas',
-            style: TextStyle(
-              fontSize: 25,
-              color: const Color.fromARGB(255, 12, 88, 68),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-      ),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: Padding(
+      //     padding: EdgeInsets.only(bottom: 33.0),
+      //     child: Text(
+      //       'Wash Alafas',
+      //       style: TextStyle(
+      //         fontSize: 25,
+      //         color: const Color.fromARGB(255, 12, 88, 68),
+      //         fontWeight: FontWeight.bold,
+      //       ),
+      //     ),
+      //   ),
+      //   backgroundColor: Colors.transparent,
+      //   automaticallyImplyLeading: false,
+      // ),
       extendBodyBehindAppBar: true,
       bottomNavigationBar: HomeLayout(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 370,
+              height: 350,
               width: double.infinity,
               decoration: BoxDecoration(
                 // color background of the profile screen ==>
@@ -111,12 +115,7 @@ class UserScreen extends StatelessWidget {
                       padding: EdgeInsets.only(top: 20.0),
                       child: Stack(
                         children: [
-                          CircleAvatar(
-                            radius: 55,
-                            backgroundImage: AssetImage(
-                              'assets/logo/Image.png',
-                            ),
-                          ),
+                          CircleAvatar(radius: 55),
 
                           /// edit button
                           Positioned(
@@ -141,7 +140,7 @@ class UserScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => IdatScreen(),
+                                      builder: (context) => EditProfileScreen(),
                                     ),
                                   );
                                 },
@@ -194,7 +193,12 @@ class UserScreen extends StatelessWidget {
                           ),
                           title: const Text(' My Order '),
                           onTap: () {
-                            // Handle order history tap
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Myorder(),
+                              ),
+                            );
                           },
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
@@ -209,7 +213,12 @@ class UserScreen extends StatelessWidget {
                           ),
                           title: const Text('Address'),
                           onTap: () {
-                            // Handle settings tap
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AddressScreen(),
+                              ),
+                            );
                           },
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
@@ -224,7 +233,12 @@ class UserScreen extends StatelessWidget {
                           ),
                           title: const Text('Payment Methods'),
                           onTap: () {
-                            // Handle order history tap
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PaymentScreen(),
+                              ),
+                            );
                           },
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
@@ -259,7 +273,12 @@ class UserScreen extends StatelessWidget {
                           ),
                           title: const Text('Settings'),
                           onTap: () {
-                            // Handle order history tap
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SettingScreen(),
+                              ),
+                            );
                           },
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
@@ -293,9 +312,7 @@ class UserScreen extends StatelessWidget {
                         'Log out',
                         style: TextStyle(color: Colors.red),
                       ),
-                      onTap: () {
-                        // Handle logout tap
-                      },
+                      onTap: () {},
                       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                     ),
                   ],

@@ -18,7 +18,6 @@ class Login extends StatelessWidget {
             Image.asset('assets/logo/Image.png', height: 244, width: 244),
             SizedBox(height: 10),
             //Email box
-            Column(crossAxisAlignment: CrossAxisAlignment.start),
             Column(
               children: [
                 Row(
