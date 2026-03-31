@@ -59,8 +59,13 @@ class Paynow extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => MainScreen()),
-                      (route) => false, 
+                      MaterialPageRoute(
+                        builder:
+                            (_) => MainScreen(
+                              initialPage: 0, // 0 = Home
+                            ),
+                      ),
+                      (route) => false, // يمسح كل اللي فوق
                     );
                   },
                   child: Text("Back to Home", style: TextStyle(fontSize: 16)),

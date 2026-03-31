@@ -1,6 +1,5 @@
 import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
 
-
 import 'package:finall_app/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appthemes,
-      home: MainScreen(),
+      home: MainScreen(
+        initialPage: 0, // 0 = Home
+      ),
     );
   }
 }

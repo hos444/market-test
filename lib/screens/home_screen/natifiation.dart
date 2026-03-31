@@ -15,7 +15,9 @@ class Natifiation extends StatelessWidget {
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (_) => MainScreen()),
+              MaterialPageRoute(
+                builder: (_) => MainScreen(initialPage: 0),
+              ), // 0 = Home
               (route) => false, // يمسح كل اللي فوق
             );
           },

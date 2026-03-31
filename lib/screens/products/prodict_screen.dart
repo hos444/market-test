@@ -1,4 +1,4 @@
-
+import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../cart_screen.dart';
@@ -18,8 +18,6 @@ class Productdetails extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-           
-
             /// ===== IMAGE HEADER =====
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.42,
@@ -127,9 +125,11 @@ class Productdetails extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (_) => const CartScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => MainScreen(initialPage: 2), // 2 = Cart
+                      ),
                     );
                   },
                   child: const Text(
