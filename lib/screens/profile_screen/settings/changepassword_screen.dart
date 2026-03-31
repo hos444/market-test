@@ -1,4 +1,5 @@
 import 'package:finall_app/screens/profile_screen/settings/setting_screen.dart';
+import 'package:finall_app/shared/widgets/arrow.dart';
 import 'package:flutter/material.dart';
 
 class ChangePassword extends StatelessWidget {
@@ -8,6 +9,7 @@ class ChangePassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: ArrowBack(),
         title: Text(
           'Change Password',
           style: TextStyle(fontWeight: FontWeight.bold),

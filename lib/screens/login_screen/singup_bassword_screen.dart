@@ -26,7 +26,7 @@ class _ChooseProfileScreenState extends State<SingUp> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: const Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
               ),
 
               const SizedBox(height: 20),

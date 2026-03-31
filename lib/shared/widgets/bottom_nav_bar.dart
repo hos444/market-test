@@ -1,58 +1,54 @@
-import 'package:finall_app/shared/export_packeg.dart';
-
+import 'package:finall_app/screens/cart_screen.dart';
+import 'package:finall_app/screens/favourite_screen.dart';
+import 'package:finall_app/screens/profile_screen/myOrder.dart';
+import 'package:finall_app/screens/profile_screen/user_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-class HomeLayout extends StatelessWidget {
-  static int index = 0;
-  const HomeLayout({super.key});
+import '../export_packeg.dart' show Checkout, HomePage;
+
+class MainScreen extends StatefulWidget {
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _page = 0;
+
+  final List<Widget> _screens = [
+    HomePage(),
+    Favourite(),
+    CartScreen(),
+    Myorder(),
+    UserScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: index,
-      onTap: (value) {
-        if (value == 0) {
-          index = value;
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
-        } else if (value == 1) {
-          index = value;
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Favourite()),
-          );
-        } else if (value == 2) {
-          index = value;
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CartScreen()),
-          );
-        } else if (value == 3) {
-          index = value;
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => UserScreen()),
-          );
-        }
-      },
-      selectedItemColor: Colors.green,
-      unselectedItemColor: Colors.grey,
-      type: BottomNavigationBarType.fixed,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border),
-          label: "Favourite",
-        ),
+    return Scaffold(
+      body: IndexedStack(index: _page, children: _screens),
 
-        BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: "Cart"),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline),
-          label: "Profile",
-        ),
-      ],
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _page,
+        backgroundColor: Colors.transparent,
+        buttonBackgroundColor: Colors.green,
+        color: Colors.green,
+        animationDuration: const Duration(milliseconds: 300),
+
+        items: const [
+          Icon(Icons.home, color: Colors.white),
+          Icon(Icons.favorite, color: Colors.white),
+          Icon(Icons.shopping_cart, color: Colors.white),
+          Icon(Icons.notifications, color: Colors.white),
+          Icon(Icons.person, color: Colors.white),
+        ],
+
+        onTap: (index) {
+          setState(() {
+            _page = index;
+          });
+        },
+      ),
     );
   }
 }

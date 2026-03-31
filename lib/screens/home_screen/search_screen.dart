@@ -1,4 +1,5 @@
-import 'package:finall_app/screens/filter_screen.dart';
+import 'package:finall_app/screens/home_screen/filter_screen.dart';
+import 'package:finall_app/shared/export_packeg.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -24,6 +25,15 @@ class SearchScreen extends StatelessWidget {
           ),
         ],
         centerTitle: true,
+       leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

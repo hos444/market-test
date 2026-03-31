@@ -1,7 +1,8 @@
+import 'package:finall_app/screens/checkout_/paynow.dart';
 import 'package:flutter/material.dart';
 
-class PaymentSummarySection extends StatelessWidget {
-  const PaymentSummarySection({super.key});
+class CheckoutBottomSheet extends StatelessWidget {
+  const CheckoutBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +79,12 @@ class PaymentSummarySection extends StatelessWidget {
             width: double.infinity,
             height: 55,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Paynow()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.orange,
                 elevation: 0,

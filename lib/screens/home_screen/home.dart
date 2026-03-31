@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:finall_app/model.dart';
-import 'package:finall_app/screens/natifiation.dart';
-import 'package:finall_app/screens/search_screen.dart';
+import 'package:finall_app/screens/home_screen/natifiation.dart';
+import 'package:finall_app/screens/home_screen/search_screen.dart';
+import 'package:finall_app/screens/products/category/catecory.dart';
 
 import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
 import 'package:finall_app/shared/widgets/home_widgets/card_home2.dart';
@@ -9,8 +10,6 @@ import 'package:finall_app/shared/widgets/home_widgets/card_home1.dart';
 import 'package:finall_app/shared/widgets/home_widgets/category_home.dart';
 
 import 'package:flutter/material.dart';
-
-import 'filter_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
+
   //bannar List
   List<String> slideritem = [
     'assets/bannar/slider1.png',
@@ -192,7 +193,9 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => FilterScreen()),
+                        MaterialPageRoute(
+                          builder: (context) => CategoryScreen(),
+                        ),
                       );
                     },
                     child: const Text(
@@ -258,8 +261,8 @@ class _HomePageState extends State<HomePage> {
                 }),
               ),
             ),
-            SizedBox(height: 5),
-            SizedBox(
+            const SizedBox(height: 5),
+            const SizedBox(
               height: 200,
               width: double.infinity,
               child: Image(image: AssetImage('assets/bannar/slider1.png')),
@@ -270,7 +273,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Flash Deals',
                     style: TextStyle(
                       color: Colors.green,
@@ -314,7 +317,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Featured Products',
                     style: TextStyle(
                       color: Colors.green,
@@ -337,21 +340,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            //card of new arrivals
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(freashItem.length, (index) {
-                  final item = freashItem[index];
-                  return Cardhome2(
-                    name: item.nameCart,
-                    image: item.imageCart,
-                    price: item.priceCart,
-                  );
-                }),
-              ),
-            ),
-            SizedBox(height: 10),
+
+            const SizedBox(height: 10),
             SizedBox(
               height: 200,
               width: double.infinity,
@@ -360,7 +350,7 @@ class _HomePageState extends State<HomePage> {
             //recently viewed
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Row(
+              child: const Row(
                 children: [
                   Text(
                     'Recently Viewed',
@@ -383,12 +373,25 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            //card of recently viewed
+            //card of recently viewed //card of new arrivals
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(freashItem.length, (index) {
+                  final item = freashItem[index];
+                  return Cardhome2(
+                    name: item.nameCart,
+                    image: item.imageCart,
+                    price: item.priceCart,
+                  );
+                }),
+              ),
+            ),
           ],
         ),
       ),
+
       //bottomNigationBar is ready
-      bottomNavigationBar: HomeLayout(),
     );
   }
 }

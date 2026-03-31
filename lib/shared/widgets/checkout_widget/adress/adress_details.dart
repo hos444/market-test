@@ -1,3 +1,4 @@
+import 'package:finall_app/screens/profile_screen/adress_screen.dart';
 import 'package:flutter/material.dart';
 
 class AddressDetails extends StatelessWidget {
@@ -13,15 +14,20 @@ class AddressDetails extends StatelessWidget {
           children: [
             const Text(
               "Home",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             const Spacer(),
-            TextButton(
-              onPressed: () {},
-              child: const Text("Edit"),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AdressScreen()),
+                );
+              },
+              icon: const Icon(
+                Icons.edit,
+                color: Color.fromARGB(255, 83, 164, 58),
+              ),
             ),
           ],
         ),
@@ -37,10 +43,7 @@ class AddressDetails extends StatelessWidget {
 
         const Text(
           "Al Manyal, Cairo, Egypt\nStreet 12, Building 5, Apartment 10",
-          style: TextStyle(
-            color: Colors.black54,
-            height: 1.4,
-          ),
+          style: TextStyle(color: Colors.black54, height: 1.4),
         ),
 
         const SizedBox(height: 8),

@@ -1,9 +1,9 @@
 export '../screens/favourite_screen.dart';
-export '../screens/home.dart';
+export '../screens/home_screen/home.dart';
 export '../screens/cart_screen.dart';
 export '../screens/profile_screen/user_screen.dart';
 export '../screens/checkout_/checkout_screen.dart';
-export '../screens/search_screen.dart';
+export '../screens/home_screen/search_screen.dart';
 export '../screens/login_screen/login_screen.dart';
 export '../screens/login_screen/singup2_screen.dart';
 export '../screens/login_screen/singup_bassword_screen.dart';

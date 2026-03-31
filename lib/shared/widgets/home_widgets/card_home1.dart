@@ -1,4 +1,4 @@
-import 'package:finall_app/screens/prodict_screen.dart';
+import 'package:finall_app/screens/products/prodict_screen.dart';
 import 'package:finall_app/screens/products/list_screen.dart';
 import 'package:flutter/material.dart';
 

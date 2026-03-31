@@ -1,4 +1,4 @@
-import 'package:finall_app/screens/search_screen.dart' show SearchScreen;
+import 'package:finall_app/screens/home_screen/search_screen.dart' show SearchScreen;
 import 'package:flutter/material.dart';
 
 class WidgetSerch extends StatefulWidget {

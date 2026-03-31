@@ -1,4 +1,5 @@
 import 'package:finall_app/model.dart';
+import 'package:finall_app/shared/widgets/arrow.dart';
 import 'package:finall_app/shared/widgets/favourite_widget/card_favourite.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,8 @@ class Favourite extends StatefulWidget {
 }
 
 class _FavouriteState extends State<Favourite> {
+  int currentIndex = 3;
+
   List<FavouriteModel> carditemFavourite = [
     FavouriteModel(
       nameCart: 'Banana',
@@ -49,6 +52,7 @@ class _FavouriteState extends State<Favourite> {
     return Scaffold(
       //app bar is ready
       appBar: AppBar(
+        leading: ArrowBack(),
         title: Center(
           child: Text(
             'Favourite ',
@@ -58,7 +62,7 @@ class _FavouriteState extends State<Favourite> {
       ),
 
       //bottom bar is readyv
-      bottomNavigationBar: HomeLayout(),
+     
       //card prodect ned to upgread to clickapell
       // by add icon favourite
       body: SizedBox(

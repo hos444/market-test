@@ -1,10 +1,10 @@
+import 'package:finall_app/shared/widgets/arrow.dart';
 import 'package:finall_app/shared/widgets/checkout_widget/payment/paymen_secstion.dart';
-import 'package:finall_app/shared/widgets/text/test.dart';
+import 'package:finall_app/test.dart';
 import 'package:flutter/material.dart';
 
-import '../../shared/widgets/text/text.dart';
 import '../../shared/widgets/checkout_widget/adress/adress_section.dart';
-import '../../shared/widgets/checkout_widget/secstion_item.dart';
+import '../../shared/widgets/checkout_widget/chekkout/secstion_item.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({super.key});
@@ -21,6 +21,7 @@ class Checkout extends StatelessWidget {
             color: Colors.green,
           ),
         ),
+        leading: ArrowBack(),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -142,7 +143,7 @@ class Checkout extends StatelessWidget {
             ),
           ],
         ),
-        child: PaymentSummarySection(),
+        child: CheckoutBottomSheet(),
       ),
     );
   }

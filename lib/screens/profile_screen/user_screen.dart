@@ -1,16 +1,24 @@
-import 'package:finall_app/screens/profile_screen/address_screen.dart';
+import 'package:finall_app/screens/profile_screen/adress_screen.dart';
 import 'package:finall_app/screens/profile_screen/edit_profile_screen.dart';
-import 'package:finall_app/screens/profile_screen/myorder_screen.dart';
+import 'package:finall_app/screens/profile_screen/myOrder.dart';
+
 import 'package:finall_app/screens/profile_screen/payment_screen.dart';
 import 'package:finall_app/screens/profile_screen/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../shared/widgets/bottom_nav_bar.dart';
-import '../natifiation.dart';
+import '../home_screen/natifiation.dart';
 
-class UserScreen extends StatelessWidget {
+class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
 
+  @override
+  State<UserScreen> createState() => _UserScreenState();
+}
+
+class _UserScreenState extends State<UserScreen> {
+  int currentIndex = 2;
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +40,7 @@ class UserScreen extends StatelessWidget {
       //   automaticallyImplyLeading: false,
       // ),
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: HomeLayout(),
+     
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -216,7 +224,7 @@ class UserScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => AddressScreen(),
+                                builder: (context) => AdressScreen(),
                               ),
                             );
                           },

@@ -1,3 +1,4 @@
+import 'package:finall_app/shared/widgets/arrow.dart';
 import 'package:finall_app/shared/widgets/profile_widgets/botton_cheet.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -13,6 +14,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: ArrowBack(),
         centerTitle: true,
         title: Text(
           'Settings',

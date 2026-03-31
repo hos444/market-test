@@ -32,69 +32,60 @@ class Cartcard extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 12.0, left: 10.0, right: 10.0),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: const Color.fromARGB(255, 0, 0, 0),
-                width: 1.5,
-              ),
-            ),
-            child: Card(
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    // صورة المنتج
-                    Container(
-                      width: 105,
-                      height: 111,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey[200],
+          child: Card(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  // صورة المنتج
+                  Container(
+                    width: 105,
+                    height: 111,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[200],
+                    ),
+                    child: Image.asset(imageCart, fit: BoxFit.cover),
+                  ),
+
+                  SizedBox(width: 10),
+
+                  // بيانات المنتج
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        nameCart,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      child: Image.asset(imageCart, fit: BoxFit.cover),
-                    ),
 
-                    SizedBox(width: 10),
+                      SizedBox(height: 5),
 
-                    // بيانات المنتج
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          nameCart,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            color: Colors.green,
+                            size: 20,
                           ),
-                        ),
+                          SizedBox(width: 6),
+                          Text('vally farms'),
+                        ],
+                      ),
 
-                        SizedBox(height: 5),
+                      SizedBox(height: 34),
 
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.location_on,
-                              color: Colors.green,
-                              size: 20,
-                            ),
-                            SizedBox(width: 6),
-                            Text('vally farms'),
-                          ],
-                        ),
-
-                        SizedBox(height: 34),
-
-                        Text(
-                          priceCart,
-                          style: TextStyle(fontSize: 18, color: Colors.green),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                      Text(
+                        priceCart,
+                        style: TextStyle(fontSize: 18, color: Colors.green),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),

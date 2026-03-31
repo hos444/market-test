@@ -19,7 +19,7 @@ class SingUp2 extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: const Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50.0),

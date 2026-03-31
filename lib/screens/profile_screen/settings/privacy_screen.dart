@@ -1,3 +1,4 @@
+import 'package:finall_app/shared/widgets/arrow.dart';
 import 'package:flutter/material.dart';
 
 class PrivacyScreen extends StatelessWidget {
@@ -7,10 +8,8 @@ class PrivacyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
+        leading: ArrowBack(),
+
         title: const Text("Privacy Policy"),
         centerTitle: true,
         elevation: 0,

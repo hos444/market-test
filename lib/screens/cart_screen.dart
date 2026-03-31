@@ -1,5 +1,6 @@
 import 'package:finall_app/model.dart';
 import 'package:finall_app/screens/checkout_/checkout_screen.dart';
+import 'package:finall_app/shared/widgets/arrow.dart';
 import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
 import 'package:finall_app/shared/widgets/cart_widgets/card_cart.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +50,8 @@ class _CartScreenState extends State<CartScreen> {
   // ليست الكميات لكل منتج
   List<int> quantities = [];
 
+  int currentIndex = 1;
+
   // بنهيأ الكميات = 1 لكل منتج
   @override
   void initState() {
@@ -75,10 +78,11 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: ArrowBack(),
         title: Text("My Cart", style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
       ),
-      bottomNavigationBar: HomeLayout(),
+
       // قائمة المنتجات
       body: Container(
         height: 600,

@@ -31,6 +31,7 @@ class _FilterScreenState extends State<FilterScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        leading: Icon(Icons.arrow_back_ios, color: Colors.black),
         title: const Text(
           "Filter",
           style: TextStyle(fontWeight: FontWeight.bold),

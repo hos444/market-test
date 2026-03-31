@@ -1,7 +1,6 @@
-import 'package:finall_app/screens/prodict_screen.dart';
-import 'package:finall_app/screens/products/list_screen.dart';
+import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
 
-import 'shared/export_packeg.dart';
+
 import 'package:finall_app/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appthemes,
-      home: HomePage(),
+      home: MainScreen(),
     );
   }
 }

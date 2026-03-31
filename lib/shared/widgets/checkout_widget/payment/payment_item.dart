@@ -1,3 +1,4 @@
+import 'package:finall_app/screens/profile_screen/settings/addCard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -42,7 +43,18 @@ class PaymentItem extends StatelessWidget {
           ),
 
           /// quantity buttons
-          const Icon(Icons.edit, color: Color.fromARGB(255, 83, 164, 58)),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AddCardScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.edit,
+              color: Color.fromARGB(255, 83, 164, 58),
+            ),
+          ),
         ],
       ),
     );

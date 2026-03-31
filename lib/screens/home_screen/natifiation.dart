@@ -1,4 +1,5 @@
-import 'package:finall_app/screens/home.dart';
+import 'package:finall_app/screens/home_screen/home.dart';
+import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 class Natifiation extends StatelessWidget {
@@ -7,7 +8,20 @@ class Natifiation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Notifications'), centerTitle: true),
+      appBar: AppBar(
+        title: Text('Notifications'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (_) => MainScreen()),
+              (route) => false, // يمسح كل اللي فوق
+            );
+          },
+        ),
+        centerTitle: true,
+      ),
       body: Center(
         child: Container(
           child: Column(

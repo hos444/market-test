@@ -1,3 +1,4 @@
+import 'package:finall_app/shared/widgets/arrow.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassword extends StatelessWidget {
@@ -7,6 +8,7 @@ class ResetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: ArrowBack(),
         title: Text(
           "Forgot Password",
           style: TextStyle(fontWeight: FontWeight.bold),

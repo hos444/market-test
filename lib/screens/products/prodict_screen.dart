@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
 
-import 'cart_screen.dart';
+import '../cart_screen.dart';
 
 class Productdetails extends StatelessWidget {
   const Productdetails({super.key});
@@ -17,6 +18,8 @@ class Productdetails extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
+           
+
             /// ===== IMAGE HEADER =====
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.42,
