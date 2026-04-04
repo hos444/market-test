@@ -1,7 +1,6 @@
-import 'package:finall_app/shared/widgets/bottom_nav_bar.dart';
 
-import 'package:finall_app/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:finall_app/core/utils/export_packeg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: appthemes,
+    
       home: MainScreen(
         initialPage: 0, // 0 = Home
       ),
