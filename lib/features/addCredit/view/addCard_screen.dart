@@ -1,7 +1,6 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
-
 class AddCardScreen extends StatelessWidget {
   const AddCardScreen({super.key});
 
@@ -14,10 +13,7 @@ class AddCardScreen extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => UserScreen()),
-            );
+            Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
         ),
@@ -100,7 +96,7 @@ class AddCardScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => UserScreen()),
+                    MaterialPageRoute(builder: (context) => Checkout()),
                   );
                 },
                 child: Text(

@@ -2,8 +2,8 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class PaymentItem extends StatelessWidget {
-  const PaymentItem({super.key});
+class CreditCard extends StatelessWidget {
+  const CreditCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class PaymentItem extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AddCardScreen()),
+                MaterialPageRoute(builder: (context) => const AddNewCredit()),
               );
             },
             icon: const Icon(

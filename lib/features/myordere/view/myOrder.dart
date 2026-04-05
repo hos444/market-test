@@ -12,13 +12,7 @@ class Myorder extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (_) => MainScreen(initialPage: 0),
-              ), // 0 = Home
-              (route) => false, // يمسح كل اللي فوق
-            );
+            Navigator.pop(context);
           },
         ),
         title: const Text(

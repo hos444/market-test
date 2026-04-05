@@ -1,6 +1,8 @@
+import 'package:finall_app/features/cart/widgets/cart_controller.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -11,43 +13,10 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   // ليست المنتجات (تجريبية)
-  List<FreashModel> items = [
-    FreashModel(
-      nameCart: 'Banana',
-      imageCart: 'assets/fruits/banana.png',
-      priceCart: '500.0',
-    ),
-    FreashModel(
-      nameCart: 'Orange',
-      imageCart: 'assets/fruits/orang.png',
-      priceCart: '100.0',
-    ),
-    FreashModel(
-      nameCart: 'Limon',
-      imageCart: 'assets/fruits/limon.png',
-      priceCart: '100.0',
-    ),
-    FreashModel(
-      nameCart: 'pepper',
-      imageCart: 'assets/fruits/pepper.png',
-      priceCart: '100.0',
-    ),
-    FreashModel(
-      nameCart: 'Biscuit',
-      imageCart: 'assets/fruits/biscuit.png',
-      priceCart: '100.0',
-    ),
-    FreashModel(
-      nameCart: 'purex',
-      imageCart: 'assets/fruits/purex.png',
-      priceCart: '100.0',
-    ),
-  ];
+  List<FreashModel> items = [];
 
   // ليست الكميات لكل منتج
   List<int> quantities = [];
-
-  int currentIndex = 1;
 
   // بنهيأ الكميات = 1 لكل منتج
   @override
@@ -57,17 +26,12 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   // دالة بتحسب التوتال بناء على الكميات
-  double calculateTotal() {
+  double calculateTotal(CartController cart) {
     double total = 0;
-
-    for (int i = 0; i < items.length; i++) {
-      double price = double.parse(
-        items[i].priceCart.replaceAll('\$', '').trim(),
-      );
-
-      total += price * quantities[i];
+    for (var item in cart.cartItems) {
+      double price = double.tryParse(item.product.price) ?? 0;
+      total += price * item.quantity;
     }
-
     return total;
   }
 
@@ -95,27 +59,21 @@ class _CartScreenState extends State<CartScreen> {
         height: 600,
         width: double.infinity,
         // decoration: BoxDecoration(color: Colors.amber),
-        child: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return Cartcard(
-              nameCart: items[index].nameCart,
-              imageCart: items[index].imageCart,
-              priceCart: items[index].priceCart,
-              quantity: quantities[index],
-
-              onIncrease: () {
-                setState(() {
-                  quantities[index]++;
-                });
-              },
-
-              onDecrease: () {
-                if (quantities[index] > 1) {
-                  setState(() {
-                    quantities[index]--;
-                  });
-                }
+        child: Consumer<CartController>(
+          builder: (context, cart, child) {
+            return ListView.builder(
+              itemCount: cart.cartItems.length,
+              itemBuilder: (context, index) {
+                final item = cart.cartItems[index];
+                return Cartcard(
+                  nameCart: item.product.name,
+                  imageCart: item.product.image,
+                  priceCart: "${item.product.price} EGP",
+                  quantity: item.quantity,
+                  onIncrease: () => cart.increaseQuantity(index),
+                  onDecrease: () => cart.decreaseQuantity(index),
+                  onDelete: () => cart.removeItem(index),
+                );
               },
             );
           },
@@ -145,9 +103,13 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Text(
-                "Total:                                 \$ ${calculateTotal()}",
-                style: TextStyle(fontSize: 22),
+              child: Consumer<CartController>(
+                builder: (context, cart, child) {
+                  return Text(
+                    "Total: \$${calculateTotal(cart)}",
+                    style: TextStyle(fontSize: 22),
+                  );
+                },
               ),
             ),
             SizedBox(height: 20),
@@ -168,7 +130,7 @@ class _CartScreenState extends State<CartScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PaymentScreen()),
+                    MaterialPageRoute(builder: (context) => Checkout()),
                   );
                 },
                 child: Text(

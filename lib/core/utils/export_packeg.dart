@@ -14,7 +14,7 @@ export 'package:finall_app/features/cart/view/cart_screen.dart';
 export 'package:finall_app/features/checkout_/view/checkout_screen.dart';
 export 'package:finall_app/features/payments/view/payment_screen.dart';
 export 'package:finall_app/features/profile_screen/view/user_screen.dart';
-export 'package:finall_app/features/paynow_scrren/view/paynow.dart';
+export 'package:finall_app/features/paynow_scrren/view/complite_paynow.dart';
 export 'package:finall_app/features/myordere/view/myOrder.dart';
 export 'package:finall_app/features/addCredit/view/addCard_screen.dart';
 export 'package:finall_app/features/addriss/view/adress_screen.dart';

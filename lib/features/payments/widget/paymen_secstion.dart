@@ -71,14 +71,7 @@ class _PaymentSectionState extends State<PaymentSection>
           firstChild: const SizedBox(),
           secondChild: const Padding(
             padding: EdgeInsets.only(top: 12),
-            child: Column(
-              children: [
-                PaymentItem(),
-                PaymentItem(),
-                PaymentItem(),
-                PaymentItem(),
-              ],
-            ),
+            child: Column(children: [CreditCard(), CreditCard()]),
           ),
           crossFadeState:
               isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,

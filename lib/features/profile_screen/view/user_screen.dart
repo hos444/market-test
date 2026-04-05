@@ -238,7 +238,7 @@ class _UserScreenState extends State<UserScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PaymentScreen(),
+                                builder: (context) => AddNewCredit(),
                               ),
                             );
                           },

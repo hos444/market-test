@@ -2,8 +2,8 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
-class Paynow extends StatelessWidget {
-  const Paynow({super.key});
+class PaynowComplite extends StatelessWidget {
+  const PaynowComplite({super.key});
 
   @override
   Widget build(BuildContext context) {

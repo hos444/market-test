@@ -15,6 +15,7 @@ class Cartcard extends StatelessWidget {
   // الفنكشنز جاية من الصفحة الأب
   final VoidCallback onIncrease;
   final VoidCallback onDecrease;
+  final VoidCallback onDelete;
 
   const Cartcard({
     super.key,
@@ -24,6 +25,7 @@ class Cartcard extends StatelessWidget {
     required this.quantity,
     required this.onIncrease,
     required this.onDecrease,
+    required this.onDelete,
   });
 
   @override
@@ -97,7 +99,7 @@ class Cartcard extends StatelessWidget {
           top: 10,
 
           child: IconButton(
-            onPressed: () {},
+            onPressed: onDelete,
             icon: Icon(Icons.delete, color: Colors.red),
           ),
         ),

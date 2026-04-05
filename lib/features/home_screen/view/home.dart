@@ -41,19 +41,34 @@ class _HomePageState extends State<HomePage> {
   //flash deals List
   List<FreashModel> freashItem = [
     FreashModel(
+      nameCart: 'Limon',
+      imageCart: 'assets/fruits/limon.png',
+      priceCart: '100.0',
+    ),
+    FreashModel(
+      nameCart: 'pepper',
+      imageCart: 'assets/fruits/pepper.png',
+      priceCart: '100.0',
+    ),
+    FreashModel(
+      nameCart: 'Biscuit',
+      imageCart: 'assets/fruits/biscuit.png',
+      priceCart: '150.0',
+    ),
+    FreashModel(
       nameCart: 'Banana',
       imageCart: 'assets/fruits/banana.png',
-      priceCart: '\$200',
+      priceCart: '200',
     ),
     FreashModel(
       nameCart: 'Orange',
       imageCart: 'assets/fruits/orang.png',
-      priceCart: '\$200',
+      priceCart: '250',
     ),
     FreashModel(
       nameCart: 'Srobary',
       imageCart: 'assets/fruits/strobary.png',
-      priceCart: '\$200',
+      priceCart: '200',
     ),
   ];
   @override

@@ -31,10 +31,7 @@ class AdressScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Checkout()),
-                  );
+                  Navigator.pop(context);
                 },
                 child: const Text("Add Address"),
               ),

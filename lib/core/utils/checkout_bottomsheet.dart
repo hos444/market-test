@@ -82,7 +82,7 @@ class CheckoutBottomSheet extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Paynow()),
+                  MaterialPageRoute(builder: (context) => PaynowComplite()),
                 );
               },
               style: ElevatedButton.styleFrom(

@@ -1,5 +1,7 @@
+import 'package:finall_app/features/cart/models/models.dart';
+import 'package:finall_app/features/cart/widgets/cart_controller.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 
 class Cardhome2 extends StatelessWidget {
   final String name;
@@ -114,7 +116,15 @@ class Cardhome2 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  final product = ProductModel(
+                    name: name,
+                    image: image,
+                    price: price,
+                  );
+
+                  context.read<CartController>().addToCart(product);
+                },
                 icon: Icon(
                   Icons.shopping_cart,
                   size: 16,
