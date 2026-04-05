@@ -17,7 +17,7 @@ class PaymentScreen extends StatelessWidget {
               duration: Duration(milliseconds: 600),
               tween: Tween(begin: 0.5, end: 1.0),
               builder: (context, value, child) {
-                return Transform.scale(scale: value as double, child: child);
+                return Transform.scale(scale: value, child: child);
               },
               child: Container(
                 width: 110,
