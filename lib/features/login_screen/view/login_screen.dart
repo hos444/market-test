@@ -16,7 +16,11 @@ class Login extends StatelessWidget {
             children: [
               SizedBox(height: 25),
               // logo image
-              Image.asset('assets/logo/Image.png', height: 244, width: 244),
+              Stack(
+                children: [
+                  Image.asset('assets/logo/Image.png', height: 244, width: 244),
+                ],
+              ),
               SizedBox(height: 10),
               //Email box
               Column(

@@ -25,9 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       // هنا لو عاوز تبدل مع اللوجن بحيث تفتح عليها ع طووووول
       //  ====================Login Page=========================
-      home: MainScreen(
-        initialPage: 0, // 0 = Home
-      ),
+      home: Login(),
     );
   }
 }

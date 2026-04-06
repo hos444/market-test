@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 child: CircleAvatar(
                   radius: 28,
-                  backgroundImage: AssetImage('assets/logo/Image.png'),
+                  backgroundImage: AssetImage('assets/logo/homelogo.png'),
                 ),
               ),
               SizedBox(width: 10),
@@ -331,7 +331,7 @@ class _HomePageState extends State<HomePage> {
               child: const Row(
                 children: [
                   Text(
-                    'Recently Viewed',
+                   'home.',
                     style: TextStyle(
                       color: AppColors.textPrimary,
                       fontWeight: FontWeight.bold,
