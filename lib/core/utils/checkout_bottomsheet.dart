@@ -2,6 +2,7 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutBottomSheet extends StatelessWidget {
+  
   const CheckoutBottomSheet({super.key});
 
   @override
@@ -17,7 +18,7 @@ class CheckoutBottomSheet extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w700,
-              color: Color(0xff2E7D32),
+              color: AppColors.primary,
             ),
           ),
 
@@ -86,7 +87,7 @@ class CheckoutBottomSheet extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 30, 229, 73),
+                backgroundColor: AppColors.secondary,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
@@ -94,7 +95,11 @@ class CheckoutBottomSheet extends StatelessWidget {
               ),
               child: const Text(
                 "Pay Now",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.scaffold,
+                ),
               ),
             ),
           ),

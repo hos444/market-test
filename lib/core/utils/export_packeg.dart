@@ -26,7 +26,6 @@ export 'package:finall_app/features/privacy/view/privacy_screen.dart';
 export 'package:finall_app/features/order_details/view/order_details.dart';
 export 'package:finall_app/features/order_details/view/order_truck.dart';
 
-
 // widgets of core
 export 'package:finall_app/core/utils/checkout_bottomsheet.dart';
 export 'package:finall_app/core/utils/botton_delet_accont.dart';
@@ -54,9 +53,10 @@ export 'package:finall_app/features/payments/widget/paymen_secstion.dart';
 export 'package:finall_app/features/payments/widget/payment_item.dart';
 export 'package:finall_app/features/myordere/widget/ordeartaps.dart';
 export 'package:finall_app/features/myordere/widget/order_card.dart';
-
+export 'package:finall_app/features/order_details/widget/card_order_details.dart';
+export 'package:finall_app/features/order_details/widget/card_product.dart';
+export 'package:finall_app/features/order_details/widget/inforow.dart';
 
 //app thiems
 
 export 'package:finall_app/core/theme/app_color.dart';
-

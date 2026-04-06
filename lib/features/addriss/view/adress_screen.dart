@@ -23,7 +23,7 @@ class AdressScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               height: 50,
-              child: ElevatedBotton(),
+              child: ElevatedBotton(titel: 'Add Adrees'),
             ),
             SizedBox(height: 16),
           ],

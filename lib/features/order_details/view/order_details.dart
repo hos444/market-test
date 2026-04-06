@@ -9,10 +9,10 @@ class OrderDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.scaffold,
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.scaffold,
         elevation: 0,
         leading: ArrowBack(),
-        centerTitle: true,
+
         title: Text("Order details", style: AppTextStyles.heading),
       ),
       body: SingleChildScrollView(
@@ -20,18 +20,18 @@ class OrderDetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _productCard(),
+            CardProduct(),
             const SizedBox(height: 16),
 
             Text("Order Details", style: AppTextStyles.heading),
             const SizedBox(height: 10),
 
-            _infoRow("Expected delivery date:", "02 Apr 2026"),
-            _infoRow("Tracking ID:", "TRK458598589"),
-            _infoRow("Address:", "storage1"),
-            _infoRow("Payment method:", "Visa"),
-            _infoRow("Receiver Name:", "mohammed"),
-            _infoRow("Receiver Phone Number:", "01121234254112"),
+            Inforow(title: "Expected delivery date:", value: "02 Apr 2026"),
+            Inforow(title: "Tracking ID:", value: "TRK458598589"),
+            Inforow(title: "Address:", value: "storage1"),
+            Inforow(title: "Payment method:", value: "Visa"),
+            Inforow(title: "Receiver Name:", value: "mohammed"),
+            Inforow(title: "Receiver Phone Number:", value: "01121234254112"),
 
             const SizedBox(height: 20),
             Divider(color: AppColors.border),
@@ -46,59 +46,6 @@ class OrderDetailsScreen extends StatelessWidget {
             _statusItem("Shipped", "Expected 02 Apr 2026", false),
             _statusItem("Delivery", "Expected 02 Apr 2026", false),
           ],
-        ),
-      ),
-    );
-  }
-
-  // 🟢 Product Card
-  Widget _productCard() {
-    return Row(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.asset(
-            'assets/fruits/strobary.png', // غيرها حسب عندك
-            width: 80,
-            height: 80,
-            fit: BoxFit.cover,
-          ),
-        ),
-        const SizedBox(width: 12),
-
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Strawberry",
-                style: AppTextStyles.heading.copyWith(color: AppColors.primary),
-              ),
-              const SizedBox(height: 4),
-              Text("Order id: #12345", style: AppTextStyles.small),
-              const SizedBox(height: 8),
-              Text("weight : 50kg", style: AppTextStyles.body),
-            ],
-          ),
-        ),
-
-        Text(
-          "\$ 9.70",
-          style: AppTextStyles.heading.copyWith(color: Colors.orange),
-        ),
-      ],
-    );
-  }
-
-  // 📄 Info Row
-  Widget _infoRow(String title, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: RichText(
-        text: TextSpan(
-          text: "$title ",
-          style: AppTextStyles.body.copyWith(color: Colors.black),
-          children: [TextSpan(text: value, style: AppTextStyles.body)],
         ),
       ),
     );

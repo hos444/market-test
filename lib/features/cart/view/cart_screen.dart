@@ -117,7 +117,7 @@ class _CartScreenState extends State<CartScreen> {
               padding: const EdgeInsets.only(left: 29.0, right: 29.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 30, 229, 73),
+                  backgroundColor: AppColors.secondary,
                   foregroundColor: Colors.white,
                   elevation: 6,
                   shadowColor: Colors.black45,

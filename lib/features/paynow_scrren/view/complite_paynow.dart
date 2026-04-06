@@ -1,4 +1,3 @@
-
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +30,11 @@ class PaynowComplite extends StatelessWidget {
               // ✅ Title
               Text(
                 "Payment Successful",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
               ),
 
               SizedBox(height: 10),
@@ -40,7 +43,7 @@ class PaynowComplite extends StatelessWidget {
               Text(
                 "Your payment has been completed successfully.",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, color: Colors.grey),
+                style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
               ),
 
               SizedBox(height: 40),
@@ -51,7 +54,7 @@ class PaynowComplite extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 30, 229, 73),
+                    backgroundColor: AppColors.secondary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -68,7 +71,10 @@ class PaynowComplite extends StatelessWidget {
                       (route) => false, // يمسح كل اللي فوق
                     );
                   },
-                  child: Text("Back to Home", style: TextStyle(fontSize: 16)),
+                  child: Text(
+                    "Back to Home",
+                    style: TextStyle(fontSize: 16, color: AppColors.scaffold),
+                  ),
                 ),
               ),
             ],

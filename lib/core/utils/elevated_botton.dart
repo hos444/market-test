@@ -2,7 +2,8 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
 class ElevatedBotton extends StatelessWidget {
-  const ElevatedBotton({super.key});
+  final String titel;
+  const ElevatedBotton({super.key, required this.titel});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ElevatedBotton extends StatelessWidget {
       onPressed: () {
         Navigator.pop(context);
       },
-      child: const Text('text here'),
+      child:  Text(titel,),
     );
   }
 }
