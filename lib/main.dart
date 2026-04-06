@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
+      theme: ThemeData(
+        primaryColor: AppColors.primary,
+        scaffoldBackgroundColor: AppColors.scaffold,
+      ),
       // هنا لو عاوز تبدل مع اللوجن بحيث تفتح عليها ع طووووول
       //  ====================Login Page=========================
       home: MainScreen(

@@ -10,10 +10,15 @@ class Myorder extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => MainScreen(initialPage: 0), // 2 = Cart
+              ),
+            );
           },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
         ),
         title: const Text(
           "My Orders",
@@ -29,7 +34,6 @@ class Myorder extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0, right: 8),
               child: OrderStatusTabs(),
             ),
-            OrderCard(),
             OrderCard(),
             OrderCard(),
           ],

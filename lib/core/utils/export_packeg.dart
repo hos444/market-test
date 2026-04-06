@@ -23,6 +23,8 @@ export 'package:finall_app/features/aboutus/view/aboutUs_screen.dart';
 export 'package:finall_app/features/changepassowrd/view/changepassword_screen.dart';
 export 'package:finall_app/features/editprofile/view/edit_profile_screen.dart';
 export 'package:finall_app/features/privacy/view/privacy_screen.dart';
+export 'package:finall_app/features/order_details/view/order_details.dart';
+export 'package:finall_app/features/order_details/view/order_truck.dart';
 
 
 // widgets of core
@@ -31,6 +33,7 @@ export 'package:finall_app/core/utils/botton_delet_accont.dart';
 export 'package:finall_app/core/utils/bottom_nav_bar.dart';
 export 'package:finall_app/core/utils/bottom_changepassowrd.dart';
 export 'package:finall_app/core/utils/arrow.dart';
+export 'package:finall_app/core/utils/elevated_botton.dart';
 export 'package:finall_app/core/theme/app_color.dart';
 export 'package:finall_app/core/theme/text.dart';
 // widgets of screens
@@ -53,5 +56,7 @@ export 'package:finall_app/features/myordere/widget/ordeartaps.dart';
 export 'package:finall_app/features/myordere/widget/order_card.dart';
 
 
+//app thiems
 
+export 'package:finall_app/core/theme/app_color.dart';
 

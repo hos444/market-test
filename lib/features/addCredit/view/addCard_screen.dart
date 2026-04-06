@@ -64,13 +64,13 @@ class AddCardScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
 
             buildField("Cardholder Name"),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             buildField("Card Number"),
 
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
 
             Row(
               children: [
@@ -80,7 +80,7 @@ class AddCardScreen extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
 
             // Button
             SizedBox(

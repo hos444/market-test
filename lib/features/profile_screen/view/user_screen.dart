@@ -1,7 +1,7 @@
+import 'package:finall_app/core/utils/botton_logout.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -12,7 +12,7 @@ class UserScreen extends StatefulWidget {
 
 class _UserScreenState extends State<UserScreen> {
   int currentIndex = 2;
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +34,7 @@ class _UserScreenState extends State<UserScreen> {
       //   automaticallyImplyLeading: false,
       // ),
       extendBodyBehindAppBar: true,
-     
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -314,7 +314,9 @@ class _UserScreenState extends State<UserScreen> {
                         'Log out',
                         style: TextStyle(color: Colors.red),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        showLogOutSheet(context);
+                      },
                       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                     ),
                   ],

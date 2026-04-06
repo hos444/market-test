@@ -8,7 +8,7 @@ class AdressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.background,
         elevation: 0,
         leading: ArrowBack(),
         title: const Text("Address", style: TextStyle(color: Colors.black)),
@@ -23,18 +23,7 @@ class AdressScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 30, 229, 73),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text("Add Address"),
-              ),
+              child: ElevatedBotton(),
             ),
             SizedBox(height: 16),
           ],

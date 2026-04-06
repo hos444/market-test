@@ -3,22 +3,21 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._(); // prevent creating object
 
-  /// Primary Colors
-  static  Color primary = Color.fromARGB(255, 83, 226, 91);
-  static  Color secondary = Color(0xFF81C784);
+  static const Color primary = Color(0xFF2E7D32);
+  static const Color secondary = Color(0xFF66BB6A);
 
-  /// Background
-  static const Color background = Color(0xFFF5F6FA);
+  static const Color background = Color(0xFFFFFFFF);
+  static const Color scaffold = Color(0xFFF5F5F5);
 
-  /// Text Colors
-  static  Color textPrimary = Color(0xFF1A1A1A);
-  static  Color textSecondary = Color(0xFF7A7A7A);
+  static const Color textPrimary = Color(0xFF1B1B1B);
+  static const Color textSecondary = Color(0xFF757575);
 
-  /// Status Colors
-  static  Color success = Colors.green;
-  static  Color danger = Colors.red;
-  static  Color warning = Colors.orange;
+  static const Color accent = Color(0xFF4CAF50);
 
-  /// Border & Divider
-  static  Color border = Color(0xFFE0E0E0);
+  static const Color success = Color(0xFF4CAF50);
+  static const Color warning = Color(0xFFFF9800);
+  static const Color error = Color(0xFFF44336);
+
+  static const Color border = Colors.green;
+  static const Color card = Color(0xFFFFFFFF);
 }

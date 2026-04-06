@@ -96,10 +96,7 @@ class _HomePageState extends State<HomePage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'HELLO,',
-                    style: TextStyle(fontSize: 16, color: Colors.green),
-                  ),
+                  Text('HELLO,', style: AppTextStyles.heading),
                   Text('User name'),
                 ],
               ),
@@ -126,7 +123,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(width: 10),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.green, width: 1),
+                  border: Border.all(color: AppColors.border, width: 1),
                   shape: BoxShape.circle,
                 ),
                 child: CircleAvatar(
@@ -193,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.green,
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   Spacer(),
@@ -211,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: AppColors.textSecondary,
                       ),
                     ),
                   ),
@@ -238,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'Exclusive offers',
                     style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 161, 19),
+                      color: AppColors.warning,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                     ),
@@ -246,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Today's best deals",
                     style: TextStyle(
-                      color: const Color.fromARGB(255, 12, 88, 68),
+                      color: AppColors.primary,
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                     ),
@@ -284,7 +281,7 @@ class _HomePageState extends State<HomePage> {
                   const Text(
                     'Flash Deals',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: AppColors.textPrimary,
                       fontWeight: FontWeight.bold,
                       fontSize: 19,
                     ),
@@ -295,7 +292,7 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       'See All',
                       style: TextStyle(
-                        color: Colors.green,
+                        color: AppColors.textSecondary,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
@@ -328,7 +325,7 @@ class _HomePageState extends State<HomePage> {
                   const Text(
                     'Featured Products',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: AppColors.textPrimary,
                       fontWeight: FontWeight.bold,
                       fontSize: 19,
                     ),
@@ -339,7 +336,7 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       'See All',
                       style: TextStyle(
-                        color: Colors.green,
+                        color: AppColors.textSecondary,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
@@ -363,7 +360,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'Recently Viewed',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: AppColors.textPrimary,
                       fontWeight: FontWeight.bold,
                       fontSize: 19,
                     ),
@@ -372,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'See All',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: AppColors.textSecondary,
                       fontWeight: FontWeight.bold,
                       fontSize: 19,
                     ),

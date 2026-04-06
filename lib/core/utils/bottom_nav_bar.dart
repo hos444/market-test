@@ -2,8 +2,6 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-import '../../core/utils/export_packeg.dart' show Checkout, HomePage;
-
 class MainScreen extends StatefulWidget {
   final int initialPage; // ✨
 
@@ -38,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
         index: _page,
         backgroundColor: Colors.transparent,
         buttonBackgroundColor: Colors.green,
-        color: Colors.lightGreen,
+        color: AppColors.primary,
         animationDuration: const Duration(milliseconds: 300),
         items: const [
           Icon(Icons.home, color: Colors.white, size: 24),
