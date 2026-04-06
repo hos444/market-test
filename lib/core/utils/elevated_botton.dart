@@ -15,7 +15,7 @@ class ElevatedBotton extends StatelessWidget {
       onPressed: () {
         Navigator.pop(context);
       },
-      child:  Text(titel,),
+      child: Text(titel, style: TextStyle(color: AppColors.scaffold)),
     );
   }
 }

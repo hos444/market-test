@@ -74,10 +74,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: false,
       //app bar with search
       appBar: AppBar(
         elevation: 0,
+        backgroundColor: AppColors.background,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
         centerTitle: true,
@@ -148,7 +149,6 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 90),
             //search is ready
             // WidgetSerch(),
 
