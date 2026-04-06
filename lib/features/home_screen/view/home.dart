@@ -317,34 +317,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 5),
-            // text of new falash deals and see all
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Row(
-                children: [
-                  const Text(
-                    'Featured Products',
-                    style: TextStyle(
-                      color: AppColors.textPrimary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'See All',
-                      style: TextStyle(
-                        color: AppColors.textSecondary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
 
             const SizedBox(height: 10),
             SizedBox(
@@ -353,6 +325,7 @@ class _HomePageState extends State<HomePage> {
               child: Image(image: AssetImage('assets/bannar/slider4.png')),
             ),
             //recently viewed
+            SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: const Row(
@@ -377,7 +350,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-
             //card of recently viewed //card of new arrivals
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,

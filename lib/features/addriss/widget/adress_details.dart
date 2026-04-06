@@ -21,7 +21,7 @@ class AddressDetails extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const AdressScreen()),
+                  MaterialPageRoute(builder: (context) => AdressScreen()),
                 );
               },
               icon: const Icon(

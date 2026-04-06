@@ -1,4 +1,5 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:finall_app/features/payments/widget/add_card.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSection extends StatefulWidget {
@@ -71,7 +72,7 @@ class _PaymentSectionState extends State<PaymentSection>
           firstChild: const SizedBox(),
           secondChild: const Padding(
             padding: EdgeInsets.only(top: 12),
-            child: Column(children: [CreditCard(), CreditCard()]),
+            child: Column(children: [AddCard()]),
           ),
           crossFadeState:
               isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,

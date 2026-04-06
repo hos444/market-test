@@ -2,8 +2,6 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:finall_app/core/utils/checkout_bottomsheet.dart';
 import 'package:flutter/material.dart';
 
-
-
 class Checkout extends StatelessWidget {
   const Checkout({super.key});
 
@@ -19,12 +17,12 @@ class Checkout extends StatelessWidget {
             color: Colors.green,
           ),
         ),
-        leading:IconButton(
+        leading: IconButton(
           onPressed: () {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => MainScreen(initialPage: 0), // 2 = Cart
+                builder: (_) => MainScreen(initialPage: 2), // 2 = Cart
               ),
             );
           },

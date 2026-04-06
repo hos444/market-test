@@ -227,26 +227,26 @@ class _UserScreenState extends State<UserScreen> {
                             size: 16,
                           ),
                         ),
-                        ListTile(
-                          leading: SvgPicture.asset(
-                            'assets/icons/payment.svg',
-                            height: 10,
-                            width: 14,
-                          ),
-                          title: const Text('Payment Methods'),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AddNewCredit(),
-                              ),
-                            );
-                          },
-                          trailing: const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
-                          ),
-                        ),
+                        // ListTile(
+                        //   leading: SvgPicture.asset(
+                        //     'assets/icons/payment.svg',
+                        //     height: 10,
+                        //     width: 14,
+                        //   ),
+                        //   title: const Text('Payment Methods'),
+                        //   onTap: () {
+                        //     Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //         builder: (context) => AddNewCredit(),
+                        //       ),
+                        //     );
+                        //   },
+                        //   trailing: const Icon(
+                        //     Icons.arrow_forward_ios,
+                        //     size: 16,
+                        //   ),
+                        // ),
                         ListTile(
                           leading: SvgPicture.asset(
                             'assets/icons/notification.svg',
