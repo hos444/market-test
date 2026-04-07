@@ -1,6 +1,7 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -18,17 +19,54 @@ class Login extends StatelessWidget {
               // logo image
               Stack(
                 children: [
-                  Image.asset('assets/logo/Image.png', height: 244, width: 244),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 300,
+                    child: Image.asset(
+                      'assets/logo/Image.png',
+                      height: 244,
+                      width: 244,
+                    ),
+                  ),
+                  Positioned(
+                    top: 10,
+                    right: 10,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        CircleAvatar(
+                          radius: 22,
+                          backgroundColor: Colors.grey.shade200,
+                          child: IconButton(
+                            onPressed: () {
+                              final locale =
+                                  context.locale.languageCode == 'en'
+                                      ? const Locale('ar')
+                                      : const Locale('en');
+                              context.setLocale(locale);
+                            },
+                            icon: const Icon(
+                              Icons.language,
+                              color: Colors.black,
+                              size: 24,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
+
+              const SizedBox(height: 10),
               //Email box
               Column(
                 children: [
                   Row(
                     children: [
                       Text(
-                        'Email',
+                        'email'.tr(),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -43,9 +81,9 @@ class Login extends StatelessWidget {
                       color: Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const TextField(
+                    child: TextField(
                       decoration: InputDecoration(
-                        hintText: "Inter your email.....",
+                        hintText: 'hentpassword'.tr(),
                         border: InputBorder.none,
                       ),
                     ),
@@ -54,7 +92,7 @@ class Login extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Password',
+                        'password'.tr(),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -69,9 +107,9 @@ class Login extends StatelessWidget {
                       color: Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const TextField(
+                    child: TextField(
                       decoration: InputDecoration(
-                        hintText: "inter your password.......",
+                        hintText: 'hentemail'.tr(),
                         border: InputBorder.none,
                       ),
                     ),
@@ -89,9 +127,9 @@ class Login extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
-                  child: const Text(
-                    "Forget Password ?",
-                    style: TextStyle(
+                  child: Text(
+                    'forget_password'.tr(),
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.blue,
@@ -111,10 +149,12 @@ class Login extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(
+                        builder: (context) => MainScreen(initialPage: 0),
+                      ),
                     );
                   },
-                  child: const Text("Login"),
+                  child: Text('login'.tr()),
                 ),
               ),
 
@@ -122,7 +162,7 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Don’t have an account?',
+                    'dont_have_account'.tr(),
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextButton(
@@ -132,9 +172,9 @@ class Login extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => SingUp()),
                       );
                     },
-                    child: const Text(
-                      "Register",
-                      style: TextStyle(
+                    child: Text(
+                      'register'.tr(),
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.blue,
