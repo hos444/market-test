@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 void showDeleteAccountSheet(BuildContext context) {
@@ -30,7 +31,7 @@ void showDeleteAccountSheet(BuildContext context) {
 
             /// title
             Text(
-              "Delete Account",
+              "delete_account".tr(),
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
 
@@ -38,8 +39,7 @@ void showDeleteAccountSheet(BuildContext context) {
 
             /// description
             Text(
-              "Are you sure you want to delete your account? "
-              "This action cannot be undone.",
+              "Farmer_J.delete_account_confirmation".tr(),
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey.shade600, height: 1.5),
             ),
@@ -62,7 +62,7 @@ void showDeleteAccountSheet(BuildContext context) {
                   // DELETE ACCOUNT LOGIC
                 },
                 child: Text(
-                  "Delete Account",
+                  "delete_account".tr(),
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
@@ -81,7 +81,7 @@ void showDeleteAccountSheet(BuildContext context) {
                   ),
                 ),
                 onPressed: () => Navigator.pop(context),
-                child: Text("Cancel"),
+                child: Text("Farmer_J.cancel".tr()),
               ),
             ),
 

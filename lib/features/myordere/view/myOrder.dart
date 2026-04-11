@@ -1,4 +1,5 @@
 // ignore: file_names
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -9,19 +10,9 @@ class Myorder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (_) => MainScreen(initialPage: 0), // 2 = Cart
-              ),
-            );
-          },
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-        ),
-        title: const Text(
-          "My Orders",
+        leading: ArrowBack(),
+        title: Text(
+          "myOrders.title".tr(),
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
         ),
 

@@ -1,98 +1,152 @@
-import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:finall_app/core/theme/app_color.dart';
+import 'package:finall_app/core/utils/arrow.dart';
+import 'package:finall_app/core/utils/elevated_botton.dart';
 
-class ChangePassword extends StatelessWidget {
-  const ChangePassword({super.key});
+class ChangePasswordScreen extends StatefulWidget {
+  const ChangePasswordScreen({super.key});
+
+  @override
+  State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
+}
+
+class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+  bool obscureOld = true;
+  bool obscureNew = true;
+  bool obscureConfirm = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.scaffold,
       appBar: AppBar(
+        backgroundColor: AppColors.scaffold,
+        elevation: 0,
         leading: ArrowBack(),
-        title: Text(
-          'Change Password',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
         centerTitle: true,
+        title: Text(
+          "change_password".tr(),
+          style: const TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
+
       body: Padding(
-        padding: const EdgeInsets.only(left: 8.0, right: 10),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(height: 40),
-              Text(
-                'Enter your current and new password below.',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              Container(
-                height: 53,
-                width: 358,
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Current password",
-                    border: InputBorder.none,
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            /// 🔹 Card Container
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(25),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
                   ),
-                ),
+                ],
               ),
-              SizedBox(height: 20),
-              Container(
-                height: 53,
-                width: 358,
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "New password",
-                    border: InputBorder.none,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  /// Old Password
+                  _buildLabel("old".tr()),
+                  _buildPasswordField(
+                    hint: "enter_old_password".tr(),
+                    obscure: obscureOld,
+                    onToggle: () {
+                      setState(() => obscureOld = !obscureOld);
+                    },
                   ),
-                ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                height: 53,
-                width: 358,
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Confirm password",
-                    border: InputBorder.none,
+
+                  const SizedBox(height: 15),
+
+                  /// New Password
+                  _buildLabel("new_password".tr()),
+                  _buildPasswordField(
+                    hint: "enter_new_password".tr(),
+                    obscure: obscureNew,
+                    onToggle: () {
+                      setState(() => obscureNew = !obscureNew);
+                    },
                   ),
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(right: 15.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 234, 176, 49),
-                    foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+
+                  const SizedBox(height: 15),
+
+                  /// Confirm Password
+                  _buildLabel("confirm_password".tr()),
+                  _buildPasswordField(
+                    hint: "confirm_new_password".tr(),
+                    obscure: obscureConfirm,
+                    onToggle: () {
+                      setState(() => obscureConfirm = !obscureConfirm);
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SettingScreen()),
-                    );
-                  },
-                  child: const Text("Update Your Password"),
-                ),
+                ],
               ),
-              SizedBox(height: 20),
-            ],
+            ),
+
+            const Spacer(),
+
+            /// 🔹 Button
+            SizedBox(
+              width: double.infinity,
+              height: 55,
+              child: ElevatedBotton(titel: "save_edits".tr()),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// 🔹 Label
+  Widget _buildLabel(String text) {
+    return Text(
+      text,
+      style: const TextStyle(fontSize: 13, color: Colors.black54),
+    );
+  }
+
+  /// 🔹 Password Field
+  Widget _buildPasswordField({
+    required String hint,
+    required bool obscure,
+    required VoidCallback onToggle,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(top: 5),
+      child: TextField(
+        obscureText: obscure,
+        decoration: InputDecoration(
+          hintText: hint,
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 12,
+            vertical: 14,
+          ),
+          suffixIcon: IconButton(
+            icon: Icon(
+              obscure ? Icons.visibility_off : Icons.visibility,
+              color: Colors.green,
+            ),
+            onPressed: onToggle,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Colors.grey.shade300),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: Colors.green),
           ),
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/features/payments/widget/add_card.dart';
 import 'package:flutter/material.dart';
 
@@ -39,12 +39,12 @@ class _PaymentSectionState extends State<PaymentSection>
                 const SizedBox(width: 12),
 
                 /// title
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Payment Method",
+                        "payment_method_title".tr(),
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                       SizedBox(height: 2),

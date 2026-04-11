@@ -1,5 +1,6 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Natifiation extends StatelessWidget {
   const Natifiation({super.key});
@@ -8,7 +9,7 @@ class Natifiation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifications'),
+        title: Text("Notifications".tr()),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
@@ -39,7 +40,7 @@ class Natifiation extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                'No Notifications Yet',
+                "NoNotifications".tr(),
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
@@ -60,7 +61,7 @@ class Natifiation extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text("Go to Home"),
+                child: Text("backhome".tr()),
               ),
             ],
           ),

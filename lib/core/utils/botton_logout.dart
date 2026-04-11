@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ void showLogOutSheet(BuildContext context) {
 
             /// title
             Text(
-              "Log Out",
+              "Farmer_J.logout".tr(),
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
 
@@ -39,7 +40,7 @@ void showLogOutSheet(BuildContext context) {
 
             /// description
             Text(
-              "Are you sure you want to Log Out your account? ",
+              "Farmer_J.logout_confirmation".tr(),
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey.shade600, height: 1.5),
             ),
@@ -62,7 +63,7 @@ void showLogOutSheet(BuildContext context) {
                   // DELETE ACCOUNT LOGIC
                 },
                 child: Text(
-                  "Log Out",
+                  "Farmer_J.logout".tr(),
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
@@ -81,7 +82,7 @@ void showLogOutSheet(BuildContext context) {
                   ),
                 ),
                 onPressed: () => Navigator.pop(context),
-                child: Text("Cancel"),
+                child: Text("Farmer_J.cancel".tr()),
               ),
             ),
 

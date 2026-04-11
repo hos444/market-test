@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:finall_app/features/order_details/view/order_truck.dart';
 import 'package:flutter/material.dart';
@@ -80,7 +81,7 @@ class OrderCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Status",
+                "myOrders.status".tr(),
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -94,7 +95,7 @@ class OrderCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
-                  "Pending",
+                  "orderStatus.pending".tr(),
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
@@ -108,7 +109,7 @@ class OrderCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Delivery Date",
+                "myOrders.orderDate".tr(),
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -142,7 +143,7 @@ class OrderCard extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    "View details",
+                    "orderDetails.title".tr(),
                     style: TextStyle(color: Colors.green),
                   ),
                 ),
@@ -161,7 +162,10 @@ class OrderCard extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 14),
                   ),
                   onPressed: () {},
-                  child: Text("Cancel", style: TextStyle(color: Colors.white)),
+                  child: Text(
+                    "Farmer_J.cancel".tr(),
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ],

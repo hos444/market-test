@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 
 class SingUp extends StatefulWidget {
@@ -30,15 +30,15 @@ class _ChooseProfileScreenState extends State<SingUp> {
               ),
 
               const SizedBox(height: 20),
-              const Text(
-                "Who are you?",
+              Text(
+                "who".tr(),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 8),
 
               Text(
-                "Choose your profile type.",
+                "choose".tr(),
                 style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
 
@@ -47,8 +47,8 @@ class _ChooseProfileScreenState extends State<SingUp> {
               SingUpItem(
                 index: 0,
                 icon: Icons.agriculture,
-                title: "I am a Farmer",
-                subtitle: "Sell produce & manage harvest",
+                title: "Farmer".tr(),
+                subtitle: "farme".tr(),
               ),
 
               SizedBox(height: 16),
@@ -56,8 +56,8 @@ class _ChooseProfileScreenState extends State<SingUp> {
               SingUpItem(
                 index: 1,
                 icon: Icons.store,
-                title: "I am a Merchant",
-                subtitle: "Buy bulk for retail/wholesale",
+                title: "marchant".tr(),
+                subtitle: "march".tr(),
               ),
 
               SizedBox(height: 16),
@@ -65,8 +65,8 @@ class _ChooseProfileScreenState extends State<SingUp> {
               SingUpItem(
                 index: 2,
                 icon: Icons.local_shipping,
-                title: "Logistics / Corp",
-                subtitle: "Fleet & supply chain",
+                title: "crop".tr(),
+                subtitle: "croop".tr(),
               ),
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
@@ -62,14 +63,14 @@ class _FavouriteState extends State<Favourite> {
         ),
         title: Center(
           child: Text(
-            'Favourite ',
+            "favourites".tr(),
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
           ),
         ),
       ),
 
       //bottom bar is readyv
-     
+
       //card prodect ned to upgread to clickapell
       // by add icon favourite
       body: SizedBox(

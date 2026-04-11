@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title: Text("search".tr()),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -44,7 +45,7 @@ class SearchScreen extends StatelessWidget {
             //icon need to link to search function
             TextField(
               decoration: InputDecoration(
-                hintText: "Search.....",
+                hintText: "search_hint".tr(),
                 border: InputBorder.none,
                 icon: IconButton(icon: Icon(Icons.search), onPressed: () {}),
               ),
@@ -55,14 +56,14 @@ class SearchScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Recent',
+                    "Recent".tr(),
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
                   ),
                   Spacer(),
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Clear All',
+                      "clear".tr(),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 13,

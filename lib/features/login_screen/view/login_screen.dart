@@ -118,29 +118,30 @@ class Login extends StatelessWidget {
               ),
 
               //text forget password
-              Padding(
-                padding: const EdgeInsets.only(right: 200.0),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    );
-                  },
-                  child: Text(
-                    'forget_password'.tr(),
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    },
+                    child: Text(
+                      "forget".tr(),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
               // SizedBox(height: 10),
               //text botton login
               Padding(
-                padding: const EdgeInsets.only(right: 15.0),
+                padding: const EdgeInsets.only(right: 15.0, left: 15),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 116, 182, 37),
@@ -150,7 +151,7 @@ class Login extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MainScreen(initialPage: 0),
+                        builder: (context) => OnboardingScreen(),
                       ),
                     );
                   },
@@ -162,7 +163,7 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'dont_have_account'.tr(),
+                    "already_account".tr(),
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextButton(

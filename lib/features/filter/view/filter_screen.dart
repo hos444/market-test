@@ -1,5 +1,6 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -15,13 +16,13 @@ class _FilterScreenState extends State<FilterScreen> {
   int selectedRating = 0;
 
   List<String> categories = [
-    "All",
-    "Vegetables",
-    "Fruits",
-    "Citrus",
-    "Nuts",
-    "Herbs",
-    "Grains",
+    "all".tr(),
+    "vegetables".tr(),
+    "fruits".tr(),
+    "citrus".tr(),
+    "nuts".tr(),
+    "herbs".tr(),
+    "grains".tr(),
   ];
 
   int selectedCategory = 0;
@@ -32,8 +33,8 @@ class _FilterScreenState extends State<FilterScreen> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         leading: Icon(Icons.arrow_back_ios, color: Colors.black),
-        title: const Text(
-          "Filter",
+        title: Text(
+          "filter".tr(),
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -47,7 +48,7 @@ class _FilterScreenState extends State<FilterScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Categories",
+                "categories".tr(),
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
@@ -91,7 +92,7 @@ class _FilterScreenState extends State<FilterScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Price Range",
+                "price_range".tr(),
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
@@ -128,7 +129,7 @@ class _FilterScreenState extends State<FilterScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Rating",
+                "rating".tr(),
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
@@ -181,8 +182,8 @@ class _FilterScreenState extends State<FilterScreen> {
                     MaterialPageRoute(builder: (context) => SearchScreen()),
                   );
                 },
-                child: const Text(
-                  "apply now",
+                child: Text(
+                  "apply_now".tr(),
                   style: TextStyle(color: Colors.white),
                 ),
               ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/botton_logout.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
@@ -165,7 +166,7 @@ class _UserScreenState extends State<UserScreen> {
                   child: Row(
                     children: [
                       Text(
-                        'Account settings',
+                        "account".tr(),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 19,
@@ -178,7 +179,7 @@ class _UserScreenState extends State<UserScreen> {
                 SizedBox(height: 5),
                 //container for account settings
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  padding: EdgeInsets.symmetric(horizontal: 18.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 230, 228, 228),
@@ -193,7 +194,7 @@ class _UserScreenState extends State<UserScreen> {
                             height: 24,
                             width: 24,
                           ),
-                          title: const Text(' My Order '),
+                          title: Text("myOrders.title".tr()),
                           onTap: () {
                             Navigator.push(
                               context,
@@ -213,7 +214,7 @@ class _UserScreenState extends State<UserScreen> {
                             height: 24,
                             width: 24,
                           ),
-                          title: const Text('Address'),
+                          title: Text("address".tr()),
                           onTap: () {
                             Navigator.push(
                               context,
@@ -253,7 +254,7 @@ class _UserScreenState extends State<UserScreen> {
                             height: 24,
                             width: 24,
                           ),
-                          title: const Text('Notifications'),
+                          title: Text("Farmer_J.notifications".tr()),
                           onTap: () {
                             Navigator.push(
                               context,
@@ -273,7 +274,7 @@ class _UserScreenState extends State<UserScreen> {
                             height: 24,
                             width: 24,
                           ),
-                          title: const Text('Settings'),
+                          title: Text("settings".tr()),
                           onTap: () {
                             Navigator.push(
                               context,
@@ -310,8 +311,8 @@ class _UserScreenState extends State<UserScreen> {
                         height: 24,
                         width: 24,
                       ),
-                      title: const Text(
-                        'Log out',
+                      title: Text(
+                        "Farmer_J.logout".tr(),
                         style: TextStyle(color: Colors.red),
                       ),
                       onTap: () {

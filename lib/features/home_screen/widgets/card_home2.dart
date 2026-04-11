@@ -2,6 +2,7 @@ import 'package:finall_app/features/cart/models/models.dart';
 import 'package:finall_app/features/cart/widgets/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Cardhome2 extends StatelessWidget {
   final String name;
@@ -74,7 +75,7 @@ class Cardhome2 extends StatelessWidget {
                             ],
                           ),
                           Text(
-                            '50 reviews',
+                            "reviews_count".tr(),
                             style: TextStyle(color: Colors.grey, fontSize: 12),
                           ),
                         ],
@@ -105,9 +106,10 @@ class Cardhome2 extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
+          Positioned.directional(
+            textDirection: Directionality.of(context),
             bottom: 12,
-            right: 20,
+            end: 20,
             child: Container(
               width: 35,
               height: 35,
@@ -133,9 +135,10 @@ class Cardhome2 extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          Positioned.directional(
+            textDirection: Directionality.of(context),
             bottom: 12,
-            right: 70,
+            end: 70,
             child: Container(
               width: 35,
               height: 35,

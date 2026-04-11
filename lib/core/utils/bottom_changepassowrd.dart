@@ -33,7 +33,7 @@ class Listtile extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ChangePassword()),
+              MaterialPageRoute(builder: (context) => ChangePasswordScreen()),
             );
           },
           trailing: const Icon(Icons.arrow_forward_ios, size: 18),

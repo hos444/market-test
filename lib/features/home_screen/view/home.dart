@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 
@@ -24,49 +25,52 @@ class _HomePageState extends State<HomePage> {
   //Category List
   List<CategoryHomeModel> categoryModel = [
     CategoryHomeModel(
-      name: 'Beverages',
+      name: "beverages".tr(),
       image: 'assets/category/Beverages.png',
     ),
-    CategoryHomeModel(name: 'fruits', image: 'assets/category/fruits.png'),
+    CategoryHomeModel(name: "fruits".tr(), image: 'assets/category/fruits.png'),
     CategoryHomeModel(
-      name: 'Milk & egg',
+      name: "milk_egg".tr(),
       image: 'assets/category/Milk & egg.png',
     ),
     CategoryHomeModel(
-      name: 'Vegetable',
+      name: "vegetables".tr(),
       image: 'assets/category/Vegetable.png',
     ),
-    CategoryHomeModel(name: 'Laundry', image: 'assets/category/Laundry.png'),
+    CategoryHomeModel(
+      name: "laundry".tr(),
+      image: 'assets/category/Laundry.png',
+    ),
   ];
   //flash deals List
   List<FreashModel> freashItem = [
     FreashModel(
-      nameCart: 'Limon',
+      nameCart: "lemon".tr(),
       imageCart: 'assets/fruits/limon.png',
       priceCart: '100.0',
     ),
     FreashModel(
-      nameCart: 'pepper',
+      nameCart: "pepper".tr(),
       imageCart: 'assets/fruits/pepper.png',
       priceCart: '100.0',
     ),
     FreashModel(
-      nameCart: 'Biscuit',
+      nameCart: "biscuit".tr(),
       imageCart: 'assets/fruits/biscuit.png',
       priceCart: '150.0',
     ),
     FreashModel(
-      nameCart: 'Banana',
+      nameCart: "banana".tr(),
       imageCart: 'assets/fruits/banana.png',
       priceCart: '200',
     ),
     FreashModel(
-      nameCart: 'Orange',
+      nameCart: "orange".tr(),
       imageCart: 'assets/fruits/orang.png',
       priceCart: '250',
     ),
     FreashModel(
-      nameCart: 'Srobary',
+      nameCart: "strawberry".tr(),
       imageCart: 'assets/fruits/strobary.png',
       priceCart: '200',
     ),
@@ -97,8 +101,8 @@ class _HomePageState extends State<HomePage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('HELLO,', style: AppTextStyles.heading),
-                  Text('User name'),
+                  Text('welcome'.tr(), style: AppTextStyles.heading),
+                  Text("user_name".tr()),
                 ],
               ),
               Spacer(),
@@ -186,7 +190,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Text(
-                    'Category ',
+                    "category".tr(),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -203,8 +207,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       );
                     },
-                    child: const Text(
-                      "See All",
+                    child: Text(
+                      'see_all'.tr(),
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -233,7 +237,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Exclusive offers',
+                    "offers".tr(),
                     style: TextStyle(
                       color: AppColors.warning,
                       fontWeight: FontWeight.bold,
@@ -241,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    "Today's best deals",
+                    "offerss".tr(),
                     style: TextStyle(
                       color: AppColors.primary,
                       fontWeight: FontWeight.bold,
@@ -278,8 +282,8 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
                 children: [
-                  const Text(
-                    'Flash Deals',
+                  Text(
+                    "flashdeals".tr(),
                     style: TextStyle(
                       color: AppColors.textPrimary,
                       fontWeight: FontWeight.bold,
@@ -290,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      'See All',
+                      "see_all".tr(),
                       style: TextStyle(
                         color: AppColors.textSecondary,
                         fontWeight: FontWeight.bold,
@@ -328,10 +332,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: const Row(
+              child: Row(
                 children: [
                   Text(
-                   'home.',
+                    "fruits".tr(),
                     style: TextStyle(
                       color: AppColors.textPrimary,
                       fontWeight: FontWeight.bold,
@@ -340,7 +344,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Spacer(),
                   Text(
-                    'See All',
+                    "see_all".tr(),
                     style: TextStyle(
                       color: AppColors.textSecondary,
                       fontWeight: FontWeight.bold,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +13,8 @@ class AddressDetails extends StatelessWidget {
         /// name + edit
         Row(
           children: [
-            const Text(
-              "Home",
+            Text(
+              "home".tr(),
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             const Spacer(),

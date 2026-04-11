@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/features/cart/widgets/cart_controller.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
@@ -50,7 +51,7 @@ class _CartScreenState extends State<CartScreen> {
           },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
         ),
-        title: Text("My Cart", style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text("cart".tr(), style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
       ),
 
@@ -106,7 +107,7 @@ class _CartScreenState extends State<CartScreen> {
               child: Consumer<CartController>(
                 builder: (context, cart, child) {
                   return Text(
-                    "Total: \$${calculateTotal(cart)}",
+                    "${"total".tr()} \$${calculateTotal(cart)}",
                     style: TextStyle(fontSize: 22),
                   );
                 },
@@ -134,7 +135,7 @@ class _CartScreenState extends State<CartScreen> {
                   );
                 },
                 child: Text(
-                  'Checkout',
+                  "checkout".tr(),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),

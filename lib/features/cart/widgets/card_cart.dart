@@ -94,19 +94,19 @@ class Cartcard extends StatelessWidget {
         ),
 
         // العداد على اليمين
-        Positioned(
-          right: 10,
-          top: 10,
-
+        Positioned.directional(
+          textDirection: Directionality.of(context),
+          end: 15,
+          top: 15,
           child: IconButton(
             onPressed: onDelete,
             icon: Icon(Icons.delete, color: Colors.red),
           ),
         ),
-        Positioned(
-          right: 15,
+        Positioned.directional(
+          textDirection: Directionality.of(context),
+          end: 20,
           bottom: 10,
-
           child: QuantityCounter(
             quantity: quantity,
             onIncrease: onIncrease,

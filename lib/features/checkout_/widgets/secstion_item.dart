@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'checkout_itemcard.dart';
@@ -39,17 +40,17 @@ class _CheckoutItemsSectionState extends State<CheckoutItemsSection>
                 const SizedBox(width: 12),
 
                 /// title
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Order Items",
+                        "orderDetails.products".tr(),
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                       SizedBox(height: 2),
                       Text(
-                        "Tap to view all items",
+                        "orderDetails.productsCount".tr(),
                         style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ],
@@ -72,7 +73,7 @@ class _CheckoutItemsSectionState extends State<CheckoutItemsSection>
           firstChild: const SizedBox(),
           secondChild: const Padding(
             padding: EdgeInsets.only(top: 12),
-            child: Column(children: [CheckoutItemCCard(), CheckoutItemCCard()]),
+            child: Column(children: [CheckoutItemCCard()]),
           ),
           crossFadeState:
               isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,

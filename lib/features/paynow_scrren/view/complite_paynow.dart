@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ class PaynowComplite extends StatelessWidget {
 
               // ✅ Title
               Text(
-                "Payment Successful",
+                "orderSuccess.title".tr(),
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -41,7 +42,7 @@ class PaynowComplite extends StatelessWidget {
 
               // ✅ Subtitle
               Text(
-                "Your payment has been completed successfully.",
+                "orderSuccess.message".tr(),
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
               ),

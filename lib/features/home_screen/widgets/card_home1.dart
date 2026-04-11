@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +44,7 @@ class CardHome1 extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '50 reviews',
+                        "reviews_count".tr(),
                         style: TextStyle(color: Colors.grey, fontSize: 10),
                       ),
                     ],
@@ -78,7 +79,7 @@ class CardHome1 extends StatelessWidget {
                       },
 
                       child: Text(
-                        "Browse products",
+                        "browse_products".tr(),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,

@@ -1,20 +1,20 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutBottomSheet extends StatelessWidget {
-  
   const CheckoutBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           /// TITLE
-          const Text(
-            "Payment Summary",
+          Text(
+            "orderDetails.Payment Summary".tr(),
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w700,
@@ -40,7 +40,7 @@ class CheckoutBottomSheet extends StatelessWidget {
             ),
             child: Column(
               children: const [
-                _PriceRow("Item total", "\$23.00"),
+                _PriceRow("Item total", "\$29.99"),
                 SizedBox(height: 10),
                 _PriceRow("Shipping", "\$5.00"),
                 SizedBox(height: 10),
@@ -62,7 +62,7 @@ class CheckoutBottomSheet extends StatelessWidget {
                 ),
                 Spacer(),
                 Text(
-                  "\$31.00",
+                  "\$37.99",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

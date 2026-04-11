@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
-import 'package:finall_app/core/utils/checkout_bottomsheet.dart';
 import 'package:flutter/material.dart';
 
 class Checkout extends StatelessWidget {
@@ -10,7 +10,7 @@ class Checkout extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Checkout',
+          "checkout".tr(),
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -44,10 +44,10 @@ class Checkout extends StatelessWidget {
 
               //  ===== payment title =====
               const SizedBox(height: 24),
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Payment Method",
+                  "Payment".tr(),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -56,10 +56,10 @@ class Checkout extends StatelessWidget {
               const SizedBox(height: 16),
               const PaymentSection(),
               const SizedBox(height: 16),
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Delivery Date",
+                  "Delivery Date".tr(),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -105,7 +105,7 @@ class Checkout extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Estimated Delivery Date",
+                              "Delivery".tr(),
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,

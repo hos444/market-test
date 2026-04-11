@@ -1,5 +1,6 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SingUp2 extends StatelessWidget {
   const SingUp2({super.key});
@@ -10,7 +11,7 @@ class SingUp2 extends StatelessWidget {
       backgroundColor: const Color(0xffF6F6F6),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,32 +35,32 @@ class SingUp2 extends StatelessWidget {
                 SizedBox(height: 10),
 
                 Text(
-                  "Create Account",
+                  "create_account".tr(),
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
 
                 SizedBox(height: 6),
 
                 Text(
-                  "Join the largest agri-marketplace",
+                  "addaccount".tr(),
                   style: TextStyle(color: Colors.grey, fontSize: 14),
                 ),
 
                 SizedBox(height: 30),
 
-                buildTextField(hint: "Full Name"),
+                buildTextField(hint: "full_name".tr()),
 
                 SizedBox(height: 16),
 
-                buildTextField(hint: "Company/Farm Name"),
+                buildTextField(hint: "namefarme".tr()),
 
                 SizedBox(height: 16),
 
-                buildTextField(hint: "Email"),
+                buildTextField(hint: "email".tr()),
 
                 SizedBox(height: 16),
 
-                buildTextField(hint: "Password", isPassword: true),
+                buildTextField(hint: "password".tr(), isPassword: true),
 
                 SizedBox(height: 30),
 
@@ -78,13 +79,11 @@ class SingUp2 extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => OnboardingScreen(),
-                        ),
+                        MaterialPageRoute(builder: (context) => Login()),
                       );
                     },
                     child: Text(
-                      "Create Account",
+                      "create_account".tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

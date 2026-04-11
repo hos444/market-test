@@ -1,5 +1,6 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       // لما يخلص
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => MainScreen(initialPage: 0)),
       );
     }
   }
@@ -79,11 +80,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       onPressed: nextPage,
                       child: Text(
-                        index == pages.length - 1 ? "Get Start" : "Next",
+                        index == pages.length - 1
+                            ? "Get Start"
+                            : "Farmer_J.next".tr(),
+                        style: TextStyle(color: AppColors.background),
                       ),
                     ),
 
-                    TextButton(onPressed: skip, child: Text("Skip")),
+                    TextButton(
+                      onPressed: skip,
+                      child: Text("Farmer_J.skip".tr()),
+                    ),
                   ],
                 ),
               ),

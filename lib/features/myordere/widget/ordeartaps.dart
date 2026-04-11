@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class OrderStatusTabs extends StatefulWidget {
@@ -10,7 +11,11 @@ class OrderStatusTabs extends StatefulWidget {
 class _OrderStatusTabsState extends State<OrderStatusTabs> {
   int selectedIndex = 0;
 
-  final List<String> tabs = ["Pending", "Cancelled", "Delivered"];
+  final List<String> tabs = [
+    "orderStatus.pending".tr(),
+    "orderStatus.completed".tr(),
+    "orderStatus.canceled".tr(),
+  ];
 
   @override
   Widget build(BuildContext context) {
