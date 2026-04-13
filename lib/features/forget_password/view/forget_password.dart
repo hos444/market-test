@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 
@@ -10,6 +11,7 @@ class ForgetPasswordScreen extends StatefulWidget {
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   final TextEditingController emailController = TextEditingController();
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool isLoading = false;
@@ -19,86 +21,115 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
     setState(() => isLoading = true);
 
+    /// simulate API
     await Future.delayed(const Duration(seconds: 2));
 
     setState(() => isLoading = false);
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Reset link sent to your email")),
-    );
-
-    // ⬇️ هنا نروح لصفحة Reset Password
-    Navigator.pushReplacement(
+    /// navigate to OTP screen
+    Navigator.push(
       context,
-      MaterialPageRoute(builder: (_) => const ResetPasswordScreen()),
+      MaterialPageRoute(builder: (_) => const VerifyEmailScreen()),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Forget Password"), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
+      backgroundColor: Colors.grey[100],
 
-              const Text(
-                "Enter your email to receive reset link",
-                style: TextStyle(fontSize: 16),
-              ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
 
-              const SizedBox(height: 20),
-
-              TextFormField(
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  labelText: "Email",
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(
-                    Icons.email_outlined,
-                    color: AppColors.primary,
-                  ),
+                /// Title
+                 Text(
+                  "forgot_password".tr(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Email is required";
-                  }
-                  if (!value.contains("@")) {
-                    return "Enter a valid email";
-                  }
-                  return null;
-                },
-              ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.accent,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                /// Subtitle
+                 Text(
+                  "enter_email_desc".tr(),
+                  style: TextStyle(color: Colors.grey),
+                ),
+
+                const SizedBox(height: 40),
+
+                /// Email Field (Styled زي OTP)
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: AppColors.primary, width: 1.5),
+                  ),
+                  child: TextFormField(
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration:  InputDecoration(
+                      hintText: "email_hint".tr(),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 18,
+                      ),
+                      prefixIcon: Icon(
+                        Icons.email_outlined,
+                        color: AppColors.primary,
+                      ),
                     ),
+
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "email_required".tr();
+                      }
+
+                      if (!value.contains("@") || !value.contains(".")) {
+                        return "email_invalid".tr();
+                      }
+
+                      return null;
+                    },
                   ),
-                  onPressed: isLoading ? null : sendResetLink,
-                  child:
-                      isLoading
-                          ? const CircularProgressIndicator(
-                            color: AppColors.accent,
-                          )
-                          : const Text("Send Reset Link"),
                 ),
-              ),
-            ],
+
+                const SizedBox(height: 40),
+
+                /// Button (زي OTP)
+                Container(
+                  width: double.infinity,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [AppColors.primary, AppColors.accent],
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: MaterialButton(
+                    onPressed: isLoading ? null : sendResetLink,
+                    child:
+                        isLoading
+                            ? const CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                            : Text(
+                              "send_code".tr(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -27,6 +27,7 @@ export 'package:finall_app/features/order_details/view/order_details.dart';
 export 'package:finall_app/features/order_details/view/order_truck.dart';
 export 'package:finall_app/features/forget_password/view/forget_password.dart';
 export 'package:finall_app/features/forget_password/view/resset_password.dart';
+export 'package:finall_app/features/verify_emaile/view/verigy_email.dart';
 
 // widgets of core
 export 'package:finall_app/core/utils/checkout_bottomsheet.dart';

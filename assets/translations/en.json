@@ -376,12 +376,11 @@
  
   "phone_hint": "01.......",
  
-  "email_hint": "@gmail.com",
+ 
   
   "change_password": "Change Password",
   "old": "Old Password",
-  "new_password": "New Password",
-  "confirm_password": "Confirm Password",
+  
   "enter_old_password": "Enter old password",
   "enter_new_password": "Enter new password",
   "confirm_new_password": "Confirm new password",
@@ -472,5 +471,32 @@
   "fresh_vegetables":"Fresh Vegetables",
   "helsy_food":"Healthy Food",
   "start_now":"Start Now",
-     "browse_products": "Browse Products"
+     "browse_products": "Browse Products",
+
+
+
+      "forgot_password": "Forgot Password",
+  "reset_password": "Reset Password",
+  "verify_email": "Verify Email",
+
+  "enter_email_desc": "Enter your email to receive a verification code",
+  "enter_code_desc": "Enter Confirmation code we sent to your email to confirm it's you",
+
+  "email_hint": "Enter your email",
+  "email_required": "Email is required",
+  "email_invalid": "Enter valid email",
+
+  "new_password": "New Password",
+  "confirm_password": "Confirm Password",
+
+  "send_code": "Send Code",
+  "verify": "Verify",
+  "resend_code": "Resend Code",
+
+  "fill_all_fields": "Please fill all fields",
+  "password_min_length": "Password must be at least 6 characters",
+  "password_not_match": "Passwords do not match",
+  "password_updated": "Password updated successfully 💚",
+"update_password": "Update Password",
+  "didnt_receive_code": "Didn't receive code?"
 }

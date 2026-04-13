@@ -370,14 +370,14 @@
   "save_edits": "حفظ التعديلات",
   "username_hint": "اسم المستخدم",
   "phone_hint": "01.......",
-  "email_hint": "@*****",
+ 
   "upload_image": "تحميل الصورة",
   "choose_image": "اختار صورة",
   
   "change_password": "تغيير كلمة المرور",
   "old": "كلمة المرور القديمة",
-  "new_password": "كلمة المرور الجديدة",
-  "confirm_password": "تأكيد كلمة المرور",
+  
+  
   "enter_old_password": "أدخل كلمة المرور القديمة",
   "enter_new_password": "أدخل كلمة المرور الجديدة",
   "confirm_new_password": "أكد كلمة المرور الجديدة",
@@ -462,7 +462,38 @@
 "helsy_food":"طعام صحي",
 "start_now":"ابدأ الآن",
         "card_number": "رقم البطاقة",
-  "cardholder_name": "اسم حامل البطاقة"
+  "cardholder_name": "اسم حامل البطاقة",
+
+
+
+
+
+
+
+   "forgot_password": "نسيت كلمة المرور",
+  "reset_password": "إعادة تعيين كلمة المرور",
+  "verify_email": "تأكيد البريد الإلكتروني",
+
+  "enter_email_desc": "أدخل بريدك الإلكتروني لإرسال رمز التحقق",
+  "enter_code_desc": "أدخل رمز التأكيد الذي أرسلناه إلى بريدك الإلكتروني للتأكد من هويتك",
+
+  "email_hint": "أدخل البريد الإلكتروني",
+  "email_required": "البريد الإلكتروني مطلوب",
+  "email_invalid": "أدخل بريد إلكتروني صحيح",
+
+  "new_password": "كلمة المرور الجديدة",
+  "confirm_password": "تأكيد كلمة المرور",
+  "update_password": "تحديث كلمة المرور",
+  "send_code": "إرسال الكود",
+  "verify": "تحقق",
+  "resend_code": "إعادة إرسال الكود",
+
+  "fill_all_fields": "من فضلك املأ كل الحقول",
+  "password_min_length": "كلمة المرور يجب ألا تقل عن 6 أحرف",
+  "password_not_match": "كلمتا المرور غير متطابقتين",
+  "password_updated": "تم تحديث كلمة المرور بنجاح 💚",
+
+  "didnt_receive_code": "لم يصلك الكود؟"
 
     
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -46,17 +47,17 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
     final confirmPass = confirmPasswordController.text.trim();
     // function of password
     if (newPass.isEmpty || confirmPass.isEmpty) {
-      _showWarning("Please fill all fields");
+      _showWarning("fill_all_fields".tr());
       return;
     }
 
     if (newPass.length < 6) {
-      _showWarning("Password must be at least 6 characters");
+      _showWarning("password_min_length".tr());
       return;
     }
 
     if (newPass != confirmPass) {
-      _showWarning("Passwords do not match");
+      _showWarning("password_not_match".tr());
       return;
     }
 
@@ -67,9 +68,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
     setState(() => isLoading = false);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         backgroundColor: Colors.green,
-        content: Text("Password updated successfully 💚"),
+        content: Text("password_updated".tr()),
       ),
     );
 
@@ -124,8 +125,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
 
                         const SizedBox(height: 10),
 
-                        const Text(
-                          "Reset Password",
+                        Text(
+                          "reset_password".tr(),
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -137,7 +138,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
 
                         _buildField(
                           controller: newPasswordController,
-                          label: "New Password",
+                          label: "new_password".tr(),
                           icon: Icons.lock_outline,
                         ),
 
@@ -145,7 +146,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
 
                         _buildField(
                           controller: confirmPasswordController,
-                          label: "Confirm Password",
+                          label: "confirm_password".tr(),
                           icon: Icons.lock_outline,
                         ),
 
@@ -169,7 +170,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
                                       color: AppColors.accent,
                                     )
                                     : Text(
-                                      "Update Password",
+                                      "update_password".tr(),
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
