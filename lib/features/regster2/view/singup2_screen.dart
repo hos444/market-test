@@ -22,14 +22,14 @@ class SingUp2 extends StatelessWidget {
                   },
                   icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                  child: SizedBox(
-                    width: 240,
-                    height: 248,
-                    child: Image.asset('assets/logo/Image.png'),
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                //   child: SizedBox(
+                //     width: 240,
+                //     height: 248,
+                //     child: Image.asset('assets/logo/Image.png'),
+                //   ),
+                // ),
 
                 // Back Button
                 SizedBox(height: 10),

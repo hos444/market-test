@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class AddCardScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "VISA",
+                    "orderDetails.visa".tr(),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -52,7 +53,7 @@ class AddCardScreen extends StatelessWidget {
                     ),
                   ),
                   Spacer(),
-                  Text(
+                  const Text(
                     "**** **** **** 1234",
                     style: TextStyle(
                       color: Colors.white,
@@ -66,9 +67,9 @@ class AddCardScreen extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            buildField("Cardholder Name"),
+            buildField("cardholder_name".tr()),
             const SizedBox(height: 15),
-            buildField("Card Number"),
+            buildField("card_number".tr()),
 
             const SizedBox(height: 15),
 
@@ -86,23 +87,14 @@ class AddCardScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               height: 55,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF2E7D32),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                ),
+              child: ElBotton(
+                titel: "visa_card_addn".tr(),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Checkout()),
                   );
                 },
-                child: Text(
-                  "Add New Card",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
               ),
             ),
           ],

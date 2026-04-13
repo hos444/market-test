@@ -85,7 +85,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             SizedBox(
               width: double.infinity,
               height: 55,
-              child: ElevatedBotton(titel: "save_edits".tr()),
+              child: ElBotton(titel: "save_edits".tr(),onPressed: (){
+                
+              },),
             ),
 
             const SizedBox(height: 20),

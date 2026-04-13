@@ -53,29 +53,16 @@ class PaynowComplite extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.secondary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
+                child: ElBotton(
+                  titel: "back_to_home".tr(),
                   onPressed: () {
-                    Navigator.pushAndRemoveUntil(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder:
-                            (_) => MainScreen(
-                              initialPage: 0, // 0 = Home
-                            ),
+                        builder: (_) => MainScreen(initialPage: 2),
                       ),
-                      (route) => false, // يمسح كل اللي فوق
                     );
                   },
-                  child: Text(
-                    "Back to Home",
-                    style: TextStyle(fontSize: 16, color: AppColors.scaffold),
-                  ),
                 ),
               ),
             ],

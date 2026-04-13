@@ -12,9 +12,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   int currentPage = 0;
 
   List<Map<String, String>> pages = [
-    {"image": "assets/onbording/1.png", "title": "Fresh Vegetables"},
-    {"image": "assets/onbording/2.png", "title": "Healthy Food"},
-    {"image": "assets/onbording/3.png", "title": "Start Now"},
+    {"image": "assets/onbording/1.png", "title": "fresh_vegetables".tr()},
+    {"image": "assets/onbording/2.png", "title": "helsy_food".tr()},
+    {"image": "assets/onbording/3.png", "title": "start_now".tr()},
   ];
 
   void nextPage() {
@@ -81,7 +81,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       onPressed: nextPage,
                       child: Text(
                         index == pages.length - 1
-                            ? "Get Start"
+                            ? "start_now".tr()
                             : "Farmer_J.next".tr(),
                         style: TextStyle(color: AppColors.background),
                       ),

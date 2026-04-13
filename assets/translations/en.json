@@ -330,6 +330,7 @@
     "placeName": "Place Name",
     "cashOnDelivery": "Cash on Delivery",
     "visa": "Visa",
+    
     "product": "product",
     "loadingOrders": "Loading orders...",
     "startShopping": "Start shopping to create your first order",
@@ -403,7 +404,7 @@
     "grains": "Grains",
     "price_range": "Price Range",
     "categories": "Categories",
-    "rating": "Rating",
+   
     "apply_now": "Apply Now",
     "filter": "Filter",
     "user_name": "User Name",
@@ -417,5 +418,59 @@
     "pepper": "Pepper",
     "lemon": "Lemon",
     "reviews_count": "50 Reviews",
+    "visa_card_add":"Add Card",
+    "visa_card_addn":"Add a New Card",
+"empty_cart_message": "You didn’t add any card yet",
+  "view_payment_options": "Tap to view all payment options",
+  "tap_to_add_card": "Tap to add a new card",
+  "add_new_card": "Add a new card",
+  "total_payment_amount": "Total payment amount",
+  "item_total": "Item total",
+  "shipping": "Shipping",
+  "tax": "Tax",
+
+
+   "titlea": "Add your address",
+    "map_placeholder": "Map Placeholder",
+    "add_current_location": "Add your current location",
+    "save_location": "Save this location",
+    "add_location": "Add this location",
+
+    "shipping_address": "Shipping address",
+    "address_name": "Address name",
+    "governorate": "Governorate",
+    "city": "City",
+    "district": "District",
+    "field_label": "Field label",
+    "street_name": "Street name",
+    "floor_unit": "Floor / Unit",
+
+    "receiver_contact": "Receiver contact",
+    "receiver_name": "Receiver name",
+    "mobile_number": "Mobile number",
+    "driver_notes": "Driver notes",
+
+
+   "title": "Product Details",
+ "add_to_cart": "Add to cart",
+   "description": "Description",
+      "info": "Info",
+      "rating": "Rating",
+
+          "name": "Banana",
+      "farmer_name": "Farmer name",
+      "price": "2730 LE",
+
+       "description_text": "Bananas are a popular tropical fruit known for their sweet taste and soft texture.\n They have a yellow peel and are rich in important nutrients like potassium and vitamins.\n They are a convenient and healthy snack that provides quick energy.",
+
+          "origin": "Origin: Imported from Ecuador",
+      "nutrition": "Nutrition: Rich in potassium, vitamin B6, and fiber",
+      "shelf_life": "Shelf life: 5-7 days at room temperature",
+"back_to_home": "Back to home",
+"card_number": "Card Number",
+  "cardholder_name": "Cardholder Name",
+  "fresh_vegetables":"Fresh Vegetables",
+  "helsy_food":"Healthy Food",
+  "start_now":"Start Now",
      "browse_products": "Browse Products"
 }

@@ -99,7 +99,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             SizedBox(
               width: double.infinity,
               height: 55,
-              child: ElevatedBotton(titel: "save_edits".tr()),
+              child: ElBotton(
+                titel: "save_edits".tr(),
+                onPressed: () => Navigator.pop(context),
+              ),
             ),
           ],
         ),

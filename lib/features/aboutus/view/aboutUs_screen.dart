@@ -34,7 +34,7 @@ class AboutusScreen extends StatelessWidget {
             SizedBox(height: 24),
 
             /// -------- SECTION 2 ----------
-            PolicySection(
+            const PolicySection(
               title: "2. Terms of services",
               content:
                   "Simply dummy text of the printing and typesetting industry. "
@@ -47,7 +47,7 @@ class AboutusScreen extends StatelessWidget {
             SizedBox(height: 24),
 
             /// -------- SECTION 3 ----------
-            PolicySection(
+            const PolicySection(
               title: "3. Condition of use",
               content:
                   "Sed sollicitudin nisi mollis libero consectetur rutrum. "

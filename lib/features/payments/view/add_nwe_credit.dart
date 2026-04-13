@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -37,21 +38,14 @@ class AddNewCredit extends StatelessWidget {
             SizedBox(height: 25),
 
             Text(
-              "You didn’t add any card yet",
+              "empty_message_ar".tr(),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
 
             SizedBox(height: 25),
 
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF66BB6A),
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 35, vertical: 14),
-              ),
+            ElBotton(
+              titel: "visa_card_add".tr(),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -63,7 +57,6 @@ class AddNewCredit extends StatelessWidget {
                   ),
                 );
               },
-              child: Text("Add Card"),
             ),
           ],
         ),

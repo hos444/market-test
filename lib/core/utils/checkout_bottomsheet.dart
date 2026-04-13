@@ -39,12 +39,12 @@ class CheckoutBottomSheet extends StatelessWidget {
               ],
             ),
             child: Column(
-              children: const [
-                _PriceRow("Item total", "\$29.99"),
+              children: [
+                _PriceRow("item_total_ar".tr(), "\$29.99"),
                 SizedBox(height: 10),
-                _PriceRow("Shipping", "\$5.00"),
+                _PriceRow("shipping_ar".tr(), "\$5.00"),
                 SizedBox(height: 10),
-                _PriceRow("Tax", "\$3.00"),
+                _PriceRow("tax_ar".tr(), "\$3.00"),
               ],
             ),
           ),
@@ -55,9 +55,9 @@ class CheckoutBottomSheet extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
             child: Row(
-              children: const [
+              children: [
                 Text(
-                  "Total payment amount",
+                  "cart_total".tr(),
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
                 Spacer(),
@@ -93,8 +93,8 @@ class CheckoutBottomSheet extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
-              child: const Text(
-                "Pay Now",
+              child: Text(
+                "visa_pay".tr(),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,

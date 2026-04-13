@@ -29,8 +29,8 @@ class Login extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 10,
-                    right: 10,
+                    top: 25,
+                    right: 5,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -83,7 +83,7 @@ class Login extends StatelessWidget {
                     ),
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: 'hentpassword'.tr(),
+                        hintText: 'hentemail'.tr(),
                         border: InputBorder.none,
                       ),
                     ),
@@ -109,7 +109,7 @@ class Login extends StatelessWidget {
                     ),
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: 'hentemail'.tr(),
+                        hintText: 'hentpassword'.tr(),
                         border: InputBorder.none,
                       ),
                     ),
@@ -124,7 +124,9 @@ class Login extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(
+                          builder: (context) => ForgetPasswordScreen(),
+                        ),
                       );
                     },
                     child: Text(

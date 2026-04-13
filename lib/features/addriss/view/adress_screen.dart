@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/arrow.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class _AddAddressScreenState extends State<AdressScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: ArrowBack(),
-        title: Text("Add your address"),
+        title: Text("titlea".tr()),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 1,
@@ -27,7 +28,7 @@ class _AddAddressScreenState extends State<AdressScreen> {
                 children: [
                   Container(
                     color: Colors.grey[300],
-                    child: Center(child: Text("Map Placeholder")),
+                    child: Center(child: Text("map_placeholder".tr())),
                   ),
 
                   Positioned(
@@ -38,7 +39,7 @@ class _AddAddressScreenState extends State<AdressScreen> {
                         backgroundColor: Colors.orange,
                       ),
                       onPressed: () {},
-                      child: Text("Add your current location"),
+                      child: Text("add_current_location".tr()),
                     ),
                   ),
 
@@ -50,7 +51,7 @@ class _AddAddressScreenState extends State<AdressScreen> {
                         backgroundColor: Colors.green,
                       ),
                       onPressed: () {},
-                      child: Text("save this location"),
+                      child: Text("save_location".tr()),
                     ),
                   ),
                 ],
@@ -63,19 +64,19 @@ class _AddAddressScreenState extends State<AdressScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  sectionTitle("shipping address"),
-                  textField("Address name"),
-                  rowFields(["Governate", "City", "District"]),
-                  textField("Field Label"),
-                  textField("Street Name"),
-                  textField("Floor / Unit"),
+                  sectionTitle("shipping_address".tr()),
+                  textField("address_name".tr()),
+                  rowFields(["governorate".tr(), "city".tr(), "district".tr()]),
+                  textField("field_label".tr()),
+                  textField("street_name".tr()),
 
+                  // textField("floor_unit".tr()),
                   SizedBox(height: 10),
 
-                  sectionTitle("Receiver contact"),
-                  textField("Receiver Name"),
-                  textField("Mobile Number"),
-                  textField("Driver Notes"),
+                  sectionTitle("receiver_contact".tr()),
+                  textField("receiver_name".tr()),
+                  textField("mobile_number".tr()),
+                  textField("driver_notes".tr()),
 
                   SizedBox(height: 20),
 
@@ -87,7 +88,7 @@ class _AddAddressScreenState extends State<AdressScreen> {
                         padding: EdgeInsets.symmetric(vertical: 14),
                       ),
                       onPressed: () {},
-                      child: Text("Add this location"),
+                      child: Text("add_location".tr()),
                     ),
                   ),
 
@@ -101,7 +102,7 @@ class _AddAddressScreenState extends State<AdressScreen> {
                         padding: EdgeInsets.symmetric(vertical: 14),
                       ),
                       onPressed: () {},
-                      child: Text("save this location"),
+                      child: Text("save_location".tr()),
                     ),
                   ),
                 ],

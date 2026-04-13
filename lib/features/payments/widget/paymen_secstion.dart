@@ -49,7 +49,7 @@ class _PaymentSectionState extends State<PaymentSection>
                       ),
                       SizedBox(height: 2),
                       Text(
-                        "Tap to view all payment options",
+                        "view_all_options_ar".tr(),
                         style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ],

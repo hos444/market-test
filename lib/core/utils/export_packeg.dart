@@ -12,9 +12,9 @@ export 'package:finall_app/features/filter/view/filter_screen.dart';
 export 'package:finall_app/features/favorite/view/favourite_screen.dart';
 export 'package:finall_app/features/cart/view/cart_screen.dart';
 export 'package:finall_app/features/checkout_/view/checkout_screen.dart';
-export 'package:finall_app/features/payments/view/payment_screen.dart';
+export 'package:finall_app/features/payments/view/add_nwe_credit.dart';
 export 'package:finall_app/features/profile_screen/view/user_screen.dart';
-export 'package:finall_app/features/paynow_scrren/view/complite_paynow.dart';
+export 'package:finall_app/features/finsh_pay/view/complite_paynow.dart';
 export 'package:finall_app/features/myordere/view/myOrder.dart';
 export 'package:finall_app/features/addCredit/view/addCard_screen.dart';
 export 'package:finall_app/features/addriss/view/adress_screen.dart';
@@ -25,6 +25,8 @@ export 'package:finall_app/features/editprofile/view/edit_profile_screen.dart';
 export 'package:finall_app/features/privacy/view/privacy_screen.dart';
 export 'package:finall_app/features/order_details/view/order_details.dart';
 export 'package:finall_app/features/order_details/view/order_truck.dart';
+export 'package:finall_app/features/forget_password/view/forget_password.dart';
+export 'package:finall_app/features/forget_password/view/resset_password.dart';
 
 // widgets of core
 export 'package:finall_app/core/utils/checkout_bottomsheet.dart';

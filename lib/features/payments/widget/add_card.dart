@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,17 +30,17 @@ class AddCard extends StatelessWidget {
           const SizedBox(width: 12),
 
           /// info
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Add a new Card",
+                  "add_new_ar".tr(),
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  "top to add a new card",
+                  "tap_to_add_ar".tr(),
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
               ],

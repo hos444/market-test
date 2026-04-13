@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,17 +52,17 @@ class Productdetails extends StatelessWidget {
                     controller: controller,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         SizedBox(height: 20),
                         RecipeHeader(),
                         SizedBox(height: 20),
-                        SectionTitle(title: "Description"),
+                        SectionTitle(title: "description".tr()),
                         SectionText(),
                         SizedBox(height: 20),
-                        SectionTitle(title: "info"),
+                        SectionTitle(title: "info".tr()),
                         IngredientsList(),
                         SizedBox(height: 20),
-                        SectionTitle(title: "Rating"),
+                        SectionTitle(title: "rating".tr()),
 
                         SizedBox(height: 20),
                         StepsList(),
@@ -142,8 +143,8 @@ class Productdetails extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text(
-                    "add to cart",
+                  child: Text(
+                    "add_to_cart".tr(),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -169,8 +170,8 @@ class RecipeHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Banana ",
+        Text(
+          "name".tr(),
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w700,
@@ -184,7 +185,7 @@ class RecipeHeader extends StatelessWidget {
             const CircleAvatar(radius: 14),
             const SizedBox(width: 8),
 
-            const Text("farmer name", style: TextStyle(fontSize: 14)),
+            Text("farmer_name".tr(), style: TextStyle(fontSize: 14)),
 
             const Spacer(),
 
@@ -194,8 +195,8 @@ class RecipeHeader extends StatelessWidget {
                 color: Colors.green.shade100,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: const Text(
-                "2730  LE",
+              child: Text(
+                "price".tr(),
                 style: TextStyle(
                   color: Colors.green,
                   fontWeight: FontWeight.w600,
@@ -232,12 +233,10 @@ class SectionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.only(top: 8),
       child: Text(
-        'Bananas are a popular tropical fruit known for their sweet taste and soft texture.\n'
-        'They have a yellow peel and are rich in important nutrients like potassium and vitamins.\n'
-        'They are a convenient and healthy snack that provides quick energy.',
+        "description_text".tr(),
         style: TextStyle(fontSize: 14, color: Colors.black54, height: 1.5),
       ),
     );
@@ -253,11 +252,9 @@ class IngredientsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        IngredientItem(text: "Origin:Imported from Ecuadoro"),
-        IngredientItem(
-          text: "Nutrition:Rich in Potassium, Vitamin B6, and Fiber",
-        ),
-        IngredientItem(text: "Shelf Life:5-7 days at room temperature"),
+        IngredientItem(text: "origin".tr()),
+        IngredientItem(text: "nutrition".tr()),
+        IngredientItem(text: "shelf_life".tr()),
       ],
     );
   }
