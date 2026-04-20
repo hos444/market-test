@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
-
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -27,21 +27,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
       imageCart: 'assets/fruits/limon.png',
       priceCart: '\$3.55',
     ),
-    FavouriteModel(
-      nameCart: 'pepper',
-      imageCart: 'assets/fruits/pepper.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'Biscuit',
-      imageCart: 'assets/fruits/biscuit.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'purex',
-      imageCart: 'assets/fruits/purex.png',
-      priceCart: '\$3.55',
-    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -58,8 +43,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
           },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
         ),
-        title: const Text(
-          "Category",
+        title: Text(
+          "category".tr(),
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
         ),
         centerTitle: true,

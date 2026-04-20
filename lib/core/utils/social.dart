@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialButton extends StatelessWidget {
   final String text;
-  final IconData icon;
+  final String icon;
   final Color color;
   final Color textColor;
   final Color? borderColor;
@@ -28,9 +29,9 @@ class SocialButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: textColor),
-          SizedBox(width: 10),
           Text(text, style: TextStyle(color: textColor, fontSize: 16)),
+          SizedBox(width: 10),
+          SvgPicture.asset(icon, height: 24, width: 24),
         ],
       ),
     );

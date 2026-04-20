@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 class CardProduct extends StatelessWidget {
-  const CardProduct({super.key});
+  final String price;
+  const CardProduct({super.key, required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class CardProduct extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Banana",
+                "Banana".tr(),
                 style: AppTextStyles.heading.copyWith(color: AppColors.primary),
               ),
               const SizedBox(height: 4),
@@ -35,7 +37,7 @@ class CardProduct extends StatelessWidget {
         ),
 
         Text(
-          "\$ 100.99",
+          price,
           style: AppTextStyles.heading.copyWith(color: Colors.orange),
         ),
       ],

@@ -13,102 +13,89 @@ class CardFavourite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: SizedBox(
-        width: 361,
-        height: 144,
-
-        child: Card(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
           color: Colors.white,
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //image prodect
-                    Container(
-                      width: 124,
-                      height: 121,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Image.asset(imageFavourite, fit: BoxFit.cover),
-                    ),
-                    SizedBox(width: 8),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // name prodect
-                        Text(
-                          nameFavourite,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: Colors.green,
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        // row of farm name
-                        Row(
-                          children: [
-                            Text('Farm Name :', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                        //price
-                        Row(
-                          children: [
-                            Text('min weight: 50kg/ '),
-                            Text(
-                              '\$ $priceFavourite',
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16,
-                                color: const Color.fromARGB(255, 255, 161, 19),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            // زرار
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 6,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.orange,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                "add to cart",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                            SizedBox(width: 20),
-                            // لينك
-                            Text(
-                              "More details >",
-                              style: TextStyle(
-                                color: Colors.green,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: Colors.green, width: 2),
+        ),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Center(
+                  child: Image.asset(
+                    imageFavourite,
+                    height: 80,
+                    width: 100,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const Positioned(
+                  right: 0,
+                  child: Icon(Icons.favorite, color: Colors.green, size: 22),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 10),
+
+            Text(
+              nameFavourite,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 6),
+
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "4.5/5",
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(width: 6),
+                Icon(Icons.star, size: 16, color: Colors.green),
+                Icon(Icons.star, size: 16, color: Colors.green),
+                Icon(Icons.star, size: 16, color: Colors.green),
+                Icon(Icons.star, size: 16, color: Colors.green),
+                Icon(Icons.star_half, size: 16, color: Colors.green),
+              ],
+            ),
+
+            const SizedBox(height: 6),
+
+            Text(
+              priceFavourite,
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+            ),
+
+            const Spacer(),
+
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                onPressed: () {},
+                child: const Text(
+                  "إضافة إلى السلة",
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

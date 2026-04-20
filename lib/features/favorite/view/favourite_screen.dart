@@ -25,23 +25,8 @@ class _FavouriteState extends State<Favourite> {
       priceCart: '\$3.55',
     ),
     FavouriteModel(
-      nameCart: 'Limon',
-      imageCart: 'assets/fruits/limon.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'pepper',
-      imageCart: 'assets/fruits/pepper.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'Biscuit',
-      imageCart: 'assets/fruits/biscuit.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'purex',
-      imageCart: 'assets/fruits/purex.png',
+      nameCart: 'Apple',
+      imageCart: 'assets/fruits/apple.png',
       priceCart: '\$3.55',
     ),
   ];
@@ -73,21 +58,25 @@ class _FavouriteState extends State<Favourite> {
 
       //card prodect ned to upgread to clickapell
       // by add icon favourite
-      body: SizedBox(
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: List.generate(carditemFavourite.length, (index) {
-              final item = carditemFavourite[index];
-              return CardFavourite(
-                nameFavourite: item.nameCart,
-                imageFavourite: item.imageCart,
-                priceFavourite: item.priceCart,
-              );
-            }),
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: GridView.builder(
+          itemCount: carditemFavourite.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            childAspectRatio: 0.72,
           ),
+          itemBuilder: (context, index) {
+            final item = carditemFavourite[index];
+
+            return CardFavourite(
+              nameFavourite: item.nameCart,
+              imageFavourite: item.imageCart,
+              priceFavourite: item.priceCart,
+            );
+          },
         ),
       ),
     );

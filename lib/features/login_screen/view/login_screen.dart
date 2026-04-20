@@ -69,10 +69,11 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(right: 15.0, left: 15),
                 child: InkWell(
                   child: SocialButton(
-                    text: "التسجيل عبر Facebook",
-                    icon: Icons.facebook,
-                    color: Color(0xff1877F2),
-                    textColor: Colors.white,
+                    text: "signup_facebook".tr(),
+                    icon: 'assets/icons/facebook.svg',
+                    color: Colors.white,
+                    textColor: Colors.black,
+                    borderColor: Colors.green,
                   ),
                   onTap: () {},
                 ),
@@ -83,8 +84,8 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(right: 15.0, left: 15),
                 child: InkWell(
                   child: SocialButton(
-                    text: "التسجيل عبر Google",
-                    icon: Icons.g_mobiledata,
+                    text: "signup_google".tr(),
+                    icon: 'assets/icons/google.svg',
                     color: Colors.white,
                     textColor: Colors.black,
                     borderColor: Colors.green,

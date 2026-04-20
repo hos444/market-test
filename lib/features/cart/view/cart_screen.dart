@@ -107,7 +107,7 @@ class _CartScreenState extends State<CartScreen> {
               child: Consumer<CartController>(
                 builder: (context, cart, child) {
                   return Text(
-                    "${"total".tr()} \$${calculateTotal(cart)}",
+                    "${"total".tr()} ${calculateTotal(cart)} L.E",
                     style: TextStyle(fontSize: 22),
                   );
                 },
