@@ -36,6 +36,8 @@ export 'package:finall_app/core/utils/bottom_nav_bar.dart';
 export 'package:finall_app/core/utils/bottom_changepassowrd.dart';
 export 'package:finall_app/core/utils/arrow.dart';
 export 'package:finall_app/core/utils/elevated_botton.dart';
+export 'package:finall_app/core/utils/social.dart'; 
+export 'package:finall_app/core/utils/buildField.dart'; 
 export 'package:finall_app/core/theme/app_color.dart';
 export 'package:finall_app/core/theme/text.dart';
 // widgets of screens

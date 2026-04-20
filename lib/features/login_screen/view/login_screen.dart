@@ -3,9 +3,15 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,11 +27,11 @@ class Login extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: double.infinity,
-                    height: 300,
+                    height: 280,
                     child: Image.asset(
                       'assets/logo/Image.png',
-                      height: 244,
-                      width: 244,
+                      height: 220,
+                      width: 220,
                     ),
                   ),
                   Positioned(
@@ -58,60 +64,69 @@ class Login extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
+              //text botton login with facebook
+              Padding(
+                padding: const EdgeInsets.only(right: 15.0, left: 15),
+                child: InkWell(
+                  child: SocialButton(
+                    text: "التسجيل عبر Facebook",
+                    icon: Icons.facebook,
+                    color: Color(0xff1877F2),
+                    textColor: Colors.white,
+                  ),
+                  onTap: () {},
+                ),
+              ),
+              SizedBox(height: 10),
+              //text botton login with google
+              Padding(
+                padding: const EdgeInsets.only(right: 15.0, left: 15),
+                child: InkWell(
+                  child: SocialButton(
+                    text: "التسجيل عبر Google",
+                    icon: Icons.g_mobiledata,
+                    color: Colors.white,
+                    textColor: Colors.black,
+                    borderColor: Colors.green,
+                  ),
+                  onTap: () {},
+                ),
+              ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
+
+              /// 🔹 Divider
+              Row(
+                children: [
+                  Expanded(child: Divider()),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text("أو"),
+                  ),
+                  Expanded(child: Divider()),
+                ],
+              ),
+
+              const SizedBox(height: 20),
               //Email box
               Column(
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        'email'.tr(),
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'hentemail'.tr(),
-                        border: InputBorder.none,
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15.0, left: 15),
+                    child: buildField(
+                      hint: "email".tr(),
+                      icon: Icons.email_outlined,
                     ),
                   ),
                   SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Text(
-                        'password'.tr(),
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+
                   SizedBox(height: 10),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'hentpassword'.tr(),
-                        border: InputBorder.none,
-                      ),
+                  //password box
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15.0, left: 15),
+                    child: buildField(
+                      hint: "password".tr(),
+                      icon: Icons.lock_outline,
                     ),
                   ),
                 ],
@@ -146,8 +161,11 @@ class Login extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 15.0, left: 15),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 116, 182, 37),
-                    foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+                    backgroundColor: AppColors.accent,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -157,10 +175,16 @@ class Login extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text('login'.tr()),
+                  child:
+                      isLoading
+                          ? CircularProgressIndicator(color: AppColors.accent)
+                          : Text(
+                            "login".tr(),
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                 ),
               ),
-
+              //text botton register
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

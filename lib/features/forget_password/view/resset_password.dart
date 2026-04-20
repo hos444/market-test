@@ -136,19 +136,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
 
                         const SizedBox(height: 35),
 
-                        _buildField(
-                          controller: newPasswordController,
-                          label: "new_password".tr(),
-                          icon: Icons.lock_outline,
-                        ),
+                        buildField( hint: "new_password".tr(), icon: Icons.lock_outline, isPassword: true),
 
                         const SizedBox(height: 35),
 
-                        _buildField(
-                          controller: confirmPasswordController,
-                          label: "confirm_password".tr(),
-                          icon: Icons.lock_outline,
-                        ),
+                        buildField( hint: "confirm_password".tr(), icon: Icons.lock_outline, isPassword: true),
 
                         const SizedBox(height: 25),
 
@@ -188,33 +180,5 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
       ),
     );
   }
-
-  Widget _buildField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-  }) {
-    return TextField(
-      controller: controller,
-      obscureText: true,
-      style: const TextStyle(color: Colors.black),
-      decoration: InputDecoration(
-        labelText: label,
-        labelStyle: const TextStyle(color: Colors.black),
-        prefixIcon: Icon(icon, color: Colors.green),
-        filled: true,
-        fillColor: Colors.black12,
-
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.white24),
-        ),
-
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.green),
-        ),
-      ),
-    );
-  }
 }
+
