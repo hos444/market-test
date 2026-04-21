@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finall_app/features/offers/view/offers.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 
@@ -161,26 +162,32 @@ class _HomePageState extends State<HomePage> {
             //bannar is ready
             CarouselSlider.builder(
               itemCount: slideritem.length,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) =>
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Image(image: AssetImage(slideritem[itemIndex])),
-                      ),
+              itemBuilder: (
+                BuildContext context,
+                int itemIndex,
+                int pageViewIndex,
+              ) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OffersScreen()),
+                    );
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Image(
+                      image: AssetImage(slideritem[itemIndex]),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              },
               options: CarouselOptions(
                 height: 145,
-
                 viewportFraction: 0.6,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 2),
-                autoPlayAnimationDuration: Duration(milliseconds: 1200),
-                autoPlayCurve: Curves.fastOutSlowIn,
                 enlargeCenterPage: true,
-                enlargeFactor: 0.2,
-                scrollDirection: Axis.horizontal,
               ),
             ),
             SizedBox(height: 15),

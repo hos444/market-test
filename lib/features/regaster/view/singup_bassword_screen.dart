@@ -44,13 +44,6 @@ class _ChooseProfileScreenState extends State<SingUp> {
 
               SizedBox(height: 30),
 
-              SingUpItem(
-                index: 0,
-                icon: Icons.agriculture,
-                title: "Farmer".tr(),
-                subtitle: "farme".tr(),
-              ),
-
               SizedBox(height: 16),
 
               SingUpItem(

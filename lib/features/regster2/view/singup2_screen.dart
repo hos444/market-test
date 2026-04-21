@@ -61,7 +61,8 @@ class SingUp2 extends StatelessWidget {
                 SizedBox(height: 16),
 
                 buildTextField(hint: "password".tr(), isPassword: true),
-
+                SizedBox(height: 16),
+                buildTextField(hint: "confirm_password".tr(), isPassword: true),
                 SizedBox(height: 30),
 
                 // Button
