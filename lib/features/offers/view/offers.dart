@@ -1,6 +1,6 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:finall_app/features/offers/widget/cart_offers.dart';
-import 'package:finall_app/model.dart';
+import 'package:finall_app/features/home_screen/models/model.dart';
 import 'package:flutter/material.dart';
 
 class OffersScreen extends StatefulWidget {

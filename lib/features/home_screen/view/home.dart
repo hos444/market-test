@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/features/offers/view/offers.dart';
-import 'package:finall_app/model.dart';
+import 'package:finall_app/features/home_screen/models/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 
 import 'package:flutter/material.dart';

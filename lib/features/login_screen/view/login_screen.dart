@@ -1,4 +1,5 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:finall_app/core/utils/login_build.dart';
 
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -114,7 +115,7 @@ class _LoginState extends State<Login> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(right: 15.0, left: 15),
-                    child: buildField(
+                    child: LoginBuild(
                       hint: "email".tr(),
                       icon: Icons.email_outlined,
                     ),
@@ -125,7 +126,7 @@ class _LoginState extends State<Login> {
                   //password box
                   Padding(
                     padding: const EdgeInsets.only(right: 15.0, left: 15),
-                    child: buildField(
+                    child: LoginBuild(
                       hint: "password".tr(),
                       icon: Icons.lock_outline,
                     ),

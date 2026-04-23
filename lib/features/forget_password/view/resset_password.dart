@@ -11,8 +11,9 @@ class ResetPasswordScreen extends StatefulWidget {
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen>
     with SingleTickerProviderStateMixin {
-  final newPasswordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
+  final TextEditingController newPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   bool isLoading = false;
 
@@ -136,11 +137,21 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
 
                         const SizedBox(height: 35),
 
-                        buildField( hint: "new_password".tr(), icon: Icons.lock_outline, isPassword: true),
+                        buildField(
+                          hint: "new_password".tr(),
+                          icon: Icons.lock_outline,
+                          isPassword: true,
+                          controller: newPasswordController,
+                        ),
 
                         const SizedBox(height: 35),
 
-                        buildField( hint: "confirm_password".tr(), icon: Icons.lock_outline, isPassword: true),
+                        buildField(
+                          hint: "confirm_password".tr(),
+                          icon: Icons.lock_outline,
+                          isPassword: true,
+                          controller: confirmPasswordController,
+                        ),
 
                         const SizedBox(height: 25),
 
@@ -181,4 +192,3 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
     );
   }
 }
-

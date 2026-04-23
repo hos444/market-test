@@ -1,31 +1,29 @@
 import 'package:flutter/material.dart';
 
-class buildField extends StatefulWidget {
+class LoginBuild extends StatefulWidget {
   final String hint;
   final IconData icon;
   final bool isPassword;
-  final TextEditingController controller;
 
-  const buildField({
+  const LoginBuild({
     super.key,
     required this.hint,
     required this.icon,
     this.isPassword = false,
-    required this.controller,
   });
 
   @override
-  State<buildField> createState() => _buildFieldState();
+  State<LoginBuild> createState() => _buildFieldState();
 }
 
-class _buildFieldState extends State<buildField> {
+class _buildFieldState extends State<LoginBuild> {
   bool isObscure = true; // 👈 للتحكم في إظهار الباسورد
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       obscureText: widget.isPassword ? isObscure : false,
-      controller: widget.controller,
+
       decoration: InputDecoration(
         hintText: widget.hint,
 
