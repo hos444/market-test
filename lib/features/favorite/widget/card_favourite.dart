@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/utils/export_packeg.dart';
+
 class CardFavourite extends StatelessWidget {
   // final String farmName;
   final String nameFavourite, imageFavourite, priceFavourite;
@@ -77,8 +79,6 @@ class CardFavourite extends StatelessWidget {
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
             ),
 
-            const Spacer(),
-
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -88,8 +88,15 @@ class CardFavourite extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                onPressed: () {},
-                child: const Text(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => MainScreen(initialPage: 2), // 2 = Cart
+                    ),
+                  );
+                },
+                child: Text(
                   "إضافة إلى السلة",
                   style: TextStyle(color: Colors.white),
                 ),

@@ -4,6 +4,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class MainScreen extends StatefulWidget {
   final int initialPage; // ✨
+  
 
   const MainScreen({Key? key, this.initialPage = 0}) : super(key: key); // ✨
 
@@ -12,6 +13,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int cartCount = 0;
   late int _page;
 
   @override

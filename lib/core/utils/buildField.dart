@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class buildField extends StatefulWidget {
+class Buildfield extends StatefulWidget {
   final String hint;
   final IconData icon;
   final bool isPassword;
   final TextEditingController controller;
 
-  const buildField({
+  const Buildfield({
     super.key,
     required this.hint,
     required this.icon,
@@ -15,10 +15,10 @@ class buildField extends StatefulWidget {
   });
 
   @override
-  State<buildField> createState() => _buildFieldState();
+  State<Buildfield> createState() => _BuildfieldState();
 }
 
-class _buildFieldState extends State<buildField> {
+class _BuildfieldState extends State<Buildfield> {
   bool isObscure = true; // 👈 للتحكم في إظهار الباسورد
 
   @override

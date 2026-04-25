@@ -32,7 +32,7 @@ class CheckoutBottomSheet extends StatelessWidget {
               borderRadius: BorderRadius.circular(18),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(.05),
+                  color: Colors.black,
                   blurRadius: 12,
                   offset: const Offset(0, 6),
                 ),

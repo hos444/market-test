@@ -56,7 +56,7 @@ class _CartScreenState extends State<CartScreen> {
       ),
 
       // قائمة المنتجات
-      body: Container(
+      body: SizedBox(
         height: 600,
         width: double.infinity,
         // decoration: BoxDecoration(color: Colors.amber),

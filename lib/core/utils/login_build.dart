@@ -13,10 +13,10 @@ class LoginBuild extends StatefulWidget {
   });
 
   @override
-  State<LoginBuild> createState() => _buildFieldState();
+  State<LoginBuild> createState() => _BuildFieldState();
 }
 
-class _buildFieldState extends State<LoginBuild> {
+class _BuildFieldState extends State<LoginBuild> {
   bool isObscure = true; // 👈 للتحكم في إظهار الباسورد
 
   @override

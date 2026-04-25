@@ -43,7 +43,7 @@ export 'package:finall_app/core/theme/text.dart';
 // widgets of screens
 export 'package:finall_app/features/addriss/widget/adress_details.dart';
 export 'package:finall_app/features/addriss/widget/adress_section.dart';
-export 'package:finall_app/features/card_list_product.dart';
+export 'package:finall_app/features/listprodaict/widget/card_list_product.dart';
 export 'package:finall_app/features/cart/widgets/card_cart.dart';
 export 'package:finall_app/features/cart/widgets/quantity.dart';
 export 'package:finall_app/features/checkout_/widgets/checkout_itemcard.dart';
@@ -64,4 +64,4 @@ export 'package:finall_app/features/order_details/widget/inforow.dart';
 
 //app thiems
 
-export 'package:finall_app/core/theme/app_color.dart';
+

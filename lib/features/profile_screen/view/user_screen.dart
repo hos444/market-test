@@ -43,20 +43,15 @@ class _UserScreenState extends State<UserScreen> {
               height: 350,
               width: double.infinity,
               decoration: BoxDecoration(
-                // color background of the profile screen ==>
-                // gradient: LinearGradient(
-                //   colors: [
-                //     Color.fromARGB(255, 255, 255, 255),
-                //     Color.fromARGB(255, 164, 240, 213),
-                //     Color.fromARGB(255, 255, 227, 176),
-                //     Color.fromARGB(255, 233, 228, 161),
-                //     Color.fromARGB(255, 255, 255, 255),
-                //   ],
-                //   begin: Alignment.topCenter,
-                //   end: Alignment.bottomCenter,
-                // ),
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF4CAF50), // أخضر أساسي
+                    Color(0xFF81C784), // أخضر فاتح
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
               ),
-
               child: Center(
                 child: Stack(
                   alignment: Alignment.topCenter,
@@ -66,13 +61,13 @@ class _UserScreenState extends State<UserScreen> {
                       padding: EdgeInsets.fromLTRB(20, 70, 20, 20),
                       width: 320,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 230, 228, 228),
-                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.background,
+                        borderRadius: BorderRadius.circular(25),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black38,
-                            blurRadius: 20,
-                            offset: Offset(0, 10),
+                            color: Colors.black12,
+                            blurRadius: 15,
+                            offset: Offset(0, 8),
                           ),
                         ],
                       ),
@@ -86,7 +81,7 @@ class _UserScreenState extends State<UserScreen> {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Colors.lightGreen,
+                              color: Color(0xFF2E7D32),
                             ),
                           ),
 
@@ -118,7 +113,16 @@ class _UserScreenState extends State<UserScreen> {
                       padding: EdgeInsets.only(top: 20.0),
                       child: Stack(
                         children: [
-                          CircleAvatar(radius: 55),
+                          CircleAvatar(
+                            radius: 55,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 50,
+                              backgroundImage: AssetImage(
+                                "assets/images/user.png",
+                              ),
+                            ),
+                          ),
 
                           /// edit button
                           Positioned(
@@ -126,12 +130,15 @@ class _UserScreenState extends State<UserScreen> {
                             right: 0,
 
                             child: Container(
-                              decoration: const BoxDecoration(
-                                color: Colors.green,
-
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(80),
-                                ),
+                              decoration: BoxDecoration(
+                                color: Color(0xFF4CAF50),
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black26,
+                                    blurRadius: 6,
+                                  ),
+                                ],
                               ),
                               child: IconButton(
                                 icon: Icon(
@@ -157,7 +164,7 @@ class _UserScreenState extends State<UserScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 15),
             Column(
               children: [
                 //
@@ -176,23 +183,33 @@ class _UserScreenState extends State<UserScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 15),
                 //container for account settings
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 18.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 230, 228, 228),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(color: Colors.black12, blurRadius: 10),
+                      ],
                     ),
                     child: Column(
                       children: [
                         // my order
                         ListTile(
-                          leading: SvgPicture.asset(
-                            'assets/icons/myorder.svg',
-                            height: 24,
-                            width: 24,
+                          leading: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Color(0xFF4CAF50).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/icons/myorder.svg',
+                              height: 20,
+                              width: 20,
+                            ),
                           ),
                           title: Text("myOrders.title".tr()),
                           onTap: () {
@@ -209,10 +226,17 @@ class _UserScreenState extends State<UserScreen> {
                           ),
                         ),
                         ListTile(
-                          leading: SvgPicture.asset(
-                            'assets/icons/add.svg',
-                            height: 24,
-                            width: 24,
+                          leading: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Color(0xFF4CAF50).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/icons/add.svg',
+                              height: 20,
+                              width: 20,
+                            ),
                           ),
                           title: Text("address".tr()),
                           onTap: () {
@@ -249,10 +273,17 @@ class _UserScreenState extends State<UserScreen> {
                         //   ),
                         // ),
                         ListTile(
-                          leading: SvgPicture.asset(
-                            'assets/icons/notification.svg',
-                            height: 24,
-                            width: 24,
+                          leading: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Color(0xFF4CAF50).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/icons/notification.svg',
+                              height: 20,
+                              width: 20,
+                            ),
                           ),
                           title: Text("Farmer_J.notifications".tr()),
                           onTap: () {
@@ -269,10 +300,17 @@ class _UserScreenState extends State<UserScreen> {
                           ),
                         ),
                         ListTile(
-                          leading: SvgPicture.asset(
-                            'assets/icons/setting.svg',
-                            height: 24,
-                            width: 24,
+                          leading: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Color(0xFF4CAF50).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/icons/setting.svg',
+                              height: 20,
+                              width: 20,
+                            ),
                           ),
                           title: Text("settings".tr()),
                           onTap: () {
@@ -300,7 +338,7 @@ class _UserScreenState extends State<UserScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 230, 228, 228),
+                  color: Colors.red.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(

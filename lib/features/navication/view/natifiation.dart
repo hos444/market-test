@@ -1,72 +1,63 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:finall_app/features/navication/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-class Natifiation extends StatelessWidget {
+class Natifiation extends StatefulWidget {
   const Natifiation({super.key});
+
+  @override
+  State<Natifiation> createState() => _NatifiationState();
+}
+
+class _NatifiationState extends State<Natifiation> {
+  List<String> notifications = [
+    "Order confirmed",
+    "New offer available",
+    "Your item shipped",
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Notifications".tr()),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (_) => MainScreen(initialPage: 0),
-              ), // 0 = Home
-              (route) => false, // يمسح كل اللي فوق
-            );
-          },
-        ),
+        leading: ArrowBack(),
         centerTitle: true,
       ),
-      body: Center(
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 60,
-                backgroundColor: Colors.green,
-                child: Icon(
-                  Icons.notifications_none,
-                  size: 50,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "NoNotifications".tr(),
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 116, 182, 37),
-                  foregroundColor: const Color.fromARGB(255, 255, 255, 255),
-                ),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => MainScreen(initialPage: 0), // 2 = Cart
-                    ),
-                  );
-                },
-                child: Text("backhome".tr()),
-              ),
-            ],
+      body:
+          notifications.isEmpty
+              ? const EmptyNotificationsState()
+              :_buildNotificationsList(),
+    );
+  }
+
+  
+  
+  // if there are notifications, show this list
+  Widget _buildNotificationsList() {
+    return ListView.builder(
+      itemCount: notifications.length,
+      itemBuilder: (context, index) {
+        return Card(
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          child: ListTile(
+            leading: const CircleAvatar(
+              backgroundColor: Colors.green,
+              child: Icon(Icons.notifications, color: Colors.white),
+            ),
+            title: Text(
+              notifications[index],
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text("just_now".tr()),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              // ممكن تفتح تفاصيل الإشعار هنا
+            },
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

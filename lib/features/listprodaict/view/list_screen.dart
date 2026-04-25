@@ -2,8 +2,8 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:finall_app/features/home_screen/models/model.dart';
 
-class ListProductScreen extends StatelessWidget {
-  const ListProductScreen({super.key});
+class CategoryScreen extends StatelessWidget {
+  const CategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

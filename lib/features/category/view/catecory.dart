@@ -50,21 +50,25 @@ class _CategoryScreenState extends State<CategoryScreen> {
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 253, 253, 253),
       ),
-      body: SizedBox(
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: List.generate(carditemFavourite.length, (index) {
-              final item = carditemFavourite[index];
-              return CardFavourite(
-                nameFavourite: item.nameCart,
-                imageFavourite: item.imageCart,
-                priceFavourite: item.priceCart,
-              );
-            }),
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: GridView.builder(
+          itemCount: carditemFavourite.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            childAspectRatio: 0.72,
           ),
+          itemBuilder: (context, index) {
+            final item = carditemFavourite[index];
+
+            return CardFavourite(
+              nameFavourite: item.nameCart,
+              imageFavourite: item.imageCart,
+              priceFavourite: item.priceCart,
+            );
+          },
         ),
       ),
     );

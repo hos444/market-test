@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class AboutusScreen extends StatelessWidget {
-  const AboutusScreen({super.key});
+class AboutUsScreen extends StatelessWidget {
+  const AboutUsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class AboutusScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text("About Us"),
+        title: Text("about_us".tr()),
         centerTitle: true,
         elevation: 0,
       ),
@@ -20,7 +21,7 @@ class AboutusScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             /// -------- SECTION 1 ----------
             PolicySection(
               title: "1. Agreement of terms",
@@ -34,7 +35,7 @@ class AboutusScreen extends StatelessWidget {
             SizedBox(height: 24),
 
             /// -------- SECTION 2 ----------
-            const PolicySection(
+            PolicySection(
               title: "2. Terms of services",
               content:
                   "Simply dummy text of the printing and typesetting industry. "
@@ -47,7 +48,7 @@ class AboutusScreen extends StatelessWidget {
             SizedBox(height: 24),
 
             /// -------- SECTION 3 ----------
-            const PolicySection(
+            PolicySection(
               title: "3. Condition of use",
               content:
                   "Sed sollicitudin nisi mollis libero consectetur rutrum. "

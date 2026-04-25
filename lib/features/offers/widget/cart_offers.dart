@@ -16,7 +16,6 @@ class CartOffers extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Container(
-      
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: Colors.white,

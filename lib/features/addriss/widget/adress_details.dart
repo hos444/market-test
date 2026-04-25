@@ -43,7 +43,7 @@ class AddressDetails extends StatelessWidget {
         const SizedBox(height: 4),
 
         const Text(
-          "Al Manyal, Cairo, Egypt\nStreet 12, Building 5, Apartment 10",
+          "Al Manyal, Cairo, Egypt\nStreet 12, Building 5",
           style: TextStyle(color: Colors.black54, height: 1.4),
         ),
 

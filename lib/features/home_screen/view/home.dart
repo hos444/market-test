@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             children: [
               /// النصوص شمال
-              Container(
+              SizedBox(
                 child: CircleAvatar(
                   radius: 28,
                   backgroundImage: AssetImage('assets/logo/homelogo.png'),
@@ -209,9 +209,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => CategoryScreen(),
-                        ),
+                        MaterialPageRoute(builder: (context) => OffersScreen()),
                       );
                     },
                     child: Text(

@@ -101,7 +101,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
       appBar: AppBar(leading: ArrowBack()),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             child: Center(
               child: FadeTransition(
                 opacity: fadeAnimation,
@@ -137,7 +137,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
 
                         const SizedBox(height: 35),
 
-                        buildField(
+                        Buildfield(
                           hint: "new_password".tr(),
                           icon: Icons.lock_outline,
                           isPassword: true,
@@ -146,7 +146,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
 
                         const SizedBox(height: 35),
 
-                        buildField(
+                        Buildfield(
                           hint: "confirm_password".tr(),
                           icon: Icons.lock_outline,
                           isPassword: true,

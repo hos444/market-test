@@ -17,7 +17,7 @@ class CardListProduct extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
+              SizedBox(
                 height: 124,
                 width: 121,
                 child: Image.asset(image),

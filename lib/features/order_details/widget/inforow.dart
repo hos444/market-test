@@ -18,6 +18,6 @@ class Inforow extends StatelessWidget {
         ),
       ),
     );
-    ;
+    
   }
 }

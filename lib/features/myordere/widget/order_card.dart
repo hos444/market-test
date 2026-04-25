@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
-import 'package:finall_app/features/order_details/view/order_truck.dart';
 import 'package:flutter/material.dart';
 
 class OrderCard extends StatelessWidget {
