@@ -64,7 +64,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               /// 🔹 Skip
               Align(
                 alignment: Alignment.topRight,
-                child: TextButton(onPressed: skip, child: Text("Skip")),
+                child: TextButton(
+                  onPressed: skip,
+                  child: Text("Farmer_J.skip".tr()),
+                ),
               ),
 
               /// 🔹 Pages
@@ -162,8 +165,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   ),
                                   child: Text(
                                     index == pages.length - 1
-                                        ? "ابدأ الآن"
-                                        : "التالي",
+                                        ? "Start_Shopping".tr()
+                                        : "Farmer_J.skip".tr(),
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,

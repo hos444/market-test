@@ -3,19 +3,13 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:finall_app/features/brodacit/widget/prodict.dart';
 import 'package:flutter/material.dart';
 
-
 class Productdetails extends StatelessWidget {
   const Productdetails({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(
-        255,
-        239,
-        254,
-        223,
-      ), // الخلفية التركواز
+      backgroundColor: Colors.white, // الخلفية التركواز
       body: SafeArea(
         child: Stack(
           children: [
@@ -89,13 +83,7 @@ class Productdetails extends StatelessWidget {
                     ),
                     child: IconButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder:
-                                (_) => MainScreen(initialPage: 0), // 2 = Cart
-                          ),
-                        );
+                        ArrowBack();
                       },
                       icon: const Icon(
                         Icons.arrow_back_ios,
@@ -160,11 +148,3 @@ class Productdetails extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-

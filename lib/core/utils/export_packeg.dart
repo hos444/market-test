@@ -36,8 +36,8 @@ export 'package:finall_app/core/utils/bottom_nav_bar.dart';
 export 'package:finall_app/core/utils/bottom_changepassowrd.dart';
 export 'package:finall_app/core/utils/arrow.dart';
 export 'package:finall_app/core/utils/elevated_botton.dart';
-export 'package:finall_app/core/utils/social.dart'; 
-export 'package:finall_app/core/utils/buildField.dart'; 
+export 'package:finall_app/core/utils/social.dart';
+export 'package:finall_app/core/utils/buildField.dart';
 export 'package:finall_app/core/theme/app_color.dart';
 export 'package:finall_app/core/theme/text.dart';
 // widgets of screens
@@ -51,7 +51,7 @@ export 'package:finall_app/features/checkout_/widgets/secstion_item.dart';
 export 'package:finall_app/features/favorite/widget/card_favourite.dart';
 export 'package:finall_app/features/home_screen/widgets/card_home1.dart';
 export 'package:finall_app/features/home_screen/widgets/card_home2.dart';
-export 'package:finall_app/features/home_screen/widgets/card_home3.dart';
+
 export 'package:finall_app/features/home_screen/widgets/category_home.dart';
 export 'package:finall_app/features/home_screen/widgets/serch_home_contaner.dart';
 export 'package:finall_app/features/payments/widget/paymen_secstion.dart';
@@ -63,5 +63,3 @@ export 'package:finall_app/features/order_details/widget/card_product.dart';
 export 'package:finall_app/features/order_details/widget/inforow.dart';
 
 //app thiems
-
-

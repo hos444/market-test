@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finall_app/features/aboutus/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
 class AboutUsScreen extends StatelessWidget {
@@ -63,34 +64,4 @@ class AboutUsScreen extends StatelessWidget {
   }
 }
 
-/// reusable section widget
-class PolicySection extends StatelessWidget {
-  final String title;
-  final String content;
 
-  const PolicySection({super.key, required this.title, required this.content});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-
-        const SizedBox(height: 10),
-
-        Text(
-          content,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey.shade700,
-            height: 1.6,
-          ),
-        ),
-      ],
-    );
-  }
-}

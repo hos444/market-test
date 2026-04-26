@@ -1,4 +1,5 @@
 import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:finall_app/features/aboutus/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
 class PrivacyScreen extends StatelessWidget {
@@ -54,6 +55,7 @@ class PrivacyScreen extends StatelessWidget {
                   "Ut mollis tincidunt hendrerit. Duis ipsum velit, maximus sed commodo imperdiet, "
                   "dapibus id velit. Nullam in maximus enim.",
             ),
+       
           ],
         ),
       ),
@@ -62,33 +64,3 @@ class PrivacyScreen extends StatelessWidget {
 }
 
 /// reusable section widget
-class PolicySectionOfPrivacy extends StatelessWidget {
-  final String title;
-  final String content;
-
-  const PolicySectionOfPrivacy({super.key, required this.title, required this.content});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-
-        const SizedBox(height: 10),
-
-        Text(
-          content,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey.shade700,
-            height: 1.6,
-          ),
-        ),
-      ],
-    );
-  }
-}
