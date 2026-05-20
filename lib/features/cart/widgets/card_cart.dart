@@ -5,6 +5,8 @@
 
 import 'package:flutter/material.dart';
 import 'quantity.dart';
+import 'package:finall_app/core/utils/image_url_utils.dart';
+import 'package:finall_app/core/utils/export_packeg.dart';
 
 class Cartcard extends StatelessWidget {
   final String nameCart, imageCart, priceCart;
@@ -48,7 +50,14 @@ class Cartcard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey[200],
                     ),
-                    child: Image.asset(imageCart, fit: BoxFit.cover),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        ImageUrlUtils.getFullUrl(imageCart),
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, size: 50, color: Colors.grey),
+                      ),
+                    ),
                   ),
 
                   SizedBox(width: 10),

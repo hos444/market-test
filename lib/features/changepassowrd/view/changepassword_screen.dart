@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:finall_app/core/theme/app_color.dart';
 import 'package:finall_app/core/utils/arrow.dart';
 import 'package:finall_app/core/utils/elevated_botton.dart';
@@ -19,16 +20,16 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffold,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: AppColors.scaffold,
+        backgroundColor: Colors.white,
         elevation: 0,
-        leading: ArrowBack(),
+        leading: const ArrowBack(),
         centerTitle: true,
         title: Text(
           "change_password".tr(),
           style: const TextStyle(
-            color: Colors.black,
+            color: Colors.green,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -41,13 +42,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           children: [
             /// 🔹 Card Container
             Container(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.circular(25),
+                color: Colors.grey[50],
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Colors.grey.shade100),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withOpacity(0.02),
                     blurRadius: 10,
                     offset: const Offset(0, 5),
                   ),
@@ -57,7 +59,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   /// Old Password
-                  _buildLabel("old".tr()),
+                  _buildLabel("old_password".tr()),
                   _buildPasswordField(
                     hint: "enter_old_password".tr(),
                     obscure: obscureOld,
@@ -66,7 +68,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     },
                   ),
 
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 20),
 
                   /// New Password
                   _buildLabel("new_password".tr()),
@@ -78,7 +80,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     },
                   ),
 
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 20),
 
                   /// Confirm Password
                   _buildLabel("confirm_password".tr()),
@@ -114,7 +116,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   Widget _buildLabel(String text) {
     return Text(
       text,
-      style: const TextStyle(fontSize: 13, color: Colors.black54),
+      style: const TextStyle(fontSize: 14, color: Colors.black87, fontWeight: FontWeight.bold),
     );
   }
 
@@ -125,7 +127,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     required VoidCallback onToggle,
   }) {
     return Container(
-      margin: const EdgeInsets.only(top: 5),
+      margin: const EdgeInsets.only(top: 8),
       child: TextField(
         obscureText: obscure,
         decoration: InputDecoration(
@@ -133,23 +135,24 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           filled: true,
           fillColor: Colors.white,
           contentPadding: const EdgeInsets.symmetric(
-            horizontal: 12,
-            vertical: 14,
+            horizontal: 16,
+            vertical: 16,
           ),
           suffixIcon: IconButton(
             icon: Icon(
-              obscure ? Icons.visibility_off : Icons.visibility,
+              obscure ? CupertinoIcons.eye_slash : CupertinoIcons.eye,
               color: Colors.green,
+              size: 20,
             ),
             onPressed: onToggle,
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.grey.shade300),
+            borderSide: BorderSide(color: Colors.grey.shade200),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: Colors.green),
+            borderSide: const BorderSide(color: Colors.green, width: 2),
           ),
         ),
       ),

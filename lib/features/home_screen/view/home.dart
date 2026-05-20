@@ -1,10 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:finall_app/features/offers/view/offers.dart';
-import 'package:finall_app/model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
-
 import 'package:flutter/material.dart';
+import 'package:finall_app/core/utils/image_url_utils.dart';
+import '../../catalog/presentation/bloc/catalog_cubit.dart';
+import '../../listings/presentation/bloc/listings_cubit.dart';
+import '../../catalog/data/models/category_model.dart';
+import '../../listings/data/models/listing_model.dart';
+import '../../product_details/view/product_details.dart';
+import '../../favorite/presentation/bloc/favorite_cubit.dart';
+import '../../promotions/presentation/bloc/promotions_cubit.dart';
+import '../../promotions/presentation/pages/promotion_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,372 +21,221 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 0;
+  // No longer using hardcoded slideritem
 
-  //bannar List
-  List<String> slideritem = [
-    'assets/bannar/slider1.png',
-    'assets/bannar/slider2.png',
-    'assets/bannar/slider3.png',
-    'assets/bannar/slider4.png',
-  ];
-  //Category List
-  List<CategoryHomeModel> categoryModel = [
-    CategoryHomeModel(
-      name: "beverages".tr(),
-      image: 'assets/category/Beverages.png',
-    ),
-    CategoryHomeModel(name: "fruits".tr(), image: 'assets/category/fruits.png'),
-    CategoryHomeModel(
-      name: "milk_egg".tr(),
-      image: 'assets/category/Milk & egg.png',
-    ),
-    CategoryHomeModel(
-      name: "vegetables".tr(),
-      image: 'assets/category/Vegetable.png',
-    ),
-    CategoryHomeModel(
-      name: "laundry".tr(),
-      image: 'assets/category/Laundry.png',
-    ),
-  ];
-  //flash deals List
-  List<FreashModel> freashItem = [
-    FreashModel(
-      nameCart: "lemon".tr(),
-      imageCart: 'assets/fruits/limon.png',
-      priceCart: '100.0',
-    ),
-    FreashModel(
-      nameCart: "pepper".tr(),
-      imageCart: 'assets/fruits/pepper.png',
-      priceCart: '100.0',
-    ),
-    FreashModel(
-      nameCart: "biscuit".tr(),
-      imageCart: 'assets/fruits/biscuit.png',
-      priceCart: '150.0',
-    ),
-    FreashModel(
-      nameCart: "banana".tr(),
-      imageCart: 'assets/fruits/banana.png',
-      priceCart: '200',
-    ),
-    FreashModel(
-      nameCart: "orange".tr(),
-      imageCart: 'assets/fruits/orang.png',
-      priceCart: '250',
-    ),
-    FreashModel(
-      nameCart: "strawberry".tr(),
-      imageCart: 'assets/fruits/strobary.png',
-      priceCart: '200',
-    ),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    final listingsCubit = context.read<ListingsCubit>();
+    listingsCubit.resetAllFilters();
+    context.read<CatalogCubit>().fetchCatalog();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: false,
-      //app bar with search
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.background,
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        titleSpacing: 0,
-        centerTitle: true,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14.0),
-          child: Row(
-            children: [
-              /// النصوص شمال
-              Container(
-                child: CircleAvatar(
-                  radius: 28,
+        toolbarHeight: 80,
+        title: BlocBuilder<AuthCubit, AuthState>(
+          builder: (context, state) {
+            final name = state is AuthAuthenticated ? state.user.name : "guest".tr();
+            return Row(
+              children: [
+                const CircleAvatar(
+                  radius: 25,
                   backgroundImage: AssetImage('assets/logo/homelogo.png'),
                 ),
-              ),
-              SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('welcome'.tr(), style: AppTextStyles.heading),
-                  Text("user_name".tr()),
-                ],
-              ),
-              Spacer(),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.green, width: 1),
-                  shape: BoxShape.circle,
+                const SizedBox(width: 12),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('welcome'.tr(), style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                    Text(name, style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold)),
+                  ],
                 ),
-                child: CircleAvatar(
-                  radius: 18,
-                  backgroundColor: Colors.transparent,
-                  child: IconButton(
-                    icon: Icon(Icons.search, color: Colors.green),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SearchScreen()),
-                      );
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(width: 10),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.border, width: 1),
-                  shape: BoxShape.circle,
-                ),
-                child: CircleAvatar(
-                  radius: 18,
-                  backgroundColor: Colors.transparent,
-                  child: IconButton(
-                    icon: Icon(Icons.notifications, color: Colors.green),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Natifiation()),
-                      );
-                    },
-                  ),
+                const Spacer(),
+                _buildAppBarIcon(Icons.search, () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchScreen()))),
+                const SizedBox(width: 8),
+                _buildAppBarIcon(Icons.notifications_none_rounded, () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Natifiation()))),
+              ],
+            );
+          },
+        ),
+      ),
+      body: RefreshIndicator(
+        color: Colors.green,
+        onRefresh: () async {
+          context.read<CatalogCubit>().fetchCatalog();
+          context.read<ListingsCubit>().fetchPublicListings();
+          context.read<PromotionsCubit>().fetchPromotions();
+        },
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBanner(),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("category".tr(), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    TextButton(
+                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const CategoryScreen())),
+                      child: Text("see_all".tr(), style: const TextStyle(color: Colors.grey)),
+                    ),
+                  ],
                 ),
               ),
+              _buildCategories(),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("exclusive_offers".tr(), style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 14)),
+                    Text("fresh_crops".tr(), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.green)),
+                  ],
+                ),
+              ),
+              _buildListings(),
+              const SizedBox(height: 20),
             ],
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //search is ready
-            // WidgetSerch(),
+    );
+  }
 
-            //category is ready
-            SizedBox(height: 30),
-            //bannar is ready
-            CarouselSlider.builder(
-              itemCount: slideritem.length,
-              itemBuilder: (
-                BuildContext context,
-                int itemIndex,
-                int pageViewIndex,
-              ) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OffersScreen()),
-                    );
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: Image(
-                      image: AssetImage(slideritem[itemIndex]),
+  Widget _buildAppBarIcon(IconData icon, VoidCallback onTap) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.grey.shade200),
+      ),
+      child: IconButton(
+        icon: Icon(icon, color: Colors.green, size: 24),
+        onPressed: onTap,
+      ),
+    );
+  }
+
+  Widget _buildBanner() {
+    return BlocBuilder<PromotionsCubit, PromotionsState>(
+      builder: (context, state) {
+        if (state is PromotionsLoading) {
+          return const SizedBox(
+            height: 160,
+            child: Center(child: CircularProgressIndicator()),
+          );
+        }
+        if (state is PromotionsLoaded && state.offers.isNotEmpty) {
+          return CarouselSlider.builder(
+            itemCount: state.offers.length,
+            itemBuilder: (context, index, _) {
+              final offer = state.offers[index];
+              return GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PromotionDetailsPage(promotion: offer)),
+                ),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                      image: NetworkImage(offer.imageUrl ?? ''),
                       fit: BoxFit.cover,
                     ),
                   ),
-                );
-              },
-              options: CarouselOptions(
-                height: 145,
-                viewportFraction: 0.6,
-                autoPlay: true,
-                enlargeCenterPage: true,
-              ),
+                ),
+              );
+            },
+            options: CarouselOptions(
+              height: 160,
+              autoPlay: true,
+              enlargeCenterPage: true,
+              viewportFraction: 0.85,
             ),
-            SizedBox(height: 15),
-            // category text and see all
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Row(
-                children: [
-                  Text(
-                    "category".tr(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: AppColors.textPrimary,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CategoryScreen(),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'see_all'.tr(),
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.textSecondary,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // category list
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(categoryModel.length, (index) {
-                  final item = categoryModel[index];
-                  return CategoryHome(image: item.image, name: item.name);
-                }),
-              ),
-            ),
-            SizedBox(height: 15),
-            //column of exclusive offers and today's best deals
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "offers".tr(),
-                    style: TextStyle(
-                      color: AppColors.warning,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                  Text(
-                    "offerss".tr(),
-                    style: TextStyle(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          );
+        }
+        // Fallback or empty state
+        return const SizedBox();
+      },
+    );
+  }
 
-            // card home1 best deals
-            SingleChildScrollView(
+  Widget _buildCategories() {
+    return BlocBuilder<CatalogCubit, CatalogState>(
+      builder: (context, state) {
+        if (state is CatalogLoading) return const Center(child: CircularProgressIndicator());
+        if (state is CatalogLoaded) {
+          return SizedBox(
+            height: 50,
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(freashItem.length, (index) {
-                  final item = freashItem[index];
-                  return CardHome1(
-                    namecard: item.nameCart,
-                    imagecard: item.imageCart,
-                    pricecard: item.priceCart,
-                  );
-                }),
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              itemCount: state.categories.length,
+              itemBuilder: (context, index) => _buildCategoryChip(state.categories[index]),
             ),
-            const SizedBox(height: 5),
-            const SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: Image(image: AssetImage('assets/bannar/slider1.png')),
-            ),
-            SizedBox(height: 5),
-            // text of new falash deals and see all
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Row(
-                children: [
-                  Text(
-                    "flashdeals".tr(),
-                    style: TextStyle(
-                      color: AppColors.textPrimary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "see_all".tr(),
-                      style: TextStyle(
-                        color: AppColors.textSecondary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 5),
-            //card of new arrivals
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(freashItem.length, (index) {
-                  final item = freashItem[index];
-                  return Cardhome2(
-                    name: item.nameCart,
-                    image: item.imageCart,
-                    price: item.priceCart,
-                  );
-                }),
-              ),
-            ),
-            SizedBox(height: 5),
+          );
+        }
+        return const SizedBox();
+      },
+    );
+  }
 
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: Image(image: AssetImage('assets/bannar/slider4.png')),
-            ),
-            //recently viewed
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Row(
-                children: [
-                  Text(
-                    "fruits".tr(),
-                    style: TextStyle(
-                      color: AppColors.textPrimary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                  Spacer(),
-                  Text(
-                    "see_all".tr(),
-                    style: TextStyle(
-                      color: AppColors.textSecondary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            //card of recently viewed //card of new arrivals
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(freashItem.length, (index) {
-                  final item = freashItem[index];
-                  return Cardhome2(
-                    name: item.nameCart,
-                    image: item.imageCart,
-                    price: item.priceCart,
-                  );
-                }),
-              ),
-            ),
-          ],
+  Widget _buildCategoryChip(CategoryModel category) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5),
+      child: ActionChip(
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ListProductScreen(categoryId: category.id.toString(), categoryName: category.name),
+          ),
         ),
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25),
+          side: const BorderSide(color: Colors.black87),
+        ),
+        avatar: CircleAvatar(
+          backgroundColor: Colors.transparent,
+          backgroundImage: NetworkImage(ImageUrlUtils.getFullUrl(category.image)),
+        ),
+        label: Text(category.name, style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
       ),
+    );
+  }
 
-      //bottomNigationBar is ready
+  Widget _buildListings() {
+    return BlocBuilder<ListingsCubit, ListingsState>(
+      builder: (context, state) {
+        if (state is ListingsLoading) return const Center(child: Padding(padding: EdgeInsets.all(40), child: CircularProgressIndicator()));
+        if (state is ListingsLoaded) {
+          return GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.all(15),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.72,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15,
+            ),
+            itemCount: state.listings.length,
+            itemBuilder: (context, index) => PremiumListingCard(listing: state.listings[index]),
+          );
+        }
+        return const SizedBox();
+      },
     );
   }
 }

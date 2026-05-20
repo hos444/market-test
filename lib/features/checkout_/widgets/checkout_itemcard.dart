@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:finall_app/features/cart/models/cart_item_modle.dart';
+import 'package:finall_app/core/utils/image_url_utils.dart';
 
 class CheckoutItemCCard extends StatelessWidget {
-  const CheckoutItemCCard({super.key});
+  final CartItemModel item;
+  const CheckoutItemCCard({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -11,51 +14,48 @@ class CheckoutItemCCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 5)],
       ),
       child: Row(
         children: [
           /// image
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              "assets/fruits/limon.png",
+            child: Image.network(
+              ImageUrlUtils.getFullUrl(item.product.image),
               height: 60,
               width: 60,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, size: 30, color: Colors.grey),
             ),
           ),
-
           const SizedBox(width: 12),
-
           /// info
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
                     Text(
-                      "Lemon",
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      item.product.title,
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
-                      "\$29.99 / 1 pck",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      "${item.product.price} EGP",
+                      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
-                  "Fruit",
-                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                  "${item.quantity} x ${item.product.unit}",
+                  style: const TextStyle(color: Colors.grey, fontSize: 12),
                 ),
-                SizedBox(height: 4),
               ],
             ),
           ),
-
-          /// quantity buttons
         ],
       ),
     );

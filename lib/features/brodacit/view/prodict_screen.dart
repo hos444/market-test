@@ -3,8 +3,8 @@ import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Productdetails extends StatelessWidget {
-  const Productdetails({super.key});
+class ProductScreen extends StatelessWidget {
+  const ProductScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

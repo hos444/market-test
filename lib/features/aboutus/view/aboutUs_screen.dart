@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
 class AboutusScreen extends StatelessWidget {
@@ -6,88 +8,77 @@ class AboutusScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text("About Us"),
-        centerTitle: true,
+        backgroundColor: Colors.white,
         elevation: 0,
+        leading: const ArrowBack(),
+        title: Text(
+          "about_us".tr(),
+          style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
-
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            /// -------- SECTION 1 ----------
-            PolicySection(
-              title: "1. Agreement of terms",
-              content:
-                  "Duis tristique diam nunc. Sed at tincidunt orci. "
-                  "Mauris eget congue leo. Cras varius at ante vitae convallis. "
-                  "Duis semper magna nec tortor tincidunt, id tincidunt quam blandit. "
-                  "Vivamus vehicula dictum magna quis eleifend.",
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const CircleAvatar(
+              radius: 60,
+              backgroundImage: AssetImage('assets/logo/homelogo.png'),
             ),
-
-            SizedBox(height: 24),
-
-            /// -------- SECTION 2 ----------
-            const PolicySection(
-              title: "2. Terms of services",
-              content:
-                  "Simply dummy text of the printing and typesetting industry. "
-                  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-                  "when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
-                  "It has survived not only five centuries, but also the leap into electronic typesetting, "
-                  "remaining essentially unchanged.",
+            const SizedBox(height: 24),
+            Text(
+              "about_title".tr(),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
             ),
-
-            SizedBox(height: 24),
-
-            /// -------- SECTION 3 ----------
-            const PolicySection(
-              title: "3. Condition of use",
-              content:
-                  "Sed sollicitudin nisi mollis libero consectetur rutrum. "
-                  "Nam maximus mollis nisl quis facilisis. Integer fermentum commodo nibh. "
-                  "Ut mollis tincidunt hendrerit. Duis ipsum velit, maximus sed commodo imperdiet, "
-                  "dapibus id velit. Nullam in maximus enim.",
+            const SizedBox(height: 16),
+            Text(
+              "about_desc".tr(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey.shade700,
+                height: 1.6,
+              ),
             ),
+            const SizedBox(height: 40),
+            _buildContactInfo(),
           ],
         ),
       ),
     );
   }
-}
 
-/// reusable section widget
-class PolicySection extends StatelessWidget {
-  final String title;
-  final String content;
+  Widget _buildContactInfo() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade50,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.grey.shade200),
+      ),
+      child: Column(
+        children: [
+          _buildContactRow(Icons.email_outlined, "contact@washelafas.com"),
+          const Divider(height: 30),
+          _buildContactRow(Icons.phone_outlined, "+20 123 456 789"),
+          const Divider(height: 30),
+          _buildContactRow(Icons.language_outlined, "www.washelafas.com"),
+        ],
+      ),
+    );
+  }
 
-  const PolicySection({super.key, required this.title, required this.content});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildContactRow(IconData icon, String value) {
+    return Row(
       children: [
+        Icon(icon, color: Colors.green, size: 20),
+        const SizedBox(width: 15),
         Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-
-        const SizedBox(height: 10),
-
-        Text(
-          content,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey.shade700,
-            height: 1.6,
-          ),
+          value,
+          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black87),
         ),
       ],
     );

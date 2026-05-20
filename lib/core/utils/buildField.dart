@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class buildField extends StatefulWidget {
   final String hint;
@@ -23,6 +24,7 @@ class _buildFieldState extends State<buildField> {
   Widget build(BuildContext context) {
     return TextField(
       obscureText: widget.isPassword ? isObscure : false,
+      cursorColor: const Color(0xFF007AFF),
 
       decoration: InputDecoration(
         hintText: widget.hint,
@@ -34,8 +36,9 @@ class _buildFieldState extends State<buildField> {
         suffixIcon: widget.isPassword
             ? IconButton(
                 icon: Icon(
-                  isObscure ? Icons.visibility_off : Icons.visibility,
-                  color: Colors.grey,
+                  isObscure ? CupertinoIcons.eye_slash : CupertinoIcons.eye,
+                  color: Colors.grey.shade600,
+                  size: 20,
                 ),
                 onPressed: () {
                   setState(() {
@@ -59,7 +62,7 @@ class _buildFieldState extends State<buildField> {
 
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: Colors.green, width: 2),
+          borderSide: const BorderSide(color: Color(0xFF007AFF), width: 2),
         ),
       ),
     );

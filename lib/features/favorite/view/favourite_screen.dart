@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../presentation/bloc/favorite_cubit.dart';
+import '../widget/card_favourite.dart';
 
 class Favourite extends StatefulWidget {
   const Favourite({super.key});
@@ -11,36 +13,16 @@ class Favourite extends StatefulWidget {
 }
 
 class _FavouriteState extends State<Favourite> {
-  int currentIndex = 3;
-
-  List<FavouriteModel> carditemFavourite = [
-    FavouriteModel(
-      nameCart: 'Banana',
-      imageCart: 'assets/fruits/banana.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'Orange',
-      imageCart: 'assets/fruits/orang.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'Apple',
-      imageCart: 'assets/fruits/apple.png',
-      priceCart: '\$3.55',
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //app bar is ready
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pushReplacement(
+             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => MainScreen(initialPage: 0), // 2 = Cart
+                builder: (_) => const MainScreen(initialPage: 0),
               ),
             );
           },
@@ -49,35 +31,39 @@ class _FavouriteState extends State<Favourite> {
         title: Center(
           child: Text(
             "favourites".tr(),
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
+            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
           ),
         ),
       ),
-
-      //bottom bar is readyv
-
-      //card prodect ned to upgread to clickapell
-      // by add icon favourite
-      body: Padding(
-        padding: const EdgeInsets.all(12),
-        child: GridView.builder(
-          itemCount: carditemFavourite.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 0.72,
-          ),
-          itemBuilder: (context, index) {
-            final item = carditemFavourite[index];
-
-            return CardFavourite(
-              nameFavourite: item.nameCart,
-              imageFavourite: item.imageCart,
-              priceFavourite: item.priceCart,
+      body: BlocBuilder<FavoriteCubit, FavoriteState>(
+        builder: (context, state) {
+          if (state is FavoriteLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is FavoriteError) {
+            return Center(child: Text(state.message));
+          } else if (state is FavoritesLoaded) {
+            if (state.listings.isEmpty) {
+              return Center(child: Text("no_favorites".tr()));
+            }
+            return Padding(
+              padding: const EdgeInsets.all(12),
+              child: GridView.builder(
+                itemCount: state.listings.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                  childAspectRatio: 0.72,
+                ),
+                itemBuilder: (context, index) {
+                  final listing = state.listings[index];
+                  return CardFavourite(listing: listing);
+                },
+              ),
             );
-          },
-        ),
+          }
+          return const SizedBox.shrink();
+        },
       ),
     );
   }

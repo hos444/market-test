@@ -1,9 +1,11 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/features/cart/widgets/cart_controller.dart';
 import 'package:finall_app/model.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:finall_app/core/utils/dialog_utils.dart';
+import 'package:finall_app/core/utils/snackbar_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -13,136 +15,132 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  // ليست المنتجات (تجريبية)
-  List<FreashModel> items = [];
-
-  // ليست الكميات لكل منتج
-  List<int> quantities = [];
-
-  // بنهيأ الكميات = 1 لكل منتج
-  @override
-  void initState() {
-    super.initState();
-    quantities = List.generate(items.length, (index) => 1);
-  }
-
-  // دالة بتحسب التوتال بناء على الكميات
-  double calculateTotal(CartController cart) {
-    double total = 0;
-    for (var item in cart.cartItems) {
-      double price = double.tryParse(item.product.price) ?? 0;
-      total += price * item.quantity;
-    }
-    return total;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF8F9FA),
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
         leading: IconButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (_) => MainScreen(initialPage: 0), // 2 = Cart
-              ),
-            );
-          },
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black, size: 20),
         ),
-        title: Text("cart".tr(), style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text("cart".tr(), style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
         centerTitle: true,
       ),
+      body: Consumer<CartController>(
+        builder: (context, cart, child) {
+          if (cart.cartItems.isEmpty) {
+            return _buildEmptyCart();
+          }
+          return ListView.separated(
+            padding: const EdgeInsets.all(20),
+            itemCount: cart.cartItems.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 16),
+            itemBuilder: (context, index) {
+              final item = cart.cartItems[index];
+              return Cartcard(
+                nameCart: item.product.title,
+                imageCart: item.product.image ?? '',
+                priceCart: "${item.product.price} EGP",
+                quantity: item.quantity,
+                onIncrease: () => cart.increaseQuantity(index),
+                onDecrease: () => cart.decreaseQuantity(index),
+                onDelete: () async {
+                  final confirmed = await DialogUtils.showConfirmationDialog(
+                    context: context,
+                    title: "remove_item_title".tr(),
+                    message: "remove_item_message".tr(args: [item.product.title]),
+                    confirmColor: Colors.orange, // Warning color
+                  );
 
-      // قائمة المنتجات
-      body: Container(
-        height: 600,
-        width: double.infinity,
-        // decoration: BoxDecoration(color: Colors.amber),
-        child: Consumer<CartController>(
-          builder: (context, cart, child) {
-            return ListView.builder(
-              itemCount: cart.cartItems.length,
-              itemBuilder: (context, index) {
-                final item = cart.cartItems[index];
-                return Cartcard(
-                  nameCart: item.product.name,
-                  imageCart: item.product.image,
-                  priceCart: "${item.product.price} EGP",
-                  quantity: item.quantity,
-                  onIncrease: () => cart.increaseQuantity(index),
-                  onDecrease: () => cart.decreaseQuantity(index),
-                  onDelete: () => cart.removeItem(index),
-                );
-              },
-            );
-          },
-        ),
+                  if (confirmed == true) {
+                    final title = item.product.title;
+                    cart.removeItem(index);
+                    if (context.mounted) {
+                      SnackBarUtils.showError(
+                        context,
+                        "item_removed_success".tr(args: [title]),
+                      );
+                    }
+                  }
+                },
+              );
+            },
+          );
+        },
       ),
-
-      // البوتوم شيت (التوتال)
-      bottomSheet: Container(
-        height: 148,
-        width: 412,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10,
-              offset: Offset(0, -2),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Consumer<CartController>(
-                builder: (context, cart, child) {
-                  return Text(
-                    "${"total".tr()} ${calculateTotal(cart)} L.E",
-                    style: TextStyle(fontSize: 22),
-                  );
-                },
+      bottomNavigationBar: Consumer<CartController>(
+        builder: (context, cart, child) {
+          if (cart.cartItems.isEmpty) return const SizedBox();
+          return Container(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
               ),
+              boxShadow: [
+                BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 20, offset: const Offset(0, -5)),
+              ],
             ),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(left: 29.0, right: 29.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.secondary,
-                  foregroundColor: Colors.white,
-                  elevation: 6,
-                  shadowColor: Colors.black45,
-                  minimumSize: const Size(double.infinity, 55),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("total".tr(), style: TextStyle(color: Colors.grey.shade600, fontSize: 16)),
+                    Text(
+                      "${cart.totalAmount} EGP",
+                      style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: Color(0xff1B5E3C)),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff1B5E3C),
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size(double.infinity, 56),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    elevation: 0,
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Checkout())),
+                  child: Text(
+                    "checkout".tr(),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Checkout()),
-                  );
-                },
-                child: Text(
-                  "checkout".tr(),
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
+              ],
             ),
-          ],
-        ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildEmptyCart() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.shopping_basket_outlined, size: 80, color: Colors.grey.shade300),
+          const SizedBox(height: 24),
+          Text(
+            "empty_cart".tr(),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          TextButton(
+            onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const MainScreen(initialPage: 0))),
+            child: Text("shop_now".tr(), style: const TextStyle(color: Color(0xff1B5E3C))),
+          ),
+        ],
       ),
     );
   }
 }
+

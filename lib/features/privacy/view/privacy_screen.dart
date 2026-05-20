@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
 
@@ -7,52 +8,42 @@ class PrivacyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: ArrowBack(),
-
-        title: const Text("Privacy Policy"),
-        centerTitle: true,
+        backgroundColor: Colors.white,
         elevation: 0,
+        leading: const ArrowBack(),
+        title: Text(
+          "privacy_policy".tr(),
+          style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
-
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             /// -------- SECTION 1 ----------
-            PolicySection(
-              title: "1. Agreement of terms",
-              content:
-                  "Duis tristique diam nunc. Sed at tincidunt orci. "
-                  "Mauris eget congue leo. Cras varius at ante vitae convallis. "
-                  "Duis semper magna nec tortor tincidunt, id tincidunt quam blandit. "
-                  "Vivamus vehicula dictum magna quis eleifend.",
+            PolicySectionOfPrivacy(
+              title: "privacy_agreement".tr(),
+              content: "privacy_agreement_desc".tr(),
             ),
 
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
 
             /// -------- SECTION 2 ----------
-            PolicySection(
-              title: "2. Terms of services",
-              content:
-                  "Simply dummy text of the printing and typesetting industry. "
-                  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-                  "when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
-                  "It has survived not only five centuries, but also the leap into electronic typesetting, "
-                  "remaining essentially unchanged.",
+            PolicySectionOfPrivacy(
+              title: "terms_of_service".tr(),
+              content: "terms_of_service_desc".tr(),
             ),
 
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
 
             /// -------- SECTION 3 ----------
-            PolicySection(
-              title: "3. Condition of use",
-              content:
-                  "Sed sollicitudin nisi mollis libero consectetur rutrum. "
-                  "Nam maximus mollis nisl quis facilisis. Integer fermentum commodo nibh. "
-                  "Ut mollis tincidunt hendrerit. Duis ipsum velit, maximus sed commodo imperdiet, "
-                  "dapibus id velit. Nullam in maximus enim.",
+            PolicySectionOfPrivacy(
+              title: "condition_of_use".tr(),
+              content: "condition_of_use_desc".tr(),
             ),
           ],
         ),
@@ -75,16 +66,14 @@ class PolicySectionOfPrivacy extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
         ),
-
         const SizedBox(height: 10),
-
         Text(
           content,
           style: TextStyle(
             fontSize: 14,
-            color: Colors.grey.shade700,
+            color: Colors.grey.shade600,
             height: 1.6,
           ),
         ),

@@ -1,9 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import '../../orders/data/models/order_model.dart';
+import '../widget/card_product.dart';
+import '../widget/inforow.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
-  const OrderDetailsScreen({super.key});
+  final OrderModel order;
+  const OrderDetailsScreen({super.key, required this.order});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +16,7 @@ class OrderDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.scaffold,
         elevation: 0,
-        leading: ArrowBack(),
-
+        leading: const ArrowBack(),
         title: Text("order_details".tr(), style: AppTextStyles.heading),
       ),
       body: SingleChildScrollView(
@@ -21,60 +24,53 @@ class OrderDetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CardProduct(price: "\$ 100"),
-            const SizedBox(height: 16),
-
-            Text("order_details".tr(), style: AppTextStyles.heading),
+            ...order.items.map((item) => Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: CardProduct(item: item),
+            )),
+            const SizedBox(height: 20),
+            Text("order_summary".tr(), style: AppTextStyles.heading),
             const SizedBox(height: 10),
-
-            Inforow(title: "expected_delivery_date".tr(), value: "02 Apr 2026"),
-            Inforow(title: "tracking_id".tr(), value: "TRK458598589"),
-            Inforow(title: "address".tr(), value: "storage1"),
-            Inforow(title: "payment_method".tr(), value: "Visa"),
-            Inforow(title: "receiver_name".tr(), value: "mohammed"),
-            Inforow(
-              title: "receiver_phone_number".tr(),
-              value: "01121234254112",
-            ),
-
+            Inforow(title: "order_id".tr(), value: "#${order.orderNumber}"),
+            Inforow(title: "total_amount".tr(), value: "${order.totalAmount} EGP"),
+            Inforow(title: "status".tr(), value: order.status),
+            Inforow(title: "date".tr(), value: DateFormat('dd MMM, yyyy').format(order.createdAt)),
             const SizedBox(height: 20),
             Divider(color: AppColors.border),
-
             const SizedBox(height: 10),
-            Text("Order status", style: AppTextStyles.heading),
-
+            Text("order_tracking".tr(), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
             const SizedBox(height: 16),
-
-            _statusItem("order_placed".tr(), "23 Mar 2026, 05:30 PM", true),
-            _statusItem("warehouse".tr(), "23 Mar 2026, 05:30 PM", true),
-            _statusItem("shipped".tr(), "Expected 02 Apr 2026", false),
-            _statusItem("delivery".tr(), "Expected 02 Apr 2026", false),
+            _statusItem("order_placed".tr(), DateFormat('dd MMM, hh:mm a').format(order.createdAt), true),
+            _statusItem("processing".tr(), "done", order.status != 'PENDING'),
+            _statusItem("shipped".tr(), "expected", order.status == 'COMPLETED'),
+            _statusItem("delivery".tr(), "expected", order.status == 'COMPLETED'),
           ],
         ),
       ),
     );
   }
 
-  // 🚚 Status Item
   Widget _statusItem(String title, String date, bool done) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(
-          done ? Icons.check_circle : Icons.radio_button_unchecked,
-          color: done ? AppColors.primary : Colors.grey,
-        ),
-        const SizedBox(width: 10),
-
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(title, style: AppTextStyles.body),
-            const SizedBox(height: 4),
-            Text(date, style: AppTextStyles.small),
-          ],
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(
+            done ? Icons.check_circle : Icons.radio_button_unchecked,
+            color: done ? Colors.green : Colors.grey,
+          ),
+          const SizedBox(width: 10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+              const SizedBox(height: 4),
+              Text(date, style: const TextStyle(color: Colors.grey, fontSize: 12)),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

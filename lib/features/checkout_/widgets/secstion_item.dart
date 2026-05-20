@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../../cart/widgets/cart_controller.dart';
 import 'checkout_itemcard.dart';
 
 class CheckoutItemsSection extends StatefulWidget {
@@ -12,10 +13,12 @@ class CheckoutItemsSection extends StatefulWidget {
 
 class _CheckoutItemsSectionState extends State<CheckoutItemsSection>
     with SingleTickerProviderStateMixin {
-  bool isExpanded = false;
+  bool isExpanded = true; // Default to expanded to show items
 
   @override
   Widget build(BuildContext context) {
+    final cart = context.watch<CartController>();
+
     return Column(
       children: [
         /// ===== HEADER =====
@@ -38,25 +41,23 @@ class _CheckoutItemsSectionState extends State<CheckoutItemsSection>
                   child: Icon(Icons.shopping_bag_outlined, color: Colors.green),
                 ),
                 const SizedBox(width: 12),
-
                 /// title
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "orderDetails.products".tr(),
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        "order_summary".tr(),
+                        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                       ),
-                      SizedBox(height: 2),
+                      const SizedBox(height: 2),
                       Text(
-                        "orderDetails.productsCount".tr(),
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        "${cart.cartItems.length} ${"items".tr()}",
+                        style: const TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ],
                   ),
                 ),
-
                 /// arrow animation
                 AnimatedRotation(
                   turns: isExpanded ? 0.5 : 0,
@@ -71,9 +72,11 @@ class _CheckoutItemsSectionState extends State<CheckoutItemsSection>
         /// ===== EXPAND AREA =====
         AnimatedCrossFade(
           firstChild: const SizedBox(),
-          secondChild: const Padding(
-            padding: EdgeInsets.only(top: 12),
-            child: Column(children: [CheckoutItemCCard()]),
+          secondChild: Padding(
+            padding: const EdgeInsets.only(top: 12),
+            child: Column(
+              children: cart.cartItems.map((item) => CheckoutItemCCard(item: item)).toList(),
+            ),
           ),
           crossFadeState:
               isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,

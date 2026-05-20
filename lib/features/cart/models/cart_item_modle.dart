@@ -1,9 +1,7 @@
-
-
-import 'package:finall_app/features/cart/models/models.dart';
+import 'package:finall_app/features/listings/data/models/listing_model.dart';
 
 class CartItemModel {
-  final ProductModel product;
+  final ListingModel product;
   int quantity;
 
   CartItemModel({

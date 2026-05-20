@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PaynowComplite extends StatelessWidget {
-  const PaynowComplite({super.key});
+  final String? orderId;
+  const PaynowComplite({super.key, this.orderId});
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +42,36 @@ class PaynowComplite extends StatelessWidget {
 
               SizedBox(height: 10),
 
-              // ✅ Subtitle
               Text(
                 "orderSuccess.message".tr(),
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
               ),
+
+              if (orderId != null) ...[
+                SizedBox(height: 20),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.grey.shade300),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "order_number".tr(),
+                        style: const TextStyle(color: Colors.grey, fontSize: 14),
+                      ),
+                      Text(
+                        orderId!,
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
 
               SizedBox(height: 40),
 
@@ -56,11 +82,11 @@ class PaynowComplite extends StatelessWidget {
                 child: ElBotton(
                   titel: "back_to_home".tr(),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    context.read<CartController>().clearCart();
+                    Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                        builder: (_) => MainScreen(initialPage: 2),
-                      ),
+                      MaterialPageRoute(builder: (_) => const MainScreen(initialPage: 0)),
+                      (route) => false,
                     );
                   },
                 ),

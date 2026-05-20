@@ -1,71 +1,69 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:finall_app/model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:finall_app/core/utils/export_packeg.dart';
 import 'package:flutter/material.dart';
+import 'package:finall_app/core/utils/image_url_utils.dart';
+import '../../catalog/presentation/bloc/catalog_cubit.dart';
 
-class CategoryScreen extends StatefulWidget {
+class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
 
-  @override
-  State<CategoryScreen> createState() => _CategoryScreenState();
-}
-
-class _CategoryScreenState extends State<CategoryScreen> {
-  List<FavouriteModel> carditemFavourite = [
-    FavouriteModel(
-      nameCart: 'Banana',
-      imageCart: 'assets/fruits/banana.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'Orange',
-      imageCart: 'assets/fruits/orang.png',
-      priceCart: '\$3.55',
-    ),
-    FavouriteModel(
-      nameCart: 'Limon',
-      imageCart: 'assets/fruits/limon.png',
-      priceCart: '\$3.55',
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (_) => MainScreen(initialPage: 0), // 2 = Cart
-              ),
-            );
-          },
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-        ),
+        leading:  ArrowBack(),
         title: Text(
           "category".tr(),
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
+          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 253, 253, 253),
+        backgroundColor: Colors.white,
       ),
-      body: SizedBox(
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: List.generate(carditemFavourite.length, (index) {
-              final item = carditemFavourite[index];
-              return CardFavourite(
-                nameFavourite: item.nameCart,
-                imageFavourite: item.imageCart,
-                priceFavourite: item.priceCart,
-              );
-            }),
-          ),
-        ),
+      body: BlocBuilder<CatalogCubit, CatalogState>(
+        builder: (context, state) {
+          if (state is CatalogLoading) return const Center(child: CircularProgressIndicator());
+          if (state is CatalogLoaded) {
+            return GridView.builder(
+              padding: const EdgeInsets.all(15),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+              ),
+              itemCount: state.categories.length,
+              itemBuilder: (context, index) {
+                final category = state.categories[index];
+                return InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ListProductScreen(categoryId: category.id.toString(), categoryName: category.name),
+                    ),
+                  ),
+                  child: Card(
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Image.network(
+                            ImageUrlUtils.getFullUrl(category.image),
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, size: 50, color: Colors.grey),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(category.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          }
+          return const SizedBox();
+        },
       ),
     );
   }

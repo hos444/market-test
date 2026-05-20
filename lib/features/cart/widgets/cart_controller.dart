@@ -1,15 +1,15 @@
 import 'package:finall_app/features/cart/models/cart_item_modle.dart';
 import 'package:flutter/material.dart';
-import 'package:finall_app/features/cart/models/models.dart';
+import 'package:finall_app/features/listings/data/models/listing_model.dart';
 
 class CartController extends ChangeNotifier {
-  /// المنتجات داخل الكارت (منتج + كمية)
+  /// المنتجات داخل الكارت (Listing + كمية)
   List<CartItemModel> cartItems = [];
 
   /// إضافة منتج للكارت
-  void addToCart(ProductModel product) {
+  void addToCart(ListingModel product) {
     final index = cartItems.indexWhere(
-      (item) => item.product.name == product.name,
+      (item) => item.product.id == product.id,
     );
 
     // لو المنتج موجود → زود الكمية
@@ -42,5 +42,20 @@ class CartController extends ChangeNotifier {
   void removeItem(int index) {
     cartItems.removeAt(index);
     notifyListeners();
+  }
+
+  /// إفراغ الكارت
+  void clearCart() {
+    cartItems.clear();
+    notifyListeners();
+  }
+
+  /// حساب الإجمالي
+  double get totalAmount {
+    double total = 0;
+    for (var item in cartItems) {
+      total += item.product.price * item.quantity;
+    }
+    return total;
   }
 }
