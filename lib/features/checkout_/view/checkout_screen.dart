@@ -1,0 +1,156 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:finall_app/core/utils/export_packeg.dart';
+import 'package:flutter/material.dart';
+
+class Checkout extends StatelessWidget {
+  const Checkout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "checkout".tr(),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: Colors.green,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => MainScreen(initialPage: 2), // 2 = Cart
+              ),
+            );
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+        ),
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 325.0),
+          child: Column(
+            children: [
+              /// ===== ORDER ITEMS =====
+              const CheckoutItemsSection(),
+
+              /// ===== DELIVERY ADDRESS =====
+              const SizedBox(height: 16),
+              const DeliveryAddressSection(),
+
+              //  ===== payment title =====
+              const SizedBox(height: 24),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Payment".tr(),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+
+              /// ===== PAYMENT =====
+              const SizedBox(height: 16),
+              const PaymentSection(),
+              const SizedBox(height: 16),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Delivery Date".tr(),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Delivery Date",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: 12),
+
+                    Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE0F2F1), // لون خفيف للأيقونة
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.calendar_today,
+                            size: 20,
+                            color: Color(0xFF0B5D4B),
+                          ),
+                        ),
+
+                        SizedBox(width: 12),
+
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Delivery".tr(),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              "Dec 22, 2025 Before 5:00 PM",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black54,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+
+      bottomSheet: Container(
+        height: 320,
+        width: double.infinity,
+
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10,
+              offset: Offset(0, -2),
+            ),
+          ],
+        ),
+        child: CheckoutBottomSheet(),
+      ),
+    );
+  }
+}

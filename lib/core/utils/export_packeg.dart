@@ -1,0 +1,65 @@
+// screens
+export 'package:finall_app/features/login_screen/view/login_screen.dart';
+export 'package:finall_app/features/regaster/view/singup_bassword_screen.dart';
+export 'package:finall_app/features/regster2/view/singup2_screen.dart';
+export 'package:finall_app/features/onbording/view/onboarding1.dart';
+export 'package:finall_app/features/home_screen/view/home.dart';
+export 'package:finall_app/features/navication/view/natifiation.dart';
+export 'package:finall_app/features/serche/view/search_screen.dart';
+export 'package:finall_app/features/category/view/catecory.dart';
+export 'package:finall_app/features/brodacit/view/prodict_screen.dart';
+export 'package:finall_app/features/filter/view/filter_screen.dart';
+export 'package:finall_app/features/favorite/view/favourite_screen.dart';
+export 'package:finall_app/features/cart/view/cart_screen.dart';
+export 'package:finall_app/features/checkout_/view/checkout_screen.dart';
+export 'package:finall_app/features/payments/view/add_nwe_credit.dart';
+export 'package:finall_app/features/profile_screen/view/user_screen.dart';
+export 'package:finall_app/features/finsh_pay/view/complite_paynow.dart';
+export 'package:finall_app/features/myordere/view/myOrder.dart';
+export 'package:finall_app/features/addCredit/view/addCard_screen.dart';
+export 'package:finall_app/features/addriss/view/adress_screen.dart';
+export 'package:finall_app/features/setting/view/setting_screen.dart';
+export 'package:finall_app/features/aboutus/view/aboutUs_screen.dart';
+export 'package:finall_app/features/changepassowrd/view/changepassword_screen.dart';
+export 'package:finall_app/features/editprofile/view/edit_profile_screen.dart';
+export 'package:finall_app/features/privacy/view/privacy_screen.dart';
+export 'package:finall_app/features/order_details/view/order_details.dart';
+export 'package:finall_app/features/order_details/view/order_truck.dart';
+export 'package:finall_app/features/forget_password/view/forget_password.dart';
+export 'package:finall_app/features/forget_password/view/resset_password.dart';
+export 'package:finall_app/features/verify_emaile/view/verigy_email.dart';
+
+// widgets of core
+export 'package:finall_app/core/utils/checkout_bottomsheet.dart';
+export 'package:finall_app/core/utils/botton_delet_accont.dart';
+export 'package:finall_app/core/utils/bottom_nav_bar.dart';
+export 'package:finall_app/core/utils/bottom_changepassowrd.dart';
+export 'package:finall_app/core/utils/arrow.dart';
+export 'package:finall_app/core/utils/elevated_botton.dart';
+export 'package:finall_app/core/utils/social.dart';
+export 'package:finall_app/core/utils/buildField.dart';
+export 'package:finall_app/core/theme/app_color.dart';
+export 'package:finall_app/core/theme/text.dart';
+// widgets of screens
+export 'package:finall_app/features/addriss/widget/adress_details.dart';
+export 'package:finall_app/features/addriss/widget/adress_section.dart';
+export 'package:finall_app/features/listprodaict/widget/card_list_product.dart';
+export 'package:finall_app/features/cart/widgets/card_cart.dart';
+export 'package:finall_app/features/cart/widgets/quantity.dart';
+export 'package:finall_app/features/checkout_/widgets/checkout_itemcard.dart';
+export 'package:finall_app/features/checkout_/widgets/secstion_item.dart';
+export 'package:finall_app/features/favorite/widget/card_favourite.dart';
+export 'package:finall_app/features/home_screen/widgets/card_home1.dart';
+export 'package:finall_app/features/home_screen/widgets/card_home2.dart';
+
+export 'package:finall_app/features/home_screen/widgets/category_home.dart';
+export 'package:finall_app/features/home_screen/widgets/serch_home_contaner.dart';
+export 'package:finall_app/features/payments/widget/paymen_secstion.dart';
+export 'package:finall_app/features/payments/widget/payment_item.dart';
+export 'package:finall_app/features/myordere/widget/ordeartaps.dart';
+export 'package:finall_app/features/myordere/widget/order_card.dart';
+export 'package:finall_app/features/order_details/widget/card_order_details.dart';
+export 'package:finall_app/features/order_details/widget/card_product.dart';
+export 'package:finall_app/features/order_details/widget/inforow.dart';
+
+//app thiems
